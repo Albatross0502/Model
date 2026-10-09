@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#f8f3f7">
+    <meta name="theme-color" content="#f2ebe5">
     <meta name="description"
-        content="DIXITA — A fashion design student portfolio showcasing academic projects, draping, and conceptual silhouettes.">
-    <title>DIXITA | Fashion Design Student Portfolio</title>
+        content="Dixita Kumawat — A Fashion Designer portfolio showcasing collections, projects, and design skills.">
+    <title>Dixita Kumawat | Fashion Designer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -15,94 +15,101 @@
         rel="stylesheet">
     <style>
         :root {
-            --paper: #fbf8f5;
-            --ink: #302833;
-            --muted: #766c77;
-            --lav: #d9c8ed;
-            --lav-deep: #8e70ac;
-            --blush: #f2d5dc;
-            --peach: #f4dfd0;
-            --blue: #d7e5f2;
-            --line: rgba(64, 45, 65, .13);
-            --glass: rgba(255, 255, 255, .66);
+            /* Brown Background Palette */
+            --paper: #5C4033;         /* Rich Brown background */
+            --paper-dark: #4A332A;    /* Slightly darker brown for contrast sections */
+            --ink: #F2EBE5;           /* Light beige text so it is readable on brown */
+            
+            /* Keep the rest of your variables exactly the same... */
+            --muted: #b8a398;         /* Lighter muted color for brown bg */
+            --accent: #d6c6bc;        
+            --accent-deep: #e8ded5;   
+            --accent-light: #755043;  
+            --line: rgba(242, 235, 229, 0.15); /* Lightened the lines */
+            --glass: rgba(92, 64, 51, 0.75);   /* Brown glass effect */
+            
+            /* Typography & Animation */
             --serif: 'Playfair Display', Georgia, serif;
             --sans: 'DM Sans', Arial, sans-serif;
-            --ease: cubic-bezier(.22, .8, .25, 1);
+            --ease: cubic-bezier(0.25, 1, 0.3, 1); /* Ultra smooth easing */
+            --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
-            padding: 0
+            padding: 0;
         }
 
         html {
             scroll-behavior: smooth;
-            scroll-padding-top: 90px
+            scroll-padding-top: 100px;
         }
 
         body {
             font-family: var(--sans);
             background: var(--paper);
             color: var(--ink);
-            overflow-x: hidden
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         body.menu-open {
-            overflow: hidden
+            overflow: hidden;
         }
 
         a {
             color: inherit;
-            text-decoration: none
+            text-decoration: none;
         }
 
-        button,
-        input,
-        textarea,
-        select {
-            font: inherit
-        }
-
-        button {
-            color: inherit
+        button, input, textarea, select {
+            font: inherit;
+            color: inherit;
         }
 
         img {
             display: block;
-            max-width: 100%
+            max-width: 100%;
+            height: auto;
         }
 
         ::selection {
-            background: var(--lav);
-            color: var(--ink)
+            background: var(--accent-light);
+            color: var(--ink);
         }
 
+        /* Ambient Background */
         .ambient {
             position: fixed;
             inset: 0;
             pointer-events: none;
             z-index: -2;
             overflow: hidden;
-            background: radial-gradient(ellipse at 8% 10%, rgba(217, 200, 237, .42), transparent 36%), radial-gradient(ellipse at 94% 35%, rgba(242, 213, 220, .42), transparent 33%), radial-gradient(ellipse at 52% 100%, rgba(215, 229, 242, .48), transparent 40%)
+            background: radial-gradient(ellipse at 10% 10%, rgba(214, 198, 188, 0.4), transparent 40%), 
+                        radial-gradient(ellipse at 90% 40%, rgba(163, 124, 107, 0.15), transparent 40%), 
+                        radial-gradient(ellipse at 50% 90%, rgba(117, 80, 67, 0.1), transparent 50%);
         }
 
         .ambient:after {
             content: "";
             position: absolute;
             inset: 0;
-            opacity: .15;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.18'/%3E%3C/svg%3E")
+            opacity: 0.25;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.15'/%3E%3C/svg%3E");
         }
 
+        /* Progress Bar & Loader */
         #progress {
             position: fixed;
             top: 0;
             left: 0;
             width: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--lav-deep), #c68a9c, #9cbad3);
-            z-index: 2000
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-deep));
+            z-index: 2000;
+            transition: width 0.1s linear;
         }
 
         #loader {
@@ -112,110 +119,107 @@
             background: var(--paper);
             display: grid;
             place-items: center;
-            transition: opacity .7s ease, visibility .7s
+            transition: opacity 0.8s var(--ease), visibility 0.8s;
         }
 
         #loader.hide {
             opacity: 0;
-            visibility: hidden
+            visibility: hidden;
         }
 
         .loader-mark {
             font: clamp(3rem, 9vw, 6rem) var(--serif);
-            letter-spacing: .22em;
-            margin-left: .22em;
-            animation: softPulse 1.3s infinite alternate
+            letter-spacing: 0.22em;
+            margin-left: 0.22em;
+            color: var(--ink);
+            animation: softPulse 1.5s infinite alternate var(--ease);
         }
 
         .loader-sub {
-            font-size: .65rem;
-            letter-spacing: .35em;
+            font-size: 0.7rem;
+            letter-spacing: 0.35em;
             text-transform: uppercase;
             text-align: center;
-            color: var(--muted);
-            margin-top: 14px
+            color: var(--accent);
+            margin-top: 14px;
         }
 
         @keyframes softPulse {
-            to {
-                opacity: .35;
-                transform: translateY(-4px)
-            }
+            to { opacity: 0.4; transform: translateY(-5px); }
         }
 
-        /* Added Missing Animation for smooth gallery filtering */
-        @keyframes cardIn {
-            0% {
-                opacity: 0;
-                transform: translateY(20px) scale(0.98);
-            }
-
-            100% {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-        }
-
+        /* Custom Cursor */
         .cursor-dot {
             position: fixed;
-            width: 10px;
-            height: 10px;
+            width: 12px;
+            height: 12px;
             border-radius: 50%;
-            background: var(--lav-deep);
+            background: var(--accent-deep);
             pointer-events: none;
             z-index: 2500;
             transform: translate(-50%, -50%);
-            mix-blend-mode: multiply
+            mix-blend-mode: multiply;
+            transition: width 0.3s, height 0.3s, background 0.3s;
         }
 
+        /* Header */
         header.site-header {
             position: fixed;
             z-index: 1500;
             top: 0;
             left: 0;
             width: 100%;
-            padding: 22px 5.2vw;
+            padding: 24px 5.2vw;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            transition: padding .35s, background .35s, border .35s
+            transition: padding 0.5s var(--ease), background 0.5s var(--ease), border 0.5s var(--ease);
         }
 
         .site-header.scrolled {
-            padding-top: 13px;
-            padding-bottom: 13px;
-            background: rgba(251, 248, 245, .84);
-            backdrop-filter: blur(18px);
-            border-bottom: 1px solid var(--line)
+            padding-top: 14px;
+            padding-bottom: 14px;
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--line);
         }
 
         .brand {
-            font: 600 1.75rem var(--serif);
-            letter-spacing: .25em;
-            margin-right: -.25em
+            font: 600 1.8rem var(--serif);
+            letter-spacing: 0.25em;
+            margin-right: -0.25em;
+            color: var(--ink);
         }
 
         .brand small {
             display: block;
-            font: 500 .5rem var(--sans);
-            letter-spacing: .3em;
+            font: 500 0.55rem var(--sans);
+            letter-spacing: 0.3em;
             text-align: center;
-            margin-top: 2px;
-            color: var(--muted)
+            margin-top: 4px;
+            color: var(--accent);
         }
 
         .nav-links {
             display: flex;
             align-items: center;
-            gap: clamp(18px, 3vw, 42px)
+            gap: clamp(20px, 3vw, 45px);
         }
 
         .nav-links a {
-            font-size: .7rem;
-            letter-spacing: .15em;
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
             text-transform: uppercase;
             position: relative;
-            padding: 8px 0
+            padding: 8px 0;
+            font-weight: 500;
+            color: var(--ink);
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-deep);
         }
 
         .nav-links a:after {
@@ -225,1179 +229,1181 @@
             bottom: 0;
             width: 0;
             height: 1px;
-            background: var(--lav-deep);
-            transition: width .3s
+            background: var(--accent-deep);
+            transition: width 0.4s var(--ease);
         }
 
         .nav-links a:hover:after {
-            width: 100%
+            width: 100%;
         }
 
-        .nav-cta,
-        .button {
+        .nav-cta, .button {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 10px;
             border: 1px solid var(--ink);
             border-radius: 100px;
-            padding: 13px 22px;
-            font-size: .7rem;
-            letter-spacing: .12em;
+            padding: 14px 28px;
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
             text-transform: uppercase;
-            transition: all .3s var(--ease);
+            font-weight: 600;
+            transition: all 0.4s var(--ease);
             background: transparent;
-            cursor: pointer
+            cursor: pointer;
+            color: var(--ink);
         }
 
-        .nav-cta:hover,
-        .button:hover {
+        .nav-cta:hover, .button:hover {
             background: var(--ink);
-            color: white;
-            transform: translateY(-2px)
+            color: var(--paper);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(59, 44, 40, 0.15);
+        }
+
+        .button.primary {
+            background: var(--ink);
+            color: var(--paper);
+        }
+
+        .button.primary:hover {
+            background: var(--accent-deep);
+            border-color: var(--accent-deep);
         }
 
         .menu-toggle {
             display: none;
             background: none;
             border: 0;
-            font-size: 1.7rem;
-            cursor: pointer
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--ink);
         }
 
+        /* Hero Section */
         .hero {
             min-height: 100svh;
-            padding: 135px 5.2vw 65px;
+            padding: 140px 5.2vw 65px;
             display: grid;
-            grid-template-columns: .95fr 1.05fr;
+            grid-template-columns: 1fr 1fr;
             align-items: center;
-            gap: 4vw;
-            position: relative
+            gap: 5vw;
+            position: relative;
         }
 
         .hero-copy {
             position: relative;
             z-index: 2;
-            padding: 25px 0
+            padding: 25px 0;
         }
 
         .eyebrow {
-            font-size: .68rem;
-            letter-spacing: .27em;
+            font-size: 0.75rem;
+            letter-spacing: 0.27em;
             text-transform: uppercase;
-            color: var(--lav-deep);
+            color: var(--accent-deep);
             font-weight: 700;
             display: flex;
             align-items: center;
-            gap: 12px
+            gap: 15px;
         }
 
         .eyebrow:before {
             content: "";
             height: 1px;
-            width: 35px;
-            background: currentColor
+            width: 45px;
+            background: currentColor;
         }
 
         .hero h1 {
-            font: 400 clamp(3.5rem, 7.2vw, 7.8rem)/.96 var(--serif);
-            letter-spacing: -.055em;
-            margin: 28px 0
+            font: 400 clamp(3.8rem, 8vw, 8.5rem)/0.95 var(--serif);
+            letter-spacing: -0.04em;
+            margin: 30px 0 0 0;
+            color: var(--ink);
         }
 
         .hero h1 em {
             font-weight: 400;
-            color: var(--lav-deep)
-        }
-
-        .hero-intro {
-            max-width: 420px;
-            font-size: 1rem;
-            line-height: 1.9;
-            color: var(--muted)
+            color: var(--accent);
         }
 
         .hero-actions {
             display: flex;
-            gap: 13px;
+            gap: 15px;
             flex-wrap: wrap;
-            margin-top: 32px
-        }
-
-        .button.primary {
-            background: var(--ink);
-            color: #fff
-        }
-
-        .button.primary:hover {
-            background: var(--lav-deep);
-            border-color: var(--lav-deep)
-        }
-
-        .hero-note {
-            margin-top: 48px;
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            color: var(--muted);
-            font-size: .68rem;
-            letter-spacing: .12em;
-            text-transform: uppercase
-        }
-
-        .hero-note span {
-            display: block;
-            width: 46px;
-            height: 1px;
-            background: var(--line)
+            margin-top: 50px;
         }
 
         .hero-visual {
-            height: min(72vh, 760px);
-            min-height: 500px;
-            position: relative
+            height: min(75vh, 800px);
+            min-height: 550px;
+            position: relative;
         }
 
         .hero-image-frame {
             position: absolute;
-            inset: 0 6% 0 7%;
-            border-radius: 48% 48% 12px 12px;
+            inset: 0 5% 0 5%;
+            border-radius: 200px 200px 15px 15px;
             overflow: hidden;
-            background: var(--blush)
+            background: var(--accent-light);
+            box-shadow: 0 20px 50px rgba(59, 44, 40, 0.1);
         }
 
         .hero-image-frame img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center 30%;
-            animation: heroZoom 18s ease-in-out infinite alternate
+            object-position: center 25%;
+            animation: heroZoom 22s var(--ease-in-out) infinite alternate;
         }
 
         @keyframes heroZoom {
-            to {
-                transform: scale(1.07)
-            }
-        }
-
-        .hero-image-frame:after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(0deg, rgba(39, 25, 37, .15), transparent 48%)
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
         }
 
         .hero-stamp {
             position: absolute;
-            left: 0;
-            bottom: 11%;
-            width: 135px;
-            height: 135px;
+            left: -5%;
+            bottom: 15%;
+            width: 145px;
+            height: 145px;
             border-radius: 50%;
-            background: var(--lav);
+            background: var(--paper);
             display: grid;
             place-items: center;
             text-align: center;
-            font: italic 1.05rem/1.35 var(--serif);
-            transform: rotate(-11deg);
-            box-shadow: 0 12px 35px #5a3d5520
+            font: italic 1.1rem/1.35 var(--serif);
+            transform: rotate(-15deg);
+            box-shadow: 0 15px 40px rgba(59, 44, 40, 0.12);
+            color: var(--accent-deep);
+            border: 1px solid var(--line);
         }
 
         .hero-caption {
             position: absolute;
-            right: 0;
-            bottom: 4%;
+            right: -2%;
+            bottom: 5%;
             writing-mode: vertical-rl;
             text-transform: uppercase;
-            letter-spacing: .22em;
-            font-size: .62rem;
-            color: var(--muted)
-        }
-
-        .hero-index {
-            position: absolute;
-            right: 8%;
-            top: 5%;
-            font: italic 1rem var(--serif);
-            color: var(--lav-deep)
+            letter-spacing: 0.25em;
+            font-size: 0.65rem;
+            color: var(--muted);
         }
 
         .scroll-cue {
             position: absolute;
-            bottom: 25px;
+            bottom: 30px;
             left: 5.2vw;
             display: flex;
             align-items: center;
-            gap: 13px;
-            font-size: .6rem;
+            gap: 15px;
+            font-size: 0.65rem;
             text-transform: uppercase;
-            letter-spacing: .2em;
-            color: var(--muted)
+            letter-spacing: 0.2em;
+            color: var(--muted);
+            font-weight: 600;
         }
 
         .scroll-cue i {
             display: block;
-            width: 40px;
+            width: 50px;
             height: 1px;
-            background: var(--muted)
+            background: var(--muted);
         }
 
+        /* Generic Section Styles */
         .section {
-            padding: 115px 5.2vw
+            padding: 130px 5.2vw;
         }
 
         .section-head {
             display: flex;
             justify-content: space-between;
             align-items: end;
-            gap: 25px;
-            margin-bottom: 45px
+            gap: 30px;
+            margin-bottom: 60px;
         }
 
         .section-kicker {
-            font-size: .65rem;
-            letter-spacing: .24em;
+            font-size: 0.7rem;
+            letter-spacing: 0.25em;
             text-transform: uppercase;
-            color: var(--lav-deep);
+            color: var(--accent-deep);
             font-weight: 700;
-            margin-bottom: 15px
+            margin-bottom: 18px;
         }
 
         .section h2 {
-            font: 400 clamp(2.6rem, 5vw, 5rem)/1.05 var(--serif);
-            letter-spacing: -.04em
+            font: 400 clamp(2.8rem, 5.5vw, 5.5rem)/1.05 var(--serif);
+            letter-spacing: -0.03em;
         }
 
         .section h2 em {
-            color: var(--lav-deep)
+            color: var(--accent);
         }
 
         .section-desc {
-            max-width: 340px;
+            max-width: 380px;
             line-height: 1.8;
             color: var(--muted);
-            font-size: .9rem
+            font-size: 0.95rem;
         }
 
+        /* Philosophy Section (New) */
+        .philosophy {
+            background: var(--ink);
+            color: var(--paper);
+            text-align: center;
+            padding: 150px 5.2vw;
+        }
+        
+        .philosophy h2 {
+            font: italic 400 clamp(2rem, 4.5vw, 4rem)/1.3 var(--serif);
+            max-width: 900px;
+            margin: 0 auto;
+            color: var(--paper);
+        }
+        
+        .philosophy p {
+            margin-top: 30px;
+            color: var(--accent-light);
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            font-size: 0.75rem;
+        }
+
+        /* About Section */
         .intro-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 8vw;
-            align-items: center
+            align-items: center;
         }
 
         .intro-image {
-            height: 590px;
-            position: relative
+            height: 650px;
+            position: relative;
         }
 
         .intro-image img {
             width: 85%;
             height: 100%;
             object-fit: cover;
-            border-radius: 48% 48% 8px 8px;
-            margin-left: auto
+            border-radius: 200px 200px 12px 12px;
+            margin-left: auto;
+            box-shadow: 0 25px 60px rgba(59, 44, 40, 0.1);
         }
 
         .intro-image:before {
             content: "";
             position: absolute;
             left: 0;
-            bottom: 7%;
-            width: 46%;
-            height: 55%;
-            background: var(--peach);
-            border-radius: 48% 48% 8px 8px;
-            z-index: -1
+            bottom: 5%;
+            width: 50%;
+            height: 60%;
+            background: var(--accent-light);
+            border-radius: 200px 200px 12px 12px;
+            z-index: -1;
         }
 
         .image-label {
             position: absolute;
             left: 0;
-            top: 13%;
-            background: var(--blue);
-            padding: 18px 20px;
-            max-width: 170px;
-            font: italic 1.1rem/1.4 var(--serif);
-            transform: rotate(-5deg)
+            top: 15%;
+            background: var(--paper);
+            padding: 22px 25px;
+            max-width: 190px;
+            font: italic 1.2rem/1.4 var(--serif);
+            transform: rotate(-6deg);
+            border: 1px solid var(--line);
+            box-shadow: 0 10px 30px rgba(59, 44, 40, 0.08);
         }
 
         .intro-copy p {
-            font-size: 1rem;
-            line-height: 2;
+            font-size: 1.05rem;
+            line-height: 1.9;
             color: var(--muted);
-            margin: 25px 0
+            margin: 24px 0;
         }
 
-        .signature {
-            font: italic 2.1rem var(--serif);
-            color: var(--lav-deep);
-            margin-top: 28px
+        .about-stats {
+            margin-top: 45px; 
+            background: var(--paper-dark); 
+            padding: 30px; 
+            border-radius: 16px; 
+            border: 1px solid var(--line);
+            transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
         }
 
-        .signature small {
-            display: block;
-            font: .62rem var(--sans);
-            letter-spacing: .18em;
-            text-transform: uppercase;
+        .about-stats:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(59, 44, 40, 0.08);
+        }
+
+        /* Experience Timeline (New) */
+        .experience {
+            background: var(--paper-dark);
+        }
+
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            gap: 30px;
+            border-top: 1px solid var(--line);
+            padding-top: 40px;
+        }
+
+        .timeline-year {
+            font: italic 1.5rem var(--serif);
+            color: var(--accent-deep);
+        }
+
+        .timeline-content h3 {
+            font: 600 1.4rem var(--serif);
+            margin-bottom: 10px;
+        }
+
+        .timeline-content p {
             color: var(--muted);
-            margin-top: 6px
+            line-height: 1.7;
+            font-size: 0.95rem;
+            max-width: 600px;
         }
 
+        /* Marquee */
         .marquee-band {
             overflow: hidden;
             border-top: 1px solid var(--line);
             border-bottom: 1px solid var(--line);
-            padding: 22px 0;
-            background: rgba(255, 255, 255, .35)
+            padding: 30px 0;
+            background: var(--paper-dark);
         }
 
         .marquee-track {
             display: flex;
             align-items: center;
             width: max-content;
-            animation: marquee 36s linear infinite
+            animation: marquee 40s linear infinite;
         }
 
         .marquee-track span {
-            font: italic clamp(1.5rem, 3vw, 2.6rem) var(--serif);
+            font: italic clamp(1.8rem, 3vw, 3rem) var(--serif);
             white-space: nowrap;
-            padding: 0 28px;
-            color: #89788b
+            padding: 0 40px;
+            color: var(--muted);
         }
 
         .marquee-track b {
-            font: normal 1.3rem var(--sans);
-            color: #c99eae
+            font: normal 1.4rem var(--sans);
+            color: var(--accent);
         }
 
         @keyframes marquee {
-            to {
-                transform: translateX(-50%)
-            }
+            to { transform: translateX(-50%); }
         }
 
+        /* Skills / Process Grid */
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .process-card {
+            padding: 40px 30px 45px 0;
+            border-right: 1px solid var(--line);
+            margin-right: 30px;
+            transition: background 0.4s;
+        }
+
+        .process-card:last-child {
+            border: 0;
+            margin: 0;
+        }
+
+        .process-no {
+            font: italic 1.4rem var(--serif);
+            color: var(--accent);
+        }
+
+        .process-card h3 {
+            font: 400 1.7rem var(--serif);
+            margin: 28px 0 16px;
+            color: var(--ink);
+        }
+
+        .process-card p {
+            font-size: 0.9rem;
+            line-height: 1.8;
+            color: var(--muted);
+        }
+
+        /* Collections */
         .collections {
-            background: rgba(255, 255, 255, .25)
+            background: var(--paper);
         }
 
         .collection-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 22px
+            gap: 24px;
         }
 
         .collection-card {
             position: relative;
-            min-height: 470px;
+            min-height: 550px;
             overflow: hidden;
-            border-radius: 8px;
-            background: var(--lav);
-            isolation: isolate
+            border-radius: 12px;
+            background: var(--accent-light);
+            isolation: isolate;
         }
 
         .collection-card:nth-child(2) {
-            margin-top: 55px;
-            background: var(--blush)
-        }
-
-        .collection-card:nth-child(3) {
-            background: var(--blue)
+            margin-top: 60px;
         }
 
         .collection-card img {
             width: 100%;
             height: 100%;
-            min-height: 470px;
+            min-height: 550px;
             object-fit: cover;
-            transition: transform .8s var(--ease);
+            transition: transform 1s var(--ease);
             position: absolute;
             inset: 0;
-            z-index: -2
+            z-index: -2;
         }
 
         .collection-card:after {
             content: "";
             position: absolute;
             inset: 0;
-            background: linear-gradient(0deg, rgba(35, 24, 37, .72), transparent 60%);
-            z-index: -1
+            background: linear-gradient(0deg, rgba(59, 44, 40, 0.8), transparent 65%);
+            z-index: -1;
+            transition: opacity 0.5s;
         }
 
         .collection-card:hover img {
-            transform: scale(1.06)
+            transform: scale(1.08);
         }
 
         .collection-info {
             position: absolute;
-            left: 25px;
-            right: 25px;
-            bottom: 27px;
-            color: #fff
+            left: 30px;
+            right: 30px;
+            bottom: 30px;
+            color: #fff;
         }
 
         .collection-info small {
-            font-size: .62rem;
+            font-size: 0.65rem;
             text-transform: uppercase;
-            letter-spacing: .2em
+            letter-spacing: 0.25em;
+            color: var(--accent-light);
         }
 
         .collection-info h3 {
-            font: 400 2.2rem var(--serif);
-            margin: 8px 0
+            font: 400 2.4rem var(--serif);
+            margin: 10px 0;
         }
 
         .collection-info p {
-            font-size: .78rem;
+            font-size: 0.85rem;
             line-height: 1.7;
-            max-width: 280px;
-            color: #ffffffd9
+            max-width: 90%;
+            color: rgba(255,255,255,0.85);
         }
 
         .collection-arrow {
             position: absolute;
-            right: 25px;
-            top: 25px;
-            width: 42px;
-            height: 42px;
+            right: 30px;
+            top: 30px;
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
-            border: 1px solid #ffffffa6;
+            border: 1px solid rgba(255,255,255,0.4);
             color: white;
             display: grid;
             place-items: center;
-            font-size: 1.2rem;
-            transition: .3s
+            font-size: 1.3rem;
+            transition: 0.4s var(--ease);
+            backdrop-filter: blur(5px);
         }
 
         .collection-card:hover .collection-arrow {
             background: #fff;
             color: var(--ink);
-            transform: rotate(45deg)
+            transform: rotate(45deg);
         }
 
+        /* Portfolio Gallery */
         .portfolio {
-            background: #f6f0f4
+            background: var(--paper-dark);
         }
 
         .filter-row {
             display: flex;
-            gap: 9px;
+            gap: 12px;
             flex-wrap: wrap;
-            margin-bottom: 30px
+            margin-bottom: 40px;
         }
 
         .filter-btn {
             border: 1px solid var(--line);
-            background: transparent;
+            background: var(--paper);
             border-radius: 100px;
-            padding: 10px 17px;
-            font-size: .66rem;
-            letter-spacing: .1em;
+            padding: 12px 22px;
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
             text-transform: uppercase;
             cursor: pointer;
-            transition: .25s
+            transition: all 0.3s var(--ease);
+            color: var(--ink);
+            font-weight: 500;
         }
 
-        .filter-btn.active,
-        .filter-btn:hover {
+        .filter-btn.active, .filter-btn:hover {
             background: var(--ink);
             border-color: var(--ink);
-            color: white
+            color: var(--paper);
         }
 
         .gallery {
             display: grid;
             grid-template-columns: repeat(12, 1fr);
-            gap: 18px
+            gap: 20px;
         }
 
         .gallery-card {
             position: relative;
             overflow: hidden;
-            min-height: 260px;
-            background: var(--blush);
+            min-height: 320px;
+            background: var(--accent-light);
             cursor: pointer;
             grid-column: span 4;
-            border-radius: 5px;
-            animation: cardIn .6s var(--ease) both;
+            border-radius: 10px;
+            transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
         }
 
-        .gallery-card:nth-child(6n+1),
-        .gallery-card:nth-child(6n+4) {
-            grid-column: span 5
-        }
-
-        .gallery-card:nth-child(6n+2),
-        .gallery-card:nth-child(6n+5) {
-            grid-column: span 4
-        }
-
-        .gallery-card:nth-child(6n+3),
-        .gallery-card:nth-child(6n) {
-            grid-column: span 3
-        }
+        .gallery-card:nth-child(6n+1), .gallery-card:nth-child(6n+4) { grid-column: span 5; }
+        .gallery-card:nth-child(6n+2), .gallery-card:nth-child(6n+5) { grid-column: span 4; }
+        .gallery-card:nth-child(6n+3), .gallery-card:nth-child(6n) { grid-column: span 3; }
 
         .gallery-card img {
             width: 100%;
             height: 100%;
-            min-height: 300px;
             object-fit: cover;
-            transition: transform .7s var(--ease)
+            transition: transform 0.8s var(--ease);
+        }
+
+        .gallery-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(59, 44, 40, 0.15);
         }
 
         .gallery-card:hover img {
-            transform: scale(1.06)
+            transform: scale(1.08);
         }
 
         .gallery-card:after {
             content: "";
             position: absolute;
             inset: 0;
-            background: linear-gradient(0deg, rgba(29, 21, 31, .68), transparent 55%);
-            opacity: .8;
-            transition: .3s
+            background: linear-gradient(0deg, rgba(30, 20, 18, 0.85), transparent 60%);
+            opacity: 0.8;
+            transition: opacity 0.4s;
+        }
+
+        .gallery-card:hover:after {
+            opacity: 1;
         }
 
         .gallery-meta {
             position: absolute;
             z-index: 1;
-            left: 20px;
-            right: 20px;
-            bottom: 20px;
+            left: 25px;
+            right: 25px;
+            bottom: 25px;
             color: white;
-            transform: translateY(5px);
-            transition: .3s
-        }
-
-        .gallery-meta small {
-            font-size: .6rem;
-            text-transform: uppercase;
-            letter-spacing: .2em
-        }
-
-        .gallery-meta h3 {
-            font: 400 1.5rem var(--serif);
-            margin-top: 6px
+            transform: translateY(10px);
+            transition: transform 0.4s var(--ease), opacity 0.4s;
+            opacity: 0.9;
         }
 
         .gallery-card:hover .gallery-meta {
-            transform: translateY(0)
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .gallery-meta small {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            color: var(--accent-light);
+        }
+
+        .gallery-meta h3 {
+            font: 400 1.6rem var(--serif);
+            margin-top: 8px;
         }
 
         .gallery-card.hidden {
-            display: none
+            display: none;
         }
 
-        .process-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            border-top: 1px solid var(--line);
-            border-bottom: 1px solid var(--line)
+        /* Impact / Achievements */
+        .achievements-grid {
+            display: grid; 
+            grid-template-columns: 1fr; 
+            gap: 28px;
+        }
+        
+        .achievement-card {
+            background: var(--paper-dark); 
+            padding: 55px 45px; 
+            border-radius: 16px; 
+            border: 1px solid var(--line);
+            transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
+        }
+        
+        .achievement-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(59, 44, 40, 0.08);
+            background: #fff;
         }
 
-        .process-card {
-            padding: 30px 24px 34px 0;
-            border-right: 1px solid var(--line);
-            margin-right: 24px
-        }
-
-        .process-card:last-child {
-            border: 0;
-            margin: 0
-        }
-
-        .process-no {
-            font: italic 1.3rem var(--serif);
-            color: var(--lav-deep)
-        }
-
-        .process-card h3 {
-            font: 400 1.55rem var(--serif);
-            margin: 24px 0 12px
-        }
-
-        .process-card p {
-            font-size: .82rem;
-            line-height: 1.8;
-            color: var(--muted)
-        }
-
-        .quote-section {
-            padding: 105px 8vw;
-            background: linear-gradient(120deg, #eee5f4, #f7e7e9 55%, #e7edf5);
-            text-align: center;
-            position: relative;
-            overflow: hidden
-        }
-
-        .quote-section .quote-mark {
-            font: 5rem var(--serif);
-            line-height: .7;
-            color: #a98bb8
-        }
-
-        .quote-section blockquote {
-            max-width: 920px;
-            margin: 25px auto;
-            font: italic clamp(1.8rem, 4vw, 3.5rem)/1.35 var(--serif)
-        }
-
-        .quote-section p {
-            font-size: .65rem;
-            text-transform: uppercase;
-            letter-spacing: .22em;
-            color: var(--muted)
-        }
-
+        /* Contact Section */
         .contact-grid {
             display: grid;
-            grid-template-columns: .85fr 1.15fr;
-            gap: 8vw
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 8vw;
         }
 
         .contact-copy p {
             color: var(--muted);
             line-height: 1.9;
-            max-width: 400px;
-            margin: 24px 0
+            max-width: 420px;
+            margin: 25px 0;
+            font-size: 1.05rem;
         }
 
         .contact-detail {
-            margin-top: 34px;
+            margin-top: 40px;
             display: grid;
-            gap: 18px
+            gap: 22px;
         }
 
         .contact-detail div {
-            font-size: .85rem;
-            color: var(--muted)
+            font-size: 0.9rem;
+            color: var(--muted);
         }
 
         .contact-detail strong {
             display: block;
             color: var(--ink);
-            font-weight: 500;
-            margin-bottom: 5px
+            font-weight: 600;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.75rem;
         }
 
         .contact-form {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 20px
+            gap: 25px;
+            background: #fff;
+            padding: 45px;
+            border-radius: 16px;
+            box-shadow: 0 20px 50px rgba(59, 44, 40, 0.05);
+            border: 1px solid var(--line);
         }
 
         .form-field {
             display: flex;
             flex-direction: column;
-            gap: 9px
+            gap: 10px;
         }
 
         .form-field.full {
-            grid-column: 1/-1
+            grid-column: 1/-1;
         }
 
         .form-field label {
-            font-size: .65rem;
-            letter-spacing: .13em;
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
             text-transform: uppercase;
-            color: var(--muted)
+            color: var(--muted);
+            font-weight: 600;
         }
 
-        .form-field input,
-        .form-field textarea,
-        .form-field select {
+        .form-field input, .form-field textarea, .form-field select {
             width: 100%;
             border: 0;
-            border-bottom: 1px solid #cfc3cf;
+            border-bottom: 1px solid var(--accent-light);
             background: transparent;
-            padding: 13px 0;
+            padding: 12px 0;
             outline: none;
             color: var(--ink);
-            border-radius: 0
+            border-radius: 0;
+            transition: border-color 0.3s;
         }
 
-        .form-field input:focus,
-        .form-field textarea:focus,
-        .form-field select:focus {
-            border-color: var(--lav-deep)
+        .form-field input:focus, .form-field textarea:focus, .form-field select:focus {
+            border-color: var(--accent-deep);
         }
 
         .form-field textarea {
-            min-height: 100px;
-            resize: vertical
+            min-height: 120px;
+            resize: vertical;
         }
 
         .form-note {
             grid-column: 1/-1;
             color: var(--muted);
-            font-size: .72rem;
-            line-height: 1.6
+            font-size: 0.75rem;
+            line-height: 1.7;
         }
 
-        .contact-form .button {
-            justify-self: start
-        }
-
+        /* Footer */
         footer {
-            padding: 55px 5.2vw 25px;
+            padding: 70px 5.2vw 30px;
             border-top: 1px solid var(--line);
-            background: rgba(255, 255, 255, .4)
+            background: var(--paper-dark);
         }
 
         .footer-top {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 25px;
-            padding-bottom: 35px
+            gap: 30px;
+            padding-bottom: 45px;
         }
 
         .footer-brand {
-            font: 400 clamp(2.5rem, 6vw, 5rem) var(--serif);
-            letter-spacing: .16em;
-            margin-right: -.16em
+            font: 400 clamp(2.5rem, 6vw, 5.5rem) var(--serif);
+            letter-spacing: 0.15em;
+            margin-right: -0.15em;
+            color: var(--ink);
         }
 
         .footer-top p {
-            max-width: 300px;
+            max-width: 320px;
             color: var(--muted);
-            font-size: .8rem;
-            line-height: 1.8
+            font-size: 0.9rem;
+            line-height: 1.9;
         }
 
         .footer-bottom {
             border-top: 1px solid var(--line);
-            padding-top: 20px;
+            padding-top: 25px;
             display: flex;
             justify-content: space-between;
             gap: 20px;
             color: var(--muted);
-            font-size: .65rem;
-            letter-spacing: .08em
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
         }
 
         .footer-socials {
             display: flex;
-            gap: 18px
+            gap: 24px;
+        }
+        
+        .footer-socials a {
+            transition: color 0.3s;
+        }
+        
+        .footer-socials a:hover {
+            color: var(--accent-deep);
         }
 
+        /* Reveal Animations */
         .reveal {
             opacity: 0;
-            transform: translateY(28px);
-            transition: opacity .8s var(--ease), transform .8s var(--ease)
+            transform: translateY(40px);
+            transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
         }
 
         .reveal.visible {
             opacity: 1;
-            transform: translateY(0)
+            transform: translateY(0);
         }
+        
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
 
+        /* Modal */
         .modal {
             position: fixed;
             inset: 0;
-            background: rgba(35, 25, 37, .82);
-            backdrop-filter: blur(12px);
+            background: rgba(45, 35, 33, 0.85);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
             z-index: 2200;
             display: none;
             align-items: center;
             justify-content: center;
-            padding: 25px
+            padding: 25px;
+            opacity: 0;
+            transition: opacity 0.4s var(--ease);
         }
 
         .modal.open {
-            display: flex
+            display: flex;
+            opacity: 1;
         }
 
         .modal-box {
-            width: min(1000px, 100%);
+            width: min(1100px, 100%);
             max-height: 90vh;
             overflow: auto;
             background: var(--paper);
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1.2fr 1fr;
             position: relative;
-            border-radius: 8px
+            border-radius: 12px;
+            transform: translateY(20px) scale(0.98);
+            transition: transform 0.4s var(--ease);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+        }
+        
+        .modal.open .modal-box {
+            transform: translateY(0) scale(1);
         }
 
         .modal-box img {
             height: 100%;
-            min-height: 480px;
+            min-height: 550px;
             width: 100%;
-            object-fit: cover
+            object-fit: cover;
         }
 
         .modal-text {
-            padding: clamp(25px, 5vw, 55px);
-            align-self: center
+            padding: clamp(30px, 5vw, 65px);
+            align-self: center;
         }
 
         .modal-text h3 {
-            font: 400 clamp(2rem, 4vw, 3.5rem) var(--serif);
-            margin: 15px 0
+            font: 400 clamp(2.2rem, 4vw, 3.8rem) var(--serif);
+            margin: 18px 0;
+            color: var(--ink);
         }
 
         .modal-text p {
             line-height: 1.9;
             color: var(--muted);
-            font-size: .9rem
+            font-size: 0.95rem;
         }
 
         .modal-close {
             position: absolute;
-            top: 13px;
-            right: 13px;
+            top: 20px;
+            right: 20px;
             border: 0;
-            background: #fff;
+            background: var(--paper);
+            color: var(--ink);
             border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            font-size: 1.4rem;
+            width: 45px;
+            height: 45px;
+            font-size: 1.5rem;
             cursor: pointer;
-            z-index: 2
+            z-index: 2;
+            transition: transform 0.3s, background 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .modal-close:hover {
+            transform: rotate(90deg);
+            background: var(--accent-light);
         }
 
+        /* Toast */
         .toast {
             position: fixed;
-            bottom: 25px;
+            bottom: 30px;
             left: 50%;
             transform: translate(-50%, 20px);
             opacity: 0;
             background: var(--ink);
             color: white;
-            padding: 14px 20px;
+            padding: 16px 24px;
             border-radius: 50px;
-            font-size: .8rem;
+            font-size: 0.85rem;
             z-index: 3000;
-            transition: .3s;
-            pointer-events: none
+            transition: 0.4s var(--ease);
+            pointer-events: none;
+            box-shadow: 0 10px 25px rgba(59, 44, 40, 0.2);
         }
 
         .toast.show {
             opacity: 1;
-            transform: translate(-50%, 0)
+            transform: translate(-50%, 0);
+        }
+
+        /* --- RESPONSIVE MEDIA QUERIES --- */
+        
+        @media(max-width:1100px) {
+            .hero {
+                padding-top: 130px;
+            }
+            .intro-grid {
+                grid-template-columns: 0.9fr 1.1fr;
+            }
         }
 
         @media(max-width:900px) {
+            .nav-cta {
+                display: none !important;
+            }
             .hero {
-                grid-template-columns: 1fr 1fr;
-                gap: 2vw;
-                padding-top: 120px
+                grid-template-columns: 1fr;
+                gap: 6vw;
+                padding-top: 130px;
             }
-
+            .hero-copy {
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
             .hero-visual {
-                min-height: 430px;
-                height: 60vh
+                min-height: 450px;
+                height: 60vh;
             }
-
             .hero h1 {
-                font-size: clamp(3.3rem, 8vw, 5.8rem)
+                font-size: clamp(3.8rem, 12vw, 6.5rem);
             }
-
             .section {
-                padding: 85px 5vw
+                padding: 100px 5vw;
             }
-
+            .philosophy {
+                padding: 100px 5vw;
+            }
             .intro-grid {
-                gap: 5vw
+                grid-template-columns: 1fr;
+                gap: 8vw;
             }
-
             .intro-image {
-                height: 480px
+                height: 500px;
             }
-
-            .collection-card,
-            .collection-card img {
-                min-height: 390px
+            .collection-card, .collection-card img {
+                min-height: 420px;
             }
-
             .collection-grid {
-                gap: 14px
+                gap: 16px;
             }
-
-            .gallery-card,
-            .gallery-card:nth-child(n) {
-                grid-column: span 6
+            .gallery-card, .gallery-card:nth-child(n) {
+                grid-column: span 6;
             }
-
             .process-grid {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 0
             }
-
+            .process-card {
+                padding: 30px 20px 35px 0;
+            }
             .process-card:nth-child(2) {
                 border-right: 0;
-                margin-right: 0
+                margin-right: 0;
             }
-
-            .process-card:nth-child(1),
-            .process-card:nth-child(2) {
-                border-bottom: 1px solid var(--line)
+            .process-card:nth-child(1), .process-card:nth-child(2) {
+                border-bottom: 1px solid var(--line);
             }
-
             .contact-grid {
-                gap: 5vw
+                grid-template-columns: 1fr;
+                gap: 6vw;
+            }
+            .contact-form {
+                padding: 35px;
+            }
+            .modal-box {
+                grid-template-columns: 1fr;
+            }
+            .modal-box img {
+                height: 40vh;
+                min-height: 300px;
             }
         }
 
         @media(max-width:650px) {
             .site-header {
-                padding: 16px 5vw
+                padding: 18px 5vw;
             }
-
             .site-header.scrolled {
-                padding: 12px 5vw
+                padding: 14px 5vw;
             }
-
             .brand {
-                font-size: 1.5rem
+                font-size: 1.4rem;
             }
-
             .menu-toggle {
                 display: block;
-                z-index: 1600
+                z-index: 1600;
             }
-
-            .nav-cta {
-                display: none
-            }
-
             .nav-links {
                 position: fixed;
                 inset: 0;
-                background: rgba(251, 248, 245, .97);
-                backdrop-filter: blur(20px);
+                background: var(--paper);
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
-                gap: 25px;
-                transform: translateY(-110%);
-                transition: transform .45s var(--ease)
+                gap: 30px;
+                transform: translateY(-100%);
+                transition: transform 0.6s var(--ease);
+                z-index: 1550;
             }
-
             .nav-links.open {
-                transform: translateY(0)
+                transform: translateY(0);
             }
-
             .nav-links a {
-                font: 400 2rem var(--serif);
+                font: 400 2.2rem var(--serif);
                 letter-spacing: 0;
-                text-transform: none
+                text-transform: none;
             }
-
+            .nav-links a:after { display: none; }
+            
             .hero {
-                display: flex;
-                flex-direction: column;
-                align-items: stretch;
                 padding: 110px 5vw 60px;
-                gap: 35px;
-                min-height: auto
+                gap: 40px;
             }
-
-            .hero-copy {
-                padding: 10px 0
-            }
-
-            .hero h1 {
-                font-size: clamp(3.4rem, 16vw, 5.8rem);
-                margin: 23px 0
-            }
-
-            .hero-intro {
-                font-size: .9rem
-            }
-
             .hero-visual {
-                height: 50vh;
-                min-height: 380px;
-                margin: 0 5px
+                height: 55vh;
+                min-height: 400px;
             }
-
             .hero-image-frame {
-                inset: 0 5% 0 5%
+                inset: 0 2% 0 2%;
+                border-radius: 120px 120px 10px 10px;
             }
-
             .hero-stamp {
-                width: 100px;
-                height: 100px;
-                font-size: .85rem;
-                left: -5px
+                width: 110px;
+                height: 110px;
+                font-size: 0.9rem;
+                left: -10px;
             }
-
-            .hero-caption {
-                right: -3px
-            }
-
             .scroll-cue {
-                display: none
+                display: none;
             }
-
             .section {
-                padding: 72px 5vw
+                padding: 85px 5vw;
             }
-
             .section-head {
-                display: block
+                display: block;
+                margin-bottom: 40px;
             }
-
             .section-desc {
-                margin-top: 20px
+                margin-top: 20px;
             }
-
-            .intro-grid {
-                grid-template-columns: 1fr;
-                gap: 40px
-            }
-
             .intro-image {
-                height: 430px;
-                margin-right: 15px
+                height: 450px;
+                margin-right: 15px;
             }
-
             .intro-image img {
-                width: 87%
+                width: 90%;
             }
-
             .image-label {
-                top: 10%
+                top: 8%;
+                padding: 16px 20px;
+                font-size: 1rem;
             }
-
-            .intro-copy p {
-                font-size: .92rem
+            
+            .timeline-item {
+                grid-template-columns: 1fr;
+                gap: 10px;
             }
-
+            
             .collection-grid {
                 grid-template-columns: 1fr;
-                gap: 18px
+                gap: 20px;
             }
-
             .collection-card:nth-child(2) {
-                margin-top: 0
+                margin-top: 0;
             }
-
-            .collection-card,
-            .collection-card img {
-                min-height: 470px
+            .collection-card, .collection-card img {
+                min-height: 480px;
             }
-
             .gallery {
-                gap: 12px
+                gap: 15px;
             }
-
-            .gallery-card,
-            .gallery-card:nth-child(n) {
-                grid-column: span 6;
-                min-height: 220px
+            .gallery-card, .gallery-card:nth-child(n) {
+                grid-column: span 12;
+                min-height: 280px;
             }
-
             .gallery-card img {
-                min-height: 240px
+                min-height: 280px;
             }
-
-            .gallery-meta {
-                left: 12px;
-                right: 12px;
-                bottom: 13px
-            }
-
-            .gallery-meta h3 {
-                font-size: 1.15rem
-            }
-
-            .gallery-meta small {
-                font-size: .52rem
-            }
-
             .process-grid {
-                grid-template-columns: 1fr
+                grid-template-columns: 1fr;
             }
-
-            .process-card,
-            .process-card:nth-child(2) {
+            .process-card, .process-card:nth-child(2) {
                 border-right: 0;
                 border-bottom: 1px solid var(--line);
                 margin: 0;
-                padding: 25px 0
+                padding: 30px 0;
             }
-
             .process-card:last-child {
-                border-bottom: 0
+                border-bottom: 0;
             }
-
-            .process-card h3 {
-                margin: 13px 0 8px
+            .achievements-grid {
+                gap: 20px;
             }
-
-            .quote-section {
-                padding: 75px 6vw
+            .achievement-card {
+                padding: 35px 25px;
             }
-
-            .contact-grid {
-                grid-template-columns: 1fr;
-                gap: 45px
-            }
-
             .contact-form {
-                grid-template-columns: 1fr
+                grid-template-columns: 1fr;
+                padding: 30px 20px;
             }
-
-            .form-field.full,
-            .form-note {
-                grid-column: auto
+            .form-field.full, .form-note {
+                grid-column: auto;
             }
-
             .footer-top {
-                display: block
+                display: block;
             }
-
             .footer-top p {
-                margin-top: 18px
+                margin-top: 20px;
+                margin-bottom: 30px;
             }
-
             .footer-bottom {
                 flex-direction: column;
-                line-height: 1.8
+                line-height: 2;
+                gap: 15px;
             }
-
             .modal {
-                padding: 12px
+                padding: 10px;
             }
-
             .modal-box {
-                grid-template-columns: 1fr;
-                max-height: 92vh
+                max-height: 95vh;
             }
-
-            .modal-box img {
-                height: 42vh;
-                min-height: 260px
-            }
-
             .modal-text {
-                padding: 25px
+                padding: 25px 20px;
             }
         }
 
-        @media(hover:none),
-        (pointer:coarse) {
-            .cursor-dot {
-                display: none
-            }
+        /* Accessibility & Preferences */
+        @media(hover:none), (pointer:coarse) {
+            .cursor-dot { display: none !important; }
         }
 
         @media(prefers-reduced-motion:reduce) {
-
-            *,
-            *:before,
-            *:after {
-                animation-duration: .01ms !important;
+            *, *:before, *:after {
+                animation-duration: 0.01ms !important;
                 animation-iteration-count: 1 !important;
                 scroll-behavior: auto !important;
-                transition-duration: .01ms !important
+                transition-duration: 0.01ms !important;
             }
-
             .reveal {
                 opacity: 1;
-                transform: none
+                transform: none;
             }
         }
     </style>
@@ -1406,277 +1412,317 @@
 <body>
     <div class="ambient"></div>
     <div id="progress"></div>
+    
+    <!-- Initial Preloader -->
     <div id="loader">
         <div>
             <div class="loader-mark">DIXITA</div>
-            <div class="loader-sub">Fashion Design Student</div>
+            <div class="loader-sub">Fashion Designer</div>
         </div>
     </div>
+    
     <div class="cursor-dot" id="cursorDot"></div>
 
     <header class="site-header" id="header">
-        <a class="brand" href="#home" aria-label="Dixita home">DIXITA<small>FASHION DESIGN · STUDENT
-                PORTFOLIO</small></a>
+        <a class="brand" href="#home" aria-label="Dixita home">DIXITA KUMAWAT<small>FASHION DESIGNER</small></a>
         <nav class="nav-links" id="navLinks" aria-label="Main navigation">
-            <a href="#about">About Me</a><a href="#collections">Academic Work</a><a href="#portfolio">Portfolio</a><a
-                href="#process">Design Process</a><a href="#contact">Contact</a>
+            <a href="#home">Home</a>
+            <a href="#about">About Me</a>
+            <a href="#experience">Experience</a>
+            <a href="#skills">Skills</a>
+            <a href="#collections">Collections</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
         </nav>
         <a class="nav-cta" href="#contact">Let's Connect ↗</a>
         <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false">☰</button>
     </header>
 
     <main>
+        <!-- 1. HERO -->
         <section class="hero" id="home">
-            <div class="hero-copy">
-                <div class="eyebrow">Fashion Design Student</div>
-                <h1>Shaping the<br><em>future of fashion.</em></h1>
-                <p class="hero-intro">Exploring silhouettes, unexpected details, and structural forms. Welcome to my
-                    digital diary as a fashion design student, where every sketch tells a story.</p>
-                <div class="hero-actions"><a class="button primary" href="#collections">Explore my work
-                        <span>↗</span></a><a class="button" href="#contact">Say Hello</a></div>
-                <div class="hero-note"><span></span> Apparel Design · Pattern Making · Conceptual Illustration</div>
+            <div class="hero-copy reveal">
+                <div class="eyebrow">Portfolio 2026</div>
+                <h1>DIXITA<br><em>KUMAWAT.</em></h1>
+                <div class="hero-actions">
+                    <a class="button primary" href="#collections">Explore my work <span>↗</span></a>
+                </div>
             </div>
-            <div class="hero-visual">
-                <div class="hero-image-frame"><img
-                        src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=1200&q=88"
-                        alt="Editorial fashion look in a flowing designer outfit" fetchpriority="high"></div>
+            <div class="hero-visual reveal delay-1">
+                <div class="hero-image-frame">
+                    <img src="dk main image 1.jpeg" alt="Editorial fashion look in a warm earth-tone outfit" fetchpriority="high">
+                </div>
                 <div class="hero-stamp">Made with<br>feeling &<br>intention</div>
-                <div class="hero-index">01 / STUDENT DIARY</div>
                 <div class="hero-caption">A study in structure and form</div>
             </div>
             <div class="scroll-cue"><i></i> Scroll to discover</div>
         </section>
 
-        <div class="marquee-band" aria-label="Design philosophy">
-            <div class="marquee-track">
-                <span>Concept sketching</span><b>✳</b><span>Draping techniques</span><b>✳</b><span>Pattern
-                    making</span><b>✳</b><span>Textile exploration</span><b>✳</b><span>Concept
-                    sketching</span><b>✳</b><span>Draping techniques</span><b>✳</b><span>Pattern
-                    making</span><b>✳</b><span>Textile exploration</span><b>✳</b>
-            </div>
-        </div>
+        <!-- 2. DESIGN PHILOSOPHY (New Section) -->
+        <section class="philosophy reveal">
+            <h2>"Design is not just about what you wear, it's about the narrative you weave and the confidence you carry."</h2>
+            <p>— The Design Philosophy</p>
+        </section>
 
+        <!-- 3. ABOUT ME -->
         <section class="section" id="about">
             <div class="intro-grid">
                 <div class="intro-image reveal">
-                    <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1000&q=85"
-                        alt="Fashion editorial with sculptural styling" loading="lazy">
-                    <div class="image-label">A learning journey.<br>A personal signature.</div>
+                    <img src="https://images.unsplash.com/photo-1512413914595-6548e65a0c36?auto=format&fit=crop&w=1000&q=85" alt="Fashion editorial with sculptural styling" loading="lazy">
+                    <div class="image-label">A creative journey.<br>A personal signature.</div>
                 </div>
-                <div class="intro-copy reveal">
-                    <div class="section-kicker">01 — Meet the student</div>
-                    <h2>Designing for<br><em>the feeling.</em></h2>
-                    <p>DIXITA is my growing design portfolio built around experimentation, craftsmanship, and the search
-                        for an individual aesthetic voice.</p>
-                    <p>From early concept sketches to final construction, my work explores fluid shapes, considered
-                        tailoring, tactile fabrics, and how traditional techniques can find fresh expression.</p>
-                    <a href="#process" class="button">See my process ↗</a>
-                    <div class="signature">Dixita<small>Fashion Design Student</small></div>
+                <div class="intro-copy reveal delay-1">
+                    <div class="section-kicker">01 — About Me</div>
+                    <h2>The Art of<br><em>Expression.</em></h2>
+                    <p>Creative and detail-oriented Fashion Designer with a strong interest in apparel, branding, and visual communication. Skilled in transforming concepts into market-ready collections through research, illustration, garment construction, and graphic design.</p>
+                    <p>Currently pursuing a Diploma in Graphic Design to strengthen expertise in brand identity, digital design, and marketing. Passionate about creating meaningful fashion experiences that blend craftsmanship, culture, and contemporary aesthetics.</p>
+                    
+                    <div class="about-stats reveal delay-2">
+                        <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--line); padding-bottom: 15px; margin-bottom: 15px; flex-wrap: wrap; gap: 8px;">
+                            <strong style="color: var(--accent-deep); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; white-space: nowrap;">Education</strong>
+                            <span style="font-size: 0.95rem; color: var(--ink); text-align: right; font-weight: 500;">B.Sc, Masters in Fashion Design, Diploma in Graphic Design</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
+                            <strong style="color: var(--accent-deep); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; white-space: nowrap;">Languages</strong>
+                            <span style="font-size: 0.95rem; color: var(--ink); text-align: right; font-weight: 500;">English, Hindi</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
+        <!-- 4. EXPERIENCE TIMELINE (New Section) -->
+        <section class="section experience" id="experience">
+            <div class="section-head reveal">
+                <div>
+                    <div class="section-kicker">02 — The Journey</div>
+                    <h2>My <em>Experience.</em></h2>
+                </div>
+                <p class="section-desc">A timeline of my professional growth, academic achievements, and real-world brand building.</p>
+            </div>
+            
+            <div class="timeline reveal delay-1">
+                <div class="timeline-item">
+                    <div class="timeline-year">2026 - Present</div>
+                    <div class="timeline-content">
+                        <h3>Diploma in Graphic Design</h3>
+                        <p>Currently expanding my skill set into digital brand identity, packaging, and marketing collaterals to bridge the gap between physical fashion and digital presence.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2025</div>
+                    <div class="timeline-content">
+                        <h3>KUMBAAY – Brand Development</h3>
+                        <p>Spearheaded the visual identity and concept for a contemporary fashion & jewellery brand. Designed all core branding elements, packaging concepts, and product presentation materials.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2024</div>
+                    <div class="timeline-content">
+                        <h3>Pageant Designer & Stylist</h3>
+                        <p>Designed custom outfits for Miss Rajasthan, Miss Ocean, and Miss Celeste. Created a highly acclaimed national outfit based on a peacock theme for MRS. Ocean. Served as a volunteer stylist for Miss Universe India.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2023</div>
+                    <div class="timeline-content">
+                        <h3>Masters in Fashion Design</h3>
+                        <p>Mastered advanced garment construction, complex pattern making, and fashion illustration, culminating in a highly praised final capsule collection.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. SKILLS -->
+        <section class="section" id="skills">
+            <div class="section-head reveal">
+                <div>
+                    <div class="section-kicker">03 — Expertise & Skills</div>
+                    <h2>My Design<br><em>Toolkit.</em></h2>
+                </div>
+                <p class="section-desc">Key disciplines, technical proficiencies, and design fundamentals shaping my creative approach.</p>
+            </div>
+            <div class="process-grid reveal delay-1">
+                <article class="process-card">
+                    <span class="process-no">01 / Core</span>
+                    <h3>Fashion Design</h3>
+                    <p>Fashion Illustration, Garment Construction, Pattern Making, Textile Design, Surface Ornamentation.</p>
+                </article>
+                <article class="process-card">
+                    <span class="process-no">02 / Technical</span>
+                    <h3>Apparel Dev</h3>
+                    <p>Fashion Styling, Collection Development, Technical Flats, Fabric Sourcing & Research.</p>
+                </article>
+                <article class="process-card">
+                    <span class="process-no">03 / Visuals</span>
+                    <h3>Graphic Design</h3>
+                    <p>Brand Identity Design, Logo & Packaging Design, Social Media Creatives, Typography, Layouts.</p>
+                </article>
+                <article class="process-card">
+                    <span class="process-no">04 / Software</span>
+                    <h3>Digital Tools</h3>
+                    <p>Adobe Illustrator, Adobe Photoshop, Adobe InDesign, CorelDRAW, Canva Pro, Microsoft Office.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- MARQUEE TRANSITION -->
+        <div class="marquee-band reveal">
+            <div class="marquee-track">
+                <span>Fashion Illustration</span><b>✦</b>
+                <span>Garment Construction</span><b>✦</b>
+                <span>Pattern Making</span><b>✦</b>
+                <span>Brand Identity</span><b>✦</b>
+                <span>Fashion Styling</span><b>✦</b>
+                <span>Graphic Design</span><b>✦</b>
+                <span>Fashion Illustration</span><b>✦</b>
+                <span>Garment Construction</span><b>✦</b>
+                <span>Pattern Making</span><b>✦</b>
+                <span>Brand Identity</span><b>✦</b>
+                <span>Fashion Styling</span><b>✦</b>
+                <span>Graphic Design</span><b>✦</b>
+            </div>
+        </div>
+
+        <!-- 6. COLLECTIONS -->
         <section class="section collections" id="collections">
             <div class="section-head reveal">
                 <div>
-                    <div class="section-kicker">02 — The Academic Journey</div>
-                    <h2>Projects with<br><em>purpose.</em></h2>
+                    <div class="section-kicker">04 — Lookbooks</div>
+                    <h2>Featured<br><em>Collections.</em></h2>
                 </div>
-                <p class="section-desc">Key modules and collections from my coursework, showcasing a progression in
-                    technique, scale, and storytelling.</p>
+                <p class="section-desc">A curated moodboard of assignments, styling explorations, textures, and the pieces I'm most proud to have constructed.</p>
             </div>
-            <div class="collection-grid">
-                <article class="collection-card reveal" tabindex="0" data-modal="0">
-                    <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=900&q=85"
-                        alt="Romantic flowing occasionwear" loading="lazy">
-                    <div class="collection-arrow">↗</div>
-                    <div class="collection-info"><small>Term 01 · Foundation Studio</small>
+            
+            <div class="collection-grid reveal delay-1">
+                <article class="collection-card" tabindex="0" data-modal="0">
+                    <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=900&q=85" alt="Editorial look" loading="lazy">
+                    <div class="collection-info">
+                        <small>Collection · 01</small>
                         <h3>Organic Forms</h3>
-                        <p>First explorations in garment construction, focusing on soft movement and basic structure.
-                        </p>
+                        <p>An exploration of fluid silhouettes and soft structure.</p>
                     </div>
-                </article>
-                <article class="collection-card reveal" tabindex="0" data-modal="1">
-                    <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=85"
-                        alt="Contemporary designer street style" loading="lazy">
                     <div class="collection-arrow">↗</div>
-                    <div class="collection-info"><small>Term 02 · Advanced Draping</small>
+                </article>
+                
+                <article class="collection-card" tabindex="0" data-modal="1">
+                    <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=85" alt="City Muse lookbook" loading="lazy">
+                    <div class="collection-info">
+                        <small>Collection · 02</small>
                         <h3>City Muse</h3>
-                        <p>Working directly on the stand to understand fabric behavior, volume, and confident layers.
-                        </p>
+                        <p>A wardrobe built around considered layers and urban aesthetics.</p>
                     </div>
-                </article>
-                <article class="collection-card reveal" tabindex="0" data-modal="2">
-                    <img src="https://images.unsplash.com/photo-1539008835657-9e8e9680c956?auto=format&fit=crop&w=900&q=85"
-                        alt="Elegant formal designer dress" loading="lazy">
                     <div class="collection-arrow">↗</div>
-                    <div class="collection-info"><small>Term 03 · Final Project (WIP)</small>
+                </article>
+
+                <article class="collection-card" tabindex="0" data-modal="2">
+                    <img src="https://images.unsplash.com/photo-1539008835657-9e8e9680c956?auto=format&fit=crop&w=900&q=85" alt="Capsule collection" loading="lazy">
+                    <div class="collection-info">
+                        <small>Collection · 03</small>
                         <h3>The Capsule</h3>
-                        <p>A conceptual collection currently in progress, marrying complex patterns with quiet drama.
-                        </p>
+                        <p>Marrying complex flat pattern making with thoughtful fabric choices.</p>
                     </div>
+                    <div class="collection-arrow">↗</div>
                 </article>
             </div>
         </section>
 
-        <section class="section portfolio" id="portfolio">
+        <!-- 7. PORTFOLIO GALLERY -->
+        <section class="section portfolio" id="projects">
             <div class="section-head reveal">
                 <div>
-                    <div class="section-kicker">03 — Selected work</div>
-                    <h2>The visual<br><em>diary.</em></h2>
+                    <div class="section-kicker">05 — Design Archive</div>
+                    <h2>Projects &<br><em>Explorations.</em></h2>
                 </div>
-                <p class="section-desc">A moodboard of assignments, styling explorations, textures, and the pieces I'm
-                    most proud to have constructed.</p>
+                <p class="section-desc">Filter through my academic assignments, textile research, conceptual sketches, and final sewn garments.</p>
             </div>
-            <div class="filter-row reveal" role="group" aria-label="Filter portfolio">
-                <button class="filter-btn active" data-filter="all">All work</button>
-                <button class="filter-btn" data-filter="concepts">Sketches & Concepts</button>
-                <button class="filter-btn" data-filter="draping">Draping & Patterns</button>
+            
+            <div class="filter-row reveal delay-1" role="group" aria-label="Filter portfolio">
+                <button class="filter-btn active" data-filter="all">All Work</button>
                 <button class="filter-btn" data-filter="garments">Final Garments</button>
-                <button class="filter-btn" data-filter="textiles">Textiles</button>
+                <button class="filter-btn" data-filter="concepts">Concepts & Styling</button>
+                <button class="filter-btn" data-filter="draping">Draping & Patterns</button>
+                <button class="filter-btn" data-filter="textiles">Textile Studies</button>
             </div>
+            
             <div class="gallery" id="gallery">
-                <article class="gallery-card reveal" data-category="garments" data-item="0" tabindex="0"><img
-                        src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=900&q=85"
-                        alt="Sculpted styling" loading="lazy">
-                    <div class="gallery-meta"><small>Garments · 01</small>
-                        <h3>Form in motion</h3>
-                    </div>
+                <article class="gallery-card reveal" data-category="garments" data-item="4" tabindex="0">
+                    <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=900&q=85" alt="Final garment construction" loading="lazy">
+                    <div class="gallery-meta"><small>Garments · 01</small><h3>Unexpected Elegance</h3></div>
                 </article>
-                <article class="gallery-card reveal" data-category="concepts" data-item="1" tabindex="0"><img
-                        src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=85"
-                        alt="Concept moodboard" loading="lazy">
-                    <div class="gallery-meta"><small>Concepts · 02</small>
-                        <h3>Quiet confidence</h3>
-                    </div>
+                <article class="gallery-card reveal delay-1" data-category="concepts" data-item="5" tabindex="0">
+                    <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=85" alt="Concept moodboard" loading="lazy">
+                    <div class="gallery-meta"><small>Concepts · 02</small><h3>Quiet Confidence</h3></div>
                 </article>
-                <article class="gallery-card reveal" data-category="textiles" data-item="2" tabindex="0"><img
-                        src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=85"
-                        alt="Textile details" loading="lazy">
-                    <div class="gallery-meta"><small>Textiles · 03</small>
-                        <h3>The finishing touch</h3>
-                    </div>
+                <article class="gallery-card reveal delay-2" data-category="textiles" data-item="6" tabindex="0">
+                    <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=900&q=85" alt="Textile details" loading="lazy">
+                    <div class="gallery-meta"><small>Textiles · 03</small><h3>Texture & Tone</h3></div>
                 </article>
-                <article class="gallery-card reveal" data-category="draping" data-item="3" tabindex="0"><img
-                        src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=85"
-                        alt="Draping assignment" loading="lazy">
-                    <div class="gallery-meta"><small>Draping · 04</small>
-                        <h3>Volume Studies</h3>
-                    </div>
+                <article class="gallery-card reveal" data-category="draping" data-item="3" tabindex="0">
+                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=85" alt="Draping assignment" loading="lazy">
+                    <div class="gallery-meta"><small>Draping · 04</small><h3>Volume Studies</h3></div>
                 </article>
-                <article class="gallery-card reveal" data-category="garments" data-item="4" tabindex="0"><img
-                        src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=900&q=85"
-                        alt="Final garment construction" loading="lazy">
-                    <div class="gallery-meta"><small>Garments · 05</small>
-                        <h3>Unexpected elegance</h3>
-                    </div>
+                <article class="gallery-card reveal delay-1" data-category="garments" data-item="8" tabindex="0">
+                    <img src="https://images.unsplash.com/photo-1524250502761-1ac6f2e30d43?auto=format&fit=crop&w=900&q=85" alt="Expressive fashion styling" loading="lazy">
+                    <div class="gallery-meta"><small>Garments · 05</small><h3>Made to Move</h3></div>
                 </article>
-                <article class="gallery-card reveal" data-category="concepts" data-item="5" tabindex="0"><img
-                        src="https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?auto=format&fit=crop&w=900&q=85"
-                        alt="Styling assignment" loading="lazy">
-                    <div class="gallery-meta"><small>Concepts · 06</small>
-                        <h3>Colour study</h3>
-                    </div>
-                </article>
-                <article class="gallery-card reveal" data-category="textiles" data-item="6" tabindex="0"><img
-                        src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=900&q=85"
-                        alt="Curated fabrics" loading="lazy">
-                    <div class="gallery-meta"><small>Textiles · 07</small>
-                        <h3>Texture & tone</h3>
-                    </div>
-                </article>
-                <article class="gallery-card reveal" data-category="draping" data-item="7" tabindex="0"><img
-                        src="https://images.unsplash.com/photo-1594552072238-b8a33785b261?auto=format&fit=crop&w=900&q=85"
-                        alt="Pattern making mood" loading="lazy">
-                    <div class="gallery-meta"><small>Draping · 08</small>
-                        <h3>Softly constructed</h3>
-                    </div>
-                </article>
-                <article class="gallery-card reveal" data-category="garments" data-item="8" tabindex="0"><img
-                        src="https://images.unsplash.com/photo-1524250502761-1ac6f2e30d43?auto=format&fit=crop&w=900&q=85"
-                        alt="Expressive fashion styling" loading="lazy">
-                    <div class="gallery-meta"><small>Garments · 09</small>
-                        <h3>Made to move</h3>
-                    </div>
+                <article class="gallery-card reveal delay-2" data-category="draping" data-item="7" tabindex="0">
+                    <img src="https://images.unsplash.com/photo-1594552072238-b8a33785b261?auto=format&fit=crop&w=900&q=85" alt="Pattern making mood" loading="lazy">
+                    <div class="gallery-meta"><small>Draping · 06</small><h3>Softly Constructed</h3></div>
                 </article>
             </div>
-        </section>
-
-        <section class="section" id="process">
-            <div class="section-head reveal">
-                <div>
-                    <div class="section-kicker">04 — The student process</div>
-                    <h2>From brief<br>to <em>final piece.</em></h2>
+            
+            <!-- Major Brand Projects Block -->
+            <div class="achievements-grid reveal" style="margin-top: 60px;">
+                <div class="achievement-card">
+                    <h3 style="font: 400 2.2rem var(--serif); color: var(--ink); margin-bottom: 15px;">KUMBAAY – Fashion & Jewellery Brand</h3>
+                    <p style="color: var(--muted); line-height: 1.9; max-width: 900px; font-size: 1.05rem;">Developed the concept and visual identity for a contemporary fashion and jewellery brand. Designed branding elements, website visuals, packaging concepts, and promotional creatives. Created luxury product presentations and campaign concepts.</p>
                 </div>
-                <p class="section-desc">A look into how I tackle design assignments, from the initial spark of
-                    inspiration to the sewing machine.</p>
-            </div>
-            <div class="process-grid reveal">
-                <article class="process-card"><span class="process-no">01 / Research</span>
-                    <h3>The Moodboard</h3>
-                    <p>Building the visual vocabulary for a project through historical research, art, and fabric
-                        sourcing.</p>
-                </article>
-                <article class="process-card"><span class="process-no">02 / Sketch</span>
-                    <h3>The Concepts</h3>
-                    <p>Translating ideas to paper, refining silhouettes, and developing color stories for the
-                        collection.</p>
-                </article>
-                <article class="process-card"><span class="process-no">03 / Pattern</span>
-                    <h3>The Architecture</h3>
-                    <p>Drafting flat patterns and draping on the mannequin to solve structural challenges before cutting
-                        final fabric.</p>
-                </article>
-                <article class="process-card"><span class="process-no">04 / Construct</span>
-                    <h3>The Execution</h3>
-                    <p>Careful stitching, hand-finishing, and multiple fittings to ensure the garment matches the
-                        original vision.</p>
-                </article>
+                
+                <div class="achievement-card">
+                    <h3 style="font: 400 2.2rem var(--serif); color: var(--ink); margin-bottom: 15px;">PAGEANT SHOWS</h3>
+                    <p style="color: var(--muted); line-height: 1.9; max-width: 900px; font-size: 1.05rem;">Designed highly praised outfits for Miss Rajasthan, Miss Ocean, and Miss Celeste. Created a show-stopping national outfit based on a peacock theme for MRS. Ocean. Proudly served as a volunteer stylist in Miss Universe India.</p>
+                </div>
             </div>
         </section>
 
-        <section class="quote-section">
-            <div class="quote-mark">“</div>
-            <blockquote>Fashion education is about finding out what you want to say to the world, and then learning the
-                technical language to say it loudly.</blockquote>
-            <p>Dixita · Design student philosophy</p>
-        </section>
-
-        <section class="section" id="contact">
+        <!-- 8. CONTACT -->
+        <section class="section" id="contact" style="background: linear-gradient(135deg, #d6c6bc, #e8ded5, #f2ebe5);">
             <div class="contact-grid">
                 <div class="contact-copy reveal">
-                    <div class="section-kicker">05 — Let's connect</div>
-                    <h2>Looking for<br>an <em>intern?</em></h2>
-                    <p>I am currently seeking internship opportunities, creative collaborations, or styling assistant
-                        roles to grow my skills outside the classroom.</p>
+                    <div class="section-kicker">06 — Let's connect</div>
+                    <h2>Say <em>Hello.</em></h2>
+                    <p>I am currently seeking internship opportunities, creative collaborations, or styling assistant roles to grow my skills and bring fresh perspectives to the industry.</p>
                     <div class="contact-detail">
-                        <div><strong>Email me</strong>hello@dixita.design <span style="font-size:.7rem">(replace with
-                                your email)</span></div>
-                        <div><strong>Availability</strong>Open to summer internships & part-time roles</div>
-                        <div><strong>Based in</strong>India · Willing to relocate for the right opportunity</div>
+                        <div><strong>Phone</strong>+91 8696651975</div>
+                        <div><strong>Email me</strong>dixitakmwt.25@gmail.com</div>
+                        <div><strong>Based in</strong>Ganesh Nagar, Indra Colony<br>Chomu, Jaipur</div>
                     </div>
                 </div>
-                <form class="contact-form reveal" id="contactForm">
-                    <div class="form-field"><label for="name">Your name / Company *</label><input id="name" name="name"
-                            required placeholder="Name"></div>
-                    <div class="form-field"><label for="email">Email address *</label><input id="email" name="email"
-                            type="email" required placeholder="you@example.com"></div>
-                    <div class="form-field"><label for="project">I'm reaching out regarding</label><select id="project"
-                            name="project">
+                <form class="contact-form reveal delay-1" id="contactForm">
+                    <div class="form-field">
+                        <label for="name">Your name / Company *</label>
+                        <input id="name" name="name" required placeholder="Name">
+                    </div>
+                    <div class="form-field">
+                        <label for="email">Email address *</label>
+                        <input id="email" name="email" type="email" required placeholder="you@example.com">
+                    </div>
+                    <div class="form-field full">
+                        <label for="project">I'm reaching out regarding</label>
+                        <select id="project" name="project">
                             <option>Internship Opportunity</option>
                             <option>Creative Collaboration</option>
                             <option>Freelance Assistance</option>
                             <option>General Enquiry</option>
-                        </select></div>
-                    <div class="form-field"><label for="date">Timeline (optional)</label><input id="date" name="date"
-                            type="text" placeholder="e.g., Summer 2024"></div>
-                    <div class="form-field full"><label for="message">Tell me more *</label><textarea id="message"
-                            name="message" required
-                            placeholder="Details about the role, collaboration idea, or just saying hi..."></textarea>
+                        </select>
                     </div>
-                    <p class="form-note">This demo opens your email app with the enquiry details. Add your real email
-                        address in the script before publishing.</p>
-                    <button class="button primary" type="submit">Send Message ↗</button>
+                    <div class="form-field full">
+                        <label for="message">Tell me more *</label>
+                        <textarea id="message" name="message" required placeholder="Details about the role, collaboration idea, or just saying hi..."></textarea>
+                    </div>
+                    <p class="form-note">This demo opens your email app with the enquiry details. Ensure your mail app is configured to send.</p>
+                    <button class="button primary" type="submit" style="justify-self: start; margin-top: 10px;">Send Message ↗</button>
                 </form>
             </div>
         </section>
@@ -1684,47 +1730,58 @@
 
     <footer>
         <div class="footer-top">
-            <div class="footer-brand">DIXITA</div>
-            <p>A fashion design student portfolio documenting the journey from sketches to structured silhouettes.</p>
-            <a class="button" href="#home">Back to top ↑</a>
+            <div class="footer-brand">DIXITA KUMAWAT</div>
+            <p>A fashion designer portfolio documenting the journey from sketches to structured silhouettes.</p>
+            <a class="button" href="#home" style="border-color: var(--accent-light);">Back to top ↑</a>
         </div>
-        <div class="footer-bottom"><span>© <span id="year"></span> DIXITA. Student Portfolio.</span>
-            <div class="footer-socials"><a href="#contact">Instagram ↗</a><a href="#contact">LinkedIn ↗</a><a
-                    href="#contact">Email ↗</a></div><span>Learning with intention.</span>
+        <div class="footer-bottom">
+            <span>© <span id="year"></span> DIXITA KUMAWAT. Designer Portfolio.</span>
+            <div class="footer-socials">
+                <a href="#contact">Instagram ↗</a>
+                <a href="#contact">LinkedIn ↗</a>
+                <a href="#contact">Email ↗</a>
+            </div>
+            <span>Learning with intention.</span>
         </div>
     </footer>
 
+    <!-- MODAL -->
     <div class="modal" id="projectModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-        <div class="modal-box"><button class="modal-close" id="modalClose"
-                aria-label="Close project details">×</button><img id="modalImage" src="" alt="">
+        <div class="modal-box">
+            <button class="modal-close" id="modalClose" aria-label="Close project details">×</button>
+            <img id="modalImage" src="" alt="">
             <div class="modal-text">
-                <div class="section-kicker" id="modalKicker">DIXITA PORTFOLIO</div>
+                <div class="section-kicker" id="modalKicker">DESIGN PORTFOLIO</div>
                 <h3 id="modalTitle">Project title</h3>
                 <p id="modalDescription">Design story and inspiration.</p>
-                <div style="margin-top:25px"><a class="button primary" href="#contact" id="modalContact">Get in Touch
-                        ↗</a></div>
+                <div style="margin-top:35px">
+                    <a class="button primary" href="#contact" id="modalContact">Get in Touch ↗</a>
+                </div>
             </div>
         </div>
     </div>
+    
+    <!-- TOAST NOTIFICATION -->
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
     <script>
         const $ = (selector, root = document) => root.querySelector(selector);
         const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
 
-        // Updated data to match student portfolio theme
+        // Extended Project Data to match all items
         const projectData = [
             { title: "Organic Forms", kicker: "Term 01 · Foundation Studio", description: "An exploration of fluid silhouettes and soft structure. Designed as part of an assignment studying how basic forms interact with the body.", image: "https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1200&q=88" },
             { title: "City Muse", kicker: "Term 02 · Advanced Draping", description: "A wardrobe built around considered layers. This project focused on working directly on the dress form to create unexpected proportions.", image: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=88" },
             { title: "The Capsule", kicker: "Term 03 · Final Project", description: "A conceptual capsule collection currently in progress, marrying complex flat pattern making with thoughtful fabric choices.", image: "https://images.unsplash.com/photo-1539008835657-9e8e9680c956?auto=format&fit=crop&w=1200&q=88" },
             { title: "Volume Studies", kicker: "Draping · Assignment", description: "Experimenting with excess fabric and structural underpinnings to create dramatic, exaggerated silhouettes.", image: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=88" },
             { title: "Unexpected Elegance", kicker: "Garment Construction", description: "A study in shape and movement — focusing on how seams and darts can be manipulated for entirely new structural purposes.", image: "https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1200&q=88" },
-            { title: "Colour Study", kicker: "Concept · Styling", description: "An editorial exploration of colour theory and styling as part of a visual communication module.", image: "https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?auto=format&fit=crop&w=1200&q=88" },
+            { title: "Quiet Confidence", kicker: "Concept · Styling", description: "An editorial exploration of colour theory and styling as part of a visual communication module, focusing on minimalism.", image: "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1200&q=88" },
             { title: "Texture & Tone", kicker: "Textiles · Material story", description: "Sourcing and combining swatches for upcoming projects, examining how different weaves and weights interact.", image: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1200&q=88" },
             { title: "Softly Constructed", kicker: "Pattern Making", description: "Drafting flat patterns focused on creating soft, romantic volumes without rigid interfacing.", image: "https://images.unsplash.com/photo-1594552072238-b8a33785b261?auto=format&fit=crop&w=1200&q=88" },
             { title: "Made to Move", kicker: "Final Garment", description: "Expressive design with freedom of movement at its heart. Executed using advanced sewing and finishing techniques.", image: "https://images.unsplash.com/photo-1524250502761-1ac6f2e30d43?auto=format&fit=crop&w=1200&q=88" }
         ];
 
+        // Modal Logic
         function showProject(index) {
             const item = projectData[index]; if (!item) return;
             $("#modalImage").src = item.image; $("#modalImage").alt = item.title;
@@ -1737,69 +1794,120 @@
         $("#modalClose").addEventListener("click", closeProject);
         $("#projectModal").addEventListener("click", e => { if (e.target === $("#projectModal")) closeProject() });
         document.addEventListener("keydown", e => { if (e.key === "Escape") { closeProject(); closeMenu() } });
-        $$("[data-modal]").forEach(card => { const open = () => showProject(Number(card.dataset.modal)); card.addEventListener("click", open); card.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open() } }) });
-        $$(".gallery-card").forEach(card => { const open = () => showProject(Number(card.dataset.item)); card.addEventListener("click", open); card.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open() } }) });
+        
+        $$("[data-modal]").forEach(card => { 
+            const open = () => showProject(Number(card.dataset.modal)); 
+            card.addEventListener("click", open); 
+            card.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open() } });
+        });
+        
+        $$(".gallery-card").forEach(card => { 
+            const open = () => showProject(Number(card.dataset.item)); 
+            card.addEventListener("click", open); 
+            card.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open() } });
+        });
 
+        // Portfolio Filtering
         $$(".filter-btn").forEach(button => button.addEventListener("click", () => {
             $$(".filter-btn").forEach(b => b.classList.toggle("active", b === button));
             const filter = button.dataset.filter;
             $$(".gallery-card").forEach(card => {
                 const visible = filter === "all" || card.dataset.category === filter;
                 card.classList.toggle("hidden", !visible);
-                // Trigger reflow for smooth animation
-                if (visible) {
-                    card.classList.remove("visible");
-                    // Use a tiny timeout to ensure the browser processes the class removal before adding the animation back
-                    setTimeout(() => card.classList.add("visible"), 10);
+                if (visible) { 
+                    card.classList.remove("visible"); 
+                    setTimeout(() => card.classList.add("visible"), 10); 
                 }
             });
         }));
 
+        // Scroll Progress & Header
         const header = $("#header");
         function onScroll() {
-            const scroll = window.scrollY; header.classList.toggle("scrolled", scroll > 35);
+            const scroll = window.scrollY; 
+            header.classList.toggle("scrolled", scroll > 35);
             const max = document.documentElement.scrollHeight - window.innerHeight;
             $("#progress").style.width = (max > 0 ? scroll / max * 100 : 0) + "%";
         }
         window.addEventListener("scroll", onScroll, { passive: true }); onScroll();
 
+        // Mobile Menu
         const menuToggle = $("#menuToggle"), navLinks = $("#navLinks");
-        function closeMenu() { navLinks.classList.remove("open"); document.body.classList.remove("menu-open"); menuToggle.setAttribute("aria-expanded", "false"); menuToggle.textContent = "☰"; }
-        menuToggle.addEventListener("click", () => { const open = !navLinks.classList.contains("open"); navLinks.classList.toggle("open", open); document.body.classList.toggle("menu-open", open); menuToggle.setAttribute("aria-expanded", String(open)); menuToggle.textContent = open ? "×" : "☰"; });
+        function closeMenu() { 
+            navLinks.classList.remove("open"); 
+            document.body.classList.remove("menu-open"); 
+            menuToggle.setAttribute("aria-expanded", "false"); 
+            menuToggle.textContent = "☰"; 
+        }
+        menuToggle.addEventListener("click", () => { 
+            const open = !navLinks.classList.contains("open"); 
+            navLinks.classList.toggle("open", open); 
+            document.body.classList.toggle("menu-open", open); 
+            menuToggle.setAttribute("aria-expanded", String(open)); 
+            menuToggle.textContent = open ? "×" : "☰"; 
+        });
         $$(".nav-links a").forEach(link => link.addEventListener("click", closeMenu));
 
+        // Scroll Reveal Animations
         const revealObserver = new IntersectionObserver(entries => entries.forEach(entry => {
-            if (entry.isIntersecting) { entry.target.classList.add("visible"); revealObserver.unobserve(entry.target); }
-        }), { threshold: .12 });
+            if (entry.isIntersecting) { 
+                entry.target.classList.add("visible"); 
+                revealObserver.unobserve(entry.target); 
+            }
+        }), { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
         $$(".reveal").forEach(el => revealObserver.observe(el));
 
+        // Custom Cursor
         const cursor = $("#cursorDot");
         if (window.matchMedia("(pointer:fine)").matches) {
-            window.addEventListener("mousemove", e => { cursor.style.left = e.clientX + "px"; cursor.style.top = e.clientY + "px"; }, { passive: true });
+            window.addEventListener("mousemove", e => { 
+                cursor.style.left = e.clientX + "px"; 
+                cursor.style.top = e.clientY + "px"; 
+            }, { passive: true });
+            
+            // Cursor interaction effects
+            $$("a, button, .gallery-card, .collection-card").forEach(el => {
+                el.addEventListener("mouseenter", () => cursor.style.transform = "translate(-50%, -50%) scale(2.5)");
+                el.addEventListener("mouseleave", () => cursor.style.transform = "translate(-50%, -50%) scale(1)");
+            });
         }
-
-        // Exact 1 second loader logic requested
+        
+        // Initial Page Loader
         window.addEventListener("DOMContentLoaded", () => {
             setTimeout(() => {
                 $("#loader").classList.add("hide");
-            }, 1000); // 1000ms = 1 second
+            }, 800); 
         });
 
+        // Set Current Year
         $("#year").textContent = new Date().getFullYear();
 
-        function showToast(message) { const toast = $("#toast"); toast.textContent = message; toast.classList.add("show"); setTimeout(() => toast.classList.remove("show"), 3200); }
+        // Contact Form Submission
+        function showToast(message) { 
+            const toast = $("#toast"); 
+            toast.textContent = message; 
+            toast.classList.add("show"); 
+            setTimeout(() => toast.classList.remove("show"), 3500); 
+        }
+        
         $("#contactForm").addEventListener("submit", e => {
             e.preventDefault();
             const form = new FormData(e.currentTarget);
-            const name = form.get("name"), email = form.get("email"), project = form.get("project"), date = form.get("date") || "Not specified", message = form.get("message");
-            // Replace this with your real business email before publishing.
-            const recipient = "hello@dixita.design";
-            const subject = encodeURIComponent("DIXITA Portfolio Enquiry — " + project);
-            const body = encodeURIComponent("Name/Company: " + name + "\nEmail: " + email + "\nEnquiry: " + project + "\nTimeline: " + date + "\n\nMessage:\n" + message);
+            const name = form.get("name"), 
+                  email = form.get("email"), 
+                  project = form.get("project"), 
+                  message = form.get("message");
+            const recipient = "dixitakmwt.25@gmail.com";
+            const subject = encodeURIComponent("Portfolio Enquiry — " + project);
+            const body = encodeURIComponent("Name/Company: " + name + "\nEmail: " + email + "\nEnquiry: " + project + "\n\nMessage:\n" + message);
             showToast("Opening your email app to send the enquiry…");
             window.location.href = "mailto:" + recipient + "?subject=" + subject + "&body=" + body;
         });
-        $("#modalContact").addEventListener("click", closeProject);
+        
+        $("#modalContact").addEventListener("click", () => {
+            closeProject();
+            closeMenu();
+        });
     </script>
 </body>
 
