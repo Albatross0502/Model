@@ -5,39 +5,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#f2ebe5">
-    <meta name="description"
-        content="Dixita Kumawat — A Fashion Designer portfolio showcasing collections, projects, and design skills.">
+    <meta name="description" content="Dixita Kumawat — A Fashion Designer portfolio showcasing collections, projects, and design skills.">
     <title>Dixita Kumawat | Fashion Designer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
     <style>
         :root {
             /* Brown Background Palette */
-            --paper: #5C4033;
-            /* Rich Brown background */
-            --paper-dark: #4A332A;
-            /* Slightly darker brown for contrast sections */
-            --ink: #F2EBE5;
-            /* Light beige text so it is readable on brown */
-
-            --muted: #b8a398;
-            /* Lighter muted color for brown bg */
-            --accent: #d6c6bc;
-            --accent-deep: #e8ded5;
-            --accent-light: #755043;
-            --line: rgba(242, 235, 229, 0.15);
-            /* Lightened the lines */
-            --glass: rgba(92, 64, 51, 0.75);
-            /* Brown glass effect */
-
+            --paper: #5C4033;         /* Rich Brown background */
+            --paper-dark: #4A332A;    /* Slightly darker brown for contrast sections */
+            --ink: #F2EBE5;           /* Light beige text so it is readable on brown */
+            
+            --muted: #b8a398;         /* Lighter muted color for brown bg */
+            --accent: #d6c6bc;        
+            --accent-deep: #e8ded5;   
+            --accent-light: #755043;  
+            --line: rgba(242, 235, 229, 0.15); /* Lightened the lines */
+            --glass: rgba(92, 64, 51, 0.75);   /* Brown glass effect */
+            
             /* Typography & Animation */
             --serif: 'Playfair Display', Georgia, serif;
             --sans: 'DM Sans', Arial, sans-serif;
-            --ease: cubic-bezier(0.25, 1, 0.3, 1);
-            /* Ultra smooth easing */
+            --ease: cubic-bezier(0.25, 1, 0.3, 1); /* Ultra smooth easing */
             --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
         }
 
@@ -70,10 +60,7 @@
             text-decoration: none;
         }
 
-        button,
-        input,
-        textarea,
-        select {
+        button, input, textarea, select {
             font: inherit;
             color: inherit;
         }
@@ -96,9 +83,9 @@
             pointer-events: none;
             z-index: -2;
             overflow: hidden;
-            background: radial-gradient(ellipse at 10% 10%, rgba(214, 198, 188, 0.4), transparent 40%),
-                radial-gradient(ellipse at 90% 40%, rgba(163, 124, 107, 0.15), transparent 40%),
-                radial-gradient(ellipse at 50% 90%, rgba(117, 80, 67, 0.1), transparent 50%);
+            background: radial-gradient(ellipse at 10% 10%, rgba(214, 198, 188, 0.4), transparent 40%), 
+                        radial-gradient(ellipse at 90% 40%, rgba(163, 124, 107, 0.15), transparent 40%), 
+                        radial-gradient(ellipse at 50% 90%, rgba(117, 80, 67, 0.1), transparent 50%);
         }
 
         .ambient:after {
@@ -154,10 +141,7 @@
         }
 
         @keyframes softPulse {
-            to {
-                opacity: 0.4;
-                transform: translateY(-5px);
-            }
+            to { opacity: 0.4; transform: translateY(-5px); }
         }
 
         /* Custom Cursor */
@@ -249,8 +233,7 @@
             width: 100%;
         }
 
-        .nav-cta,
-        .button {
+        .nav-cta, .button {
             display: inline-flex;
             align-items: center;
             justify-content: center;
@@ -268,8 +251,7 @@
             color: var(--ink);
         }
 
-        .nav-cta:hover,
-        .button:hover {
+        .nav-cta:hover, .button:hover {
             background: var(--ink);
             color: var(--paper);
             transform: translateY(-3px);
@@ -368,13 +350,8 @@
         }
 
         @keyframes heroZoom {
-            0% {
-                transform: scale(1);
-            }
-
-            100% {
-                transform: scale(1.1);
-            }
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
         }
 
         .hero-stamp {
@@ -472,14 +449,14 @@
             text-align: center;
             padding: 150px 5.2vw;
         }
-
+        
         .philosophy h2 {
             font: italic 400 clamp(2rem, 4.5vw, 4rem)/1.3 var(--serif);
             max-width: 900px;
             margin: 0 auto;
             color: var(--paper);
         }
-
+        
         .philosophy p {
             margin-top: 30px;
             color: var(--accent-light);
@@ -543,10 +520,10 @@
         }
 
         .about-stats {
-            margin-top: 45px;
-            background: var(--paper-dark);
-            padding: 30px;
-            border-radius: 16px;
+            margin-top: 45px; 
+            background: var(--paper-dark); 
+            padding: 30px; 
+            border-radius: 16px; 
             border: 1px solid var(--line);
             transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
         }
@@ -622,9 +599,7 @@
         }
 
         @keyframes marquee {
-            to {
-                transform: translateX(-50%);
-            }
+            to { transform: translateX(-50%); }
         }
 
         /* Skills / Process Grid */
@@ -690,8 +665,7 @@
             font-weight: 500;
         }
 
-        .filter-btn.active,
-        .filter-btn:hover {
+        .filter-btn.active, .filter-btn:hover {
             background: var(--ink);
             border-color: var(--ink);
             color: var(--paper);
@@ -714,20 +688,9 @@
             transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
         }
 
-        .gallery-card:nth-child(6n+1),
-        .gallery-card:nth-child(6n+4) {
-            grid-column: span 5;
-        }
-
-        .gallery-card:nth-child(6n+2),
-        .gallery-card:nth-child(6n+5) {
-            grid-column: span 4;
-        }
-
-        .gallery-card:nth-child(6n+3),
-        .gallery-card:nth-child(6n) {
-            grid-column: span 3;
-        }
+        .gallery-card:nth-child(6n+1), .gallery-card:nth-child(6n+4) { grid-column: span 5; }
+        .gallery-card:nth-child(6n+2), .gallery-card:nth-child(6n+5) { grid-column: span 4; }
+        .gallery-card:nth-child(6n+3), .gallery-card:nth-child(6n) { grid-column: span 3; }
 
         .gallery-card img {
             width: 100%;
@@ -793,26 +756,25 @@
 
         /* Impact / Achievements */
         .achievements-grid {
-            display: grid;
-            grid-template-columns: 1fr;
+            display: grid; 
+            grid-template-columns: 1fr; 
             gap: 28px;
         }
-
+        
         .achievement-card {
-            background: var(--paper-dark);
-            padding: 55px 45px;
-            border-radius: 16px;
+            background: var(--paper-dark); 
+            padding: 55px 45px; 
+            border-radius: 16px; 
             border: 1px solid var(--line);
             transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
         }
-
+        
         .achievement-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 20px 40px rgba(59, 44, 40, 0.08);
             background: #fff;
             color: var(--paper-dark);
         }
-
         .achievement-card:hover h3 {
             color: var(--paper-dark) !important;
         }
@@ -825,43 +787,13 @@
         }
 
         /* Highly readable color overrides specifically for the light contact section */
-        #contact .section-kicker {
-            color: #4A332A;
-        }
-
-        #contact h2 {
-            color: #2D1E17;
-        }
-
-        #contact .contact-copy p {
-            color: #5C4033;
-            font-size: 1.05rem;
-            line-height: 1.9;
-            max-width: 420px;
-            margin: 25px 0;
-        }
-
-        #contact .contact-detail {
-            margin-top: 40px;
-            display: grid;
-            gap: 22px;
-        }
-
-        #contact .contact-detail div {
-            font-size: 0.9rem;
-            color: #5C4033;
-        }
-
-        #contact .contact-detail strong {
-            display: block;
-            color: #2D1E17;
-            font-weight: 600;
-            margin-bottom: 6px;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            font-size: 0.75rem;
-        }
-
+        #contact .section-kicker { color: #4A332A; }
+        #contact h2 { color: #2D1E17; }
+        #contact .contact-copy p { color: #5C4033; font-size: 1.05rem; line-height: 1.9; max-width: 420px; margin: 25px 0;}
+        #contact .contact-detail { margin-top: 40px; display: grid; gap: 22px; }
+        #contact .contact-detail div { font-size: 0.9rem; color: #5C4033; }
+        #contact .contact-detail strong { display: block; color: #2D1E17; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.75rem; }
+        
         .contact-form {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -883,31 +815,13 @@
             grid-column: 1/-1;
         }
 
-        #contact .form-field label {
-            font-size: 0.7rem;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: #5C4033;
-            font-weight: 600;
+        #contact .form-field label { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: #5C4033; font-weight: 600; }
+        #contact .form-field input, #contact .form-field textarea, #contact .form-field select {
+            width: 100%; border: 0; border-bottom: 1px solid rgba(92, 64, 51, 0.4);
+            background: transparent; padding: 12px 0; outline: none;
+            color: #2D1E17; border-radius: 0; transition: border-color 0.3s;
         }
-
-        #contact .form-field input,
-        #contact .form-field textarea,
-        #contact .form-field select {
-            width: 100%;
-            border: 0;
-            border-bottom: 1px solid rgba(92, 64, 51, 0.4);
-            background: transparent;
-            padding: 12px 0;
-            outline: none;
-            color: #2D1E17;
-            border-radius: 0;
-            transition: border-color 0.3s;
-        }
-
-        #contact .form-field input:focus,
-        #contact .form-field textarea:focus,
-        #contact .form-field select:focus {
+        #contact .form-field input:focus, #contact .form-field textarea:focus, #contact .form-field select:focus {
             border-color: #2D1E17;
         }
 
@@ -916,22 +830,10 @@
             resize: vertical;
         }
 
-        #contact .form-note {
-            grid-column: 1/-1;
-            color: #5C4033;
-            font-size: 0.75rem;
-            line-height: 1.7;
-        }
-
-        #contact .button.primary {
-            background: #2D1E17;
-            color: #F2EBE5;
-            border-color: #2D1E17;
-        }
-
-        #contact .button.primary:hover {
-            background: #4A332A;
-        }
+        #contact .form-note { grid-column: 1/-1; color: #5C4033; font-size: 0.75rem; line-height: 1.7; }
+        
+        #contact .button.primary { background: #2D1E17; color: #F2EBE5; border-color: #2D1E17; }
+        #contact .button.primary:hover { background: #4A332A; }
 
         /* Footer */
         footer {
@@ -978,11 +880,11 @@
             display: flex;
             gap: 24px;
         }
-
+        
         .footer-socials a {
             transition: color 0.3s;
         }
-
+        
         .footer-socials a:hover {
             color: var(--accent-deep);
         }
@@ -998,18 +900,10 @@
             opacity: 1;
             transform: translateY(0);
         }
-
-        .delay-1 {
-            transition-delay: 0.1s;
-        }
-
-        .delay-2 {
-            transition-delay: 0.2s;
-        }
-
-        .delay-3 {
-            transition-delay: 0.3s;
-        }
+        
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
 
         /* Modal */
         .modal {
@@ -1043,9 +937,9 @@
             border-radius: 12px;
             transform: translateY(20px) scale(0.98);
             transition: transform 0.4s var(--ease);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.2);
         }
-
+        
         .modal.open .modal-box {
             transform: translateY(0) scale(1);
         }
@@ -1088,9 +982,9 @@
             cursor: pointer;
             z-index: 2;
             transition: transform 0.3s, background 0.3s;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
-
+        
         .modal-close:hover {
             transform: rotate(90deg);
             background: var(--accent-light);
@@ -1120,12 +1014,11 @@
         }
 
         /* --- RESPONSIVE MEDIA QUERIES --- */
-
+        
         @media(max-width:1100px) {
             .hero {
                 padding-top: 130px;
             }
-
             .intro-grid {
                 grid-template-columns: 0.9fr 1.1fr;
             }
@@ -1135,82 +1028,63 @@
             .nav-cta {
                 display: none !important;
             }
-
             .hero {
                 grid-template-columns: 1fr;
                 gap: 6vw;
                 padding-top: 130px;
             }
-
             .hero-copy {
                 text-align: center;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
             }
-
             .hero-visual {
                 min-height: 450px;
                 height: 60vh;
             }
-
             .hero h1 {
                 font-size: clamp(3.8rem, 12vw, 6.5rem);
             }
-
             .section {
                 padding: 100px 5vw;
             }
-
             .philosophy {
                 padding: 100px 5vw;
             }
-
             .intro-grid {
                 grid-template-columns: 1fr;
                 gap: 8vw;
             }
-
             .intro-image {
                 height: 500px;
             }
-
-            .gallery-card,
-            .gallery-card:nth-child(n) {
+            .gallery-card, .gallery-card:nth-child(n) {
                 grid-column: span 6;
             }
-
             .process-grid {
                 grid-template-columns: 1fr 1fr;
             }
-
             .process-card {
                 padding: 30px 20px 35px 0;
             }
-
             .process-card:nth-child(2) {
                 border-right: 0;
                 margin-right: 0;
             }
-
-            .process-card:nth-child(1),
-            .process-card:nth-child(2) {
+            .process-card:nth-child(1), .process-card:nth-child(2) {
                 border-bottom: 1px solid var(--line);
             }
-
             .contact-grid {
                 grid-template-columns: 1fr;
                 gap: 6vw;
             }
-
             .contact-form {
                 padding: 35px;
             }
-
             .modal-box {
                 grid-template-columns: 1fr;
             }
-
             .modal-box img {
                 height: 40vh;
                 min-height: 300px;
@@ -1221,177 +1095,155 @@
             .site-header {
                 padding: 18px 5vw;
             }
-
             .site-header.scrolled {
                 padding: 14px 5vw;
             }
-
             .brand {
                 font-size: 1.4rem;
             }
-
             .menu-toggle {
                 display: block;
                 z-index: 1600;
             }
-
+            
+            /* FIXED MOBILE MENU */
             .nav-links {
                 position: fixed;
-                inset: 0;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
                 background: var(--paper);
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
+                align-items: center; /* Horizontally centers the text */
                 gap: 30px;
-                transform: translateY(-100%);
-                transition: transform 0.6s var(--ease);
+                
+                /* Replaced transform with opacity/visibility to prevent clipping */
+                opacity: 0;
+                visibility: hidden;
+                pointer-events: none;
+                transition: opacity 0.4s var(--ease), visibility 0.4s;
                 z-index: 1550;
+                margin: 0;
+                padding: 0;
             }
-
             .nav-links.open {
-                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+                pointer-events: auto;
             }
-
+            
             .nav-links a {
                 font: 400 2.2rem var(--serif);
                 letter-spacing: 0;
                 text-transform: none;
             }
-
-            .nav-links a:after {
-                display: none;
-            }
-
+            .nav-links a:after { display: none; }
+            
             .hero {
                 padding: 110px 5vw 60px;
                 gap: 40px;
             }
-
             .hero-visual {
                 height: 55vh;
                 min-height: 400px;
             }
-
             .hero-image-frame {
                 inset: 0 2% 0 2%;
                 border-radius: 120px 120px 10px 10px;
             }
-
             .hero-stamp {
                 width: 110px;
                 height: 110px;
                 font-size: 0.9rem;
                 left: -10px;
             }
-
             .scroll-cue {
                 display: none;
             }
-
             .section {
                 padding: 85px 5vw;
             }
-
             .section-head {
                 display: block;
                 margin-bottom: 40px;
             }
-
             .section-desc {
                 margin-top: 20px;
             }
-
             .intro-image {
                 height: 450px;
                 margin-right: 15px;
             }
-
             .intro-image img {
                 width: 90%;
             }
-
             .image-label {
                 top: 8%;
                 padding: 16px 20px;
                 font-size: 1rem;
             }
-
+            
             .timeline-item {
                 grid-template-columns: 1fr;
                 gap: 10px;
             }
-
+            
             .gallery {
                 gap: 15px;
             }
-
-            .gallery-card,
-            .gallery-card:nth-child(n) {
+            .gallery-card, .gallery-card:nth-child(n) {
                 grid-column: span 12;
                 min-height: 280px;
             }
-
             .gallery-card img {
                 min-height: 280px;
             }
-
             .process-grid {
                 grid-template-columns: 1fr;
             }
-
-            .process-card,
-            .process-card:nth-child(2) {
+            .process-card, .process-card:nth-child(2) {
                 border-right: 0;
                 border-bottom: 1px solid var(--line);
                 margin: 0;
                 padding: 30px 0;
             }
-
             .process-card:last-child {
                 border-bottom: 0;
             }
-
             .achievements-grid {
                 gap: 20px;
             }
-
             .achievement-card {
                 padding: 35px 25px;
             }
-
             .contact-form {
                 grid-template-columns: 1fr;
                 padding: 30px 20px;
             }
-
-            .form-field.full,
-            .form-note {
+            .form-field.full, .form-note {
                 grid-column: auto;
             }
-
             .footer-top {
                 display: block;
             }
-
             .footer-top p {
                 margin-top: 20px;
                 margin-bottom: 30px;
             }
-
             .footer-bottom {
                 flex-direction: column;
                 line-height: 2;
                 gap: 15px;
             }
-
             .modal {
                 padding: 10px;
             }
-
             .modal-box {
                 max-height: 95vh;
             }
-
             .modal-text {
                 padding: 25px 20px;
             }
@@ -1399,22 +1251,16 @@
 
         /* Accessibility & Preferences */
         @media(hover:none), (pointer:coarse) {
-            .cursor-dot {
-                display: none !important;
-            }
+            .cursor-dot { display: none !important; }
         }
 
         @media(prefers-reduced-motion:reduce) {
-
-            *,
-            *:before,
-            *:after {
+            *, *:before, *:after {
                 animation-duration: 0.01ms !important;
                 animation-iteration-count: 1 !important;
                 scroll-behavior: auto !important;
                 transition-duration: 0.01ms !important;
             }
-
             .reveal {
                 opacity: 1;
                 transform: none;
@@ -1426,7 +1272,7 @@
 <body>
     <div class="ambient"></div>
     <div id="progress"></div>
-
+    
     <!-- Initial Preloader -->
     <div id="loader">
         <div>
@@ -1434,7 +1280,7 @@
             <div class="loader-sub">Fashion Designer</div>
         </div>
     </div>
-
+    
     <div class="cursor-dot" id="cursorDot"></div>
 
     <header class="site-header" id="header">
@@ -1473,8 +1319,7 @@
 
         <!-- 2. DESIGN PHILOSOPHY -->
         <section class="philosophy reveal">
-            <h2>"Design is not just about what you wear, it's about the narrative you weave and the confidence you
-                carry."</h2>
+            <h2>"Design is not just about what you wear, it's about the narrative you weave and the confidence you carry."</h2>
             <p>— The Design Philosophy</p>
         </section>
 
@@ -1482,35 +1327,23 @@
         <section class="section" id="about">
             <div class="intro-grid">
                 <div class="intro-image reveal">
-                    <img src="https://images.unsplash.com/photo-1512413914595-6548e65a0c36?auto=format&fit=crop&w=1000&q=85"
-                        alt="Fashion editorial with sculptural styling" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1512413914595-6548e65a0c36?auto=format&fit=crop&w=1000&q=85" alt="Fashion editorial with sculptural styling" loading="lazy">
                     <div class="image-label">A creative journey.<br>A personal signature.</div>
                 </div>
                 <div class="intro-copy reveal delay-1">
                     <div class="section-kicker">01 — About Me</div>
                     <h2>The Art of<br><em>Expression.</em></h2>
-                    <p>Creative and detail-oriented Fashion Designer with a strong interest in apparel, branding, and
-                        visual communication. Skilled in transforming concepts into market-ready collections through
-                        research, illustration, garment construction, and graphic design.</p>
-                    <p>Currently pursuing a Diploma in Graphic Design to strengthen expertise in brand identity, digital
-                        design, and marketing. Passionate about creating meaningful fashion experiences that blend
-                        craftsmanship, culture, and contemporary aesthetics.</p>
-
+                    <p>Creative and detail-oriented Fashion Designer with a strong interest in apparel, branding, and visual communication. Skilled in transforming concepts into market-ready collections through research, illustration, garment construction, and graphic design.</p>
+                    <p>Currently pursuing a Diploma in Graphic Design to strengthen expertise in brand identity, digital design, and marketing. Passionate about creating meaningful fashion experiences that blend craftsmanship, culture, and contemporary aesthetics.</p>
+                    
                     <div class="about-stats reveal delay-2">
-                        <div
-                            style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--line); padding-bottom: 15px; margin-bottom: 15px; flex-wrap: wrap; gap: 8px;">
-                            <strong
-                                style="color: var(--accent-deep); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; white-space: nowrap;">Education</strong>
-                            <span
-                                style="font-size: 0.95rem; color: var(--ink); text-align: right; font-weight: 500;">B.Sc
-                                in Fashion Design</span>
+                        <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--line); padding-bottom: 15px; margin-bottom: 15px; flex-wrap: wrap; gap: 8px;">
+                            <strong style="color: var(--accent-deep); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; white-space: nowrap;">Education</strong>
+                            <span style="font-size: 0.95rem; color: var(--ink); text-align: right; font-weight: 500;">B.Sc in Fashion Design</span>
                         </div>
                         <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
-                            <strong
-                                style="color: var(--accent-deep); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; white-space: nowrap;">Languages</strong>
-                            <span
-                                style="font-size: 0.95rem; color: var(--ink); text-align: right; font-weight: 500;">English,
-                                Hindi</span>
+                            <strong style="color: var(--accent-deep); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; white-space: nowrap;">Languages</strong>
+                            <span style="font-size: 0.95rem; color: var(--ink); text-align: right; font-weight: 500;">English, Hindi</span>
                         </div>
                     </div>
                 </div>
@@ -1524,27 +1357,22 @@
                     <div class="section-kicker">02 — The Journey</div>
                     <h2>Academic <em>Projects.</em></h2>
                 </div>
-                <p class="section-desc">A timeline of my professional growth, academic achievements, and real-world
-                    brand building.</p>
+                <p class="section-desc">A timeline of my professional growth, academic achievements, and real-world brand building.</p>
             </div>
-
+            
             <div class="timeline reveal delay-1">
                 <div class="timeline-item">
                     <div class="timeline-year">2025</div>
                     <div class="timeline-content">
                         <h3>KUMBAAY – Brand Development</h3>
-                        <p>Spearheaded the visual identity and concept for a contemporary fashion & jewellery brand.
-                            Designed all core branding elements, packaging concepts, and product presentation materials.
-                        </p>
+                        <p>Spearheaded the visual identity and concept for a contemporary fashion & jewellery brand. Designed all core branding elements, packaging concepts, and product presentation materials.</p>
                     </div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-year">2024</div>
                     <div class="timeline-content">
                         <h3>Pageant Designer & Stylist</h3>
-                        <p>Designed custom outfits for Miss Rajasthan, Miss Ocean, and Miss Celeste. Created a highly
-                            acclaimed national outfit based on a peacock theme for MRS. Ocean. Served as a volunteer
-                            stylist for Miss Universe India.</p>
+                        <p>Designed custom outfits for Miss Rajasthan, Miss Ocean, and Miss Celeste. Created a highly acclaimed national outfit based on a peacock theme for MRS. Ocean. Served as a volunteer stylist for Miss Universe India.</p>
                     </div>
                 </div>
             </div>
@@ -1557,16 +1385,14 @@
                     <div class="section-kicker">03 — Expertise & Skills</div>
                     <h2>My Design<br><em>Toolkit.</em></h2>
                 </div>
-                <p class="section-desc">Key disciplines, technical proficiencies, and design fundamentals shaping my
-                    creative approach.</p>
+                <p class="section-desc">Key disciplines, technical proficiencies, and design fundamentals shaping my creative approach.</p>
             </div>
-
+            
             <div class="process-grid reveal delay-1">
                 <article class="process-card">
                     <span class="process-no">01 / Core</span>
                     <h3>Fashion Design</h3>
-                    <p>Fashion Illustration, Garment Construction, Pattern Making, Textile Design, Surface
-                        Ornamentation.</p>
+                    <p>Fashion Illustration, Garment Construction, Pattern Making, Textile Design, Surface Ornamentation.</p>
                 </article>
                 <article class="process-card">
                     <span class="process-no">02 / Visuals</span>
@@ -1606,10 +1432,9 @@
                     <div class="section-kicker">04 — Design Archive</div>
                     <h2>Projects &<br><em>Explorations.</em></h2>
                 </div>
-                <p class="section-desc">Filter through my academic assignments, textile research, conceptual sketches,
-                    and final sewn garments.</p>
+                <p class="section-desc">Filter through my academic assignments, textile research, conceptual sketches, and final sewn garments.</p>
             </div>
-
+            
             <div class="filter-row reveal delay-1" role="group" aria-label="Filter portfolio">
                 <button class="filter-btn active" data-filter="all">All Work</button>
                 <button class="filter-btn" data-filter="garments">Final Garments</button>
@@ -1617,70 +1442,44 @@
                 <button class="filter-btn" data-filter="draping">Draping & Patterns</button>
                 <button class="filter-btn" data-filter="textiles">Textile Studies</button>
             </div>
-
+            
             <div class="gallery" id="gallery">
                 <article class="gallery-card reveal" data-category="garments" data-item="4" tabindex="0">
-                    <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=900&q=85"
-                        alt="Final garment construction" loading="lazy">
-                    <div class="gallery-meta"><small>Garments · 01</small>
-                        <h3>Unexpected Elegance</h3>
-                    </div>
+                    <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=900&q=85" alt="Final garment construction" loading="lazy">
+                    <div class="gallery-meta"><small>Garments · 01</small><h3>Unexpected Elegance</h3></div>
                 </article>
                 <article class="gallery-card reveal delay-1" data-category="concepts" data-item="5" tabindex="0">
-                    <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=85"
-                        alt="Concept moodboard" loading="lazy">
-                    <div class="gallery-meta"><small>Concepts · 02</small>
-                        <h3>Quiet Confidence</h3>
-                    </div>
+                    <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=85" alt="Concept moodboard" loading="lazy">
+                    <div class="gallery-meta"><small>Concepts · 02</small><h3>Quiet Confidence</h3></div>
                 </article>
                 <article class="gallery-card reveal delay-2" data-category="textiles" data-item="6" tabindex="0">
-                    <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=900&q=85"
-                        alt="Textile details" loading="lazy">
-                    <div class="gallery-meta"><small>Textiles · 03</small>
-                        <h3>Texture & Tone</h3>
-                    </div>
+                    <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=900&q=85" alt="Textile details" loading="lazy">
+                    <div class="gallery-meta"><small>Textiles · 03</small><h3>Texture & Tone</h3></div>
                 </article>
                 <article class="gallery-card reveal" data-category="draping" data-item="3" tabindex="0">
-                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=85"
-                        alt="Draping assignment" loading="lazy">
-                    <div class="gallery-meta"><small>Draping · 04</small>
-                        <h3>Volume Studies</h3>
-                    </div>
+                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=85" alt="Draping assignment" loading="lazy">
+                    <div class="gallery-meta"><small>Draping · 04</small><h3>Volume Studies</h3></div>
                 </article>
                 <article class="gallery-card reveal delay-1" data-category="garments" data-item="8" tabindex="0">
-                    <img src="https://images.unsplash.com/photo-1524250502761-1ac6f2e30d43?auto=format&fit=crop&w=900&q=85"
-                        alt="Expressive fashion styling" loading="lazy">
-                    <div class="gallery-meta"><small>Garments · 05</small>
-                        <h3>Made to Move</h3>
-                    </div>
+                    <img src="https://images.unsplash.com/photo-1524250502761-1ac6f2e30d43?auto=format&fit=crop&w=900&q=85" alt="Expressive fashion styling" loading="lazy">
+                    <div class="gallery-meta"><small>Garments · 05</small><h3>Made to Move</h3></div>
                 </article>
                 <article class="gallery-card reveal delay-2" data-category="draping" data-item="7" tabindex="0">
-                    <img src="https://images.unsplash.com/photo-1594552072238-b8a33785b261?auto=format&fit=crop&w=900&q=85"
-                        alt="Pattern making mood" loading="lazy">
-                    <div class="gallery-meta"><small>Draping · 06</small>
-                        <h3>Softly Constructed</h3>
-                    </div>
+                    <img src="https://images.unsplash.com/photo-1594552072238-b8a33785b261?auto=format&fit=crop&w=900&q=85" alt="Pattern making mood" loading="lazy">
+                    <div class="gallery-meta"><small>Draping · 06</small><h3>Softly Constructed</h3></div>
                 </article>
             </div>
-
+            
             <!-- Major Brand Projects Block -->
             <div class="achievements-grid reveal" style="margin-top: 60px;">
                 <div class="achievement-card">
-                    <h3 style="font: 400 2.2rem var(--serif); color: var(--ink); margin-bottom: 15px;">KUMBAAY – Fashion
-                        & Jewellery Brand</h3>
-                    <p style="color: var(--muted); line-height: 1.9; max-width: 900px; font-size: 1.05rem;">Developed
-                        the concept and visual identity for a contemporary fashion and jewellery brand. Designed
-                        branding elements, website visuals, packaging concepts, and promotional creatives. Created
-                        luxury product presentations and campaign concepts.</p>
+                    <h3 style="font: 400 2.2rem var(--serif); color: var(--ink); margin-bottom: 15px;">KUMBAAY – Fashion & Jewellery Brand</h3>
+                    <p style="color: var(--muted); line-height: 1.9; max-width: 900px; font-size: 1.05rem;">Developed the concept and visual identity for a contemporary fashion and jewellery brand. Designed branding elements, website visuals, packaging concepts, and promotional creatives. Created luxury product presentations and campaign concepts.</p>
                 </div>
-
+                
                 <div class="achievement-card">
-                    <h3 style="font: 400 2.2rem var(--serif); color: var(--ink); margin-bottom: 15px;">PAGEANT SHOWS
-                    </h3>
-                    <p style="color: var(--muted); line-height: 1.9; max-width: 900px; font-size: 1.05rem;">Designed
-                        highly praised outfits for Miss Rajasthan, Miss Ocean, and Miss Celeste. Created a show-stopping
-                        national outfit based on a peacock theme for MRS. Ocean. Proudly served as a volunteer stylist
-                        in Miss Universe India.</p>
+                    <h3 style="font: 400 2.2rem var(--serif); color: var(--ink); margin-bottom: 15px;">PAGEANT SHOWS</h3>
+                    <p style="color: var(--muted); line-height: 1.9; max-width: 900px; font-size: 1.05rem;">Designed highly praised outfits for Miss Rajasthan, Miss Ocean, and Miss Celeste. Created a show-stopping national outfit based on a peacock theme for MRS. Ocean. Proudly served as a volunteer stylist in Miss Universe India.</p>
                 </div>
             </div>
         </section>
@@ -1691,8 +1490,7 @@
                 <div class="contact-copy reveal">
                     <div class="section-kicker">05 — Let's connect</div>
                     <h2>Say <em>Hello.</em></h2>
-                    <p>I am currently seeking internship opportunities, creative collaborations, or styling assistant
-                        roles to grow my skills and bring fresh perspectives to the industry.</p>
+                    <p>I am currently seeking internship opportunities, creative collaborations, or styling assistant roles to grow my skills and bring fresh perspectives to the industry.</p>
                     <div class="contact-detail">
                         <div><strong>Phone</strong>+91 8696651975</div>
                         <div><strong>Email me</strong>dixitakmwt.25@gmail.com</div>
@@ -1719,13 +1517,10 @@
                     </div>
                     <div class="form-field full">
                         <label for="message">Tell me more *</label>
-                        <textarea id="message" name="message" required
-                            placeholder="Details about the role, collaboration idea, or just saying hi..."></textarea>
+                        <textarea id="message" name="message" required placeholder="Details about the role, collaboration idea, or just saying hi..."></textarea>
                     </div>
-                    <p class="form-note">This demo opens your email app with the enquiry details. Ensure your mail app
-                        is configured to send.</p>
-                    <button class="button primary" type="submit" style="justify-self: start; margin-top: 10px;">Send
-                        Message ↗</button>
+                    <p class="form-note">This demo opens your email app with the enquiry details. Ensure your mail app is configured to send.</p>
+                    <button class="button primary" type="submit" style="justify-self: start; margin-top: 10px;">Send Message ↗</button>
                 </form>
             </div>
         </section>
@@ -1762,7 +1557,7 @@
             </div>
         </div>
     </div>
-
+    
     <!-- TOAST NOTIFICATION -->
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
@@ -1779,163 +1574,162 @@
             { title: "Quiet Confidence", kicker: "Concept · Styling", description: "An editorial exploration of colour theory and styling as part of a visual communication module, focusing on minimalism.", image: "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1200&q=88" },
             { title: "Texture & Tone", kicker: "Textiles · Material story", description: "Sourcing and combining swatches for upcoming projects, examining how different weaves and weights interact.", image: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1200&q=88" },
             { title: "Softly Constructed", kicker: "Pattern Making", description: "Drafting flat patterns focused on creating soft, romantic volumes without rigid interfacing.", image: "https://images.unsplash.com/photo-1594552072238-b8a33785b261?auto=format&fit=crop&w=1200&q=88" },
-            { title: "Made to Move", kicker: "Final Garment", description: "Expressive design with freedom of movement at its heart. Executed using advanced sewing and finishing techniques.", image: "https://images.unsplash.com/photo-1524250502761-1ac6f2e30d43?auto=format&fit=crop&w=1200&q=88" }
-        ];
+            { title: "Made to Move", kicker: "Final Garment", description: "Expressive design with freedom of movement at its heart. Executed using advanced sewing and finishing techniques.", image: "https://images.unsplash.com/photo-1524250502761-1ac6f2e30d43?auto=format&fit=crop&w=1200&q=88" } 
+        ]; 
 
         // Modal Logic 
-        function showProject(index) {
+        function showProject(index) { 
             const item = projectData[index];
-            if (!item) return;
+            if (!item) return; 
             $("#modalImage").src = item.image;
-            $("#modalImage").alt = item.title;
+            $("#modalImage").alt = item.title; 
             $("#modalKicker").textContent = item.kicker;
-            $("#modalTitle").textContent = item.title;
-            $("#modalDescription").textContent = item.description;
+            $("#modalTitle").textContent = item.title; 
+            $("#modalDescription").textContent = item.description; 
             $("#projectModal").classList.add("open");
-            document.body.style.overflow = "hidden";
-        }
+            document.body.style.overflow = "hidden"; 
+        } 
 
         function closeProject() {
             $("#projectModal").classList.remove("open");
             document.body.style.overflow = "";
-        }
+        } 
 
-        $("#modalClose").addEventListener("click", closeProject);
+        $("#modalClose").addEventListener("click", closeProject); 
         $("#projectModal").addEventListener("click", e => {
             if (e.target === $("#projectModal")) closeProject();
-        });
+        }); 
         document.addEventListener("keydown", e => {
             if (e.key === "Escape") {
                 closeProject();
                 closeMenu();
             }
-        });
+        }); 
 
-        $$("[data-modal]").forEach(card => {
-            const open = () => showProject(Number(card.dataset.modal));
-            card.addEventListener("click", open);
+        $$("[data-modal]").forEach(card => {  
+            const open = () => showProject(Number(card.dataset.modal));  
+            card.addEventListener("click", open);  
             card.addEventListener("keydown", e => {
                 if (e.key === "Enter" || e.key === " ") {
                     e.preventDefault();
                     open();
                 }
-            });
-        });
+            }); 
+        }); 
 
-        $$(".gallery-card").forEach(card => {
-            const open = () => showProject(Number(card.dataset.item));
-            card.addEventListener("click", open);
+        $$(".gallery-card").forEach(card => {  
+            const open = () => showProject(Number(card.dataset.item));  
+            card.addEventListener("click", open);  
             card.addEventListener("keydown", e => {
                 if (e.key === "Enter" || e.key === " ") {
                     e.preventDefault();
                     open();
                 }
-            });
-        });
+            }); 
+        }); 
 
         // Portfolio Filtering 
-        $$(".filter-btn").forEach(button => button.addEventListener("click", () => {
-            $$(".filter-btn").forEach(b => b.classList.toggle("active", b === button));
-            const filter = button.dataset.filter;
-            $$(".gallery-card").forEach(card => {
-                const visible = filter === "all" || card.dataset.category === filter;
-                card.classList.toggle("hidden", !visible);
-                if (visible) {
-                    card.classList.remove("visible");
-                    setTimeout(() => card.classList.add("visible"), 10);
-                }
-            });
-        }));
+        $$(".filter-btn").forEach(button => button.addEventListener("click", () => { 
+            $$(".filter-btn").forEach(b => b.classList.toggle("active", b === button)); 
+            const filter = button.dataset.filter; 
+            $$(".gallery-card").forEach(card => { 
+                const visible = filter === "all" || card.dataset.category === filter; 
+                card.classList.toggle("hidden", !visible); 
+                if (visible) {  
+                    card.classList.remove("visible");  
+                    setTimeout(() => card.classList.add("visible"), 10);  
+                } 
+            }); 
+        })); 
 
         // Scroll Progress & Header 
-        const header = $("#header");
-        function onScroll() {
-            const scroll = window.scrollY;
-            header.classList.toggle("scrolled", scroll > 35);
-            const max = document.documentElement.scrollHeight - window.innerHeight;
-            $("#progress").style.width = (max > 0 ? scroll / max * 100 : 0) + "%";
-        }
+        const header = $("#header"); 
+        function onScroll() { 
+            const scroll = window.scrollY;  
+            header.classList.toggle("scrolled", scroll > 35); 
+            const max = document.documentElement.scrollHeight - window.innerHeight; 
+            $("#progress").style.width = (max > 0 ? scroll / max * 100 : 0) + "%"; 
+        } 
         window.addEventListener("scroll", onScroll, { passive: true });
-        onScroll();
+        onScroll(); 
 
         // Mobile Menu 
-        const menuToggle = $("#menuToggle"), navLinks = $("#navLinks");
-        function closeMenu() {
-            navLinks.classList.remove("open");
-            document.body.classList.remove("menu-open");
-            menuToggle.setAttribute("aria-expanded", "false");
-            menuToggle.textContent = "☰";
-        }
-        menuToggle.addEventListener("click", () => {
-            const open = !navLinks.classList.contains("open");
-            navLinks.classList.toggle("open", open);
-            document.body.classList.toggle("menu-open", open);
-            menuToggle.setAttribute("aria-expanded", String(open));
-            menuToggle.textContent = open ? "×" : "☰";
-        });
-        $$(".nav-links a").forEach(link => link.addEventListener("click", closeMenu));
+        const menuToggle = $("#menuToggle"), navLinks = $("#navLinks"); 
+        function closeMenu() {  
+            navLinks.classList.remove("open");  
+            document.body.classList.remove("menu-open");  
+            menuToggle.setAttribute("aria-expanded", "false");  
+            menuToggle.textContent = "☰";  
+        } 
+        menuToggle.addEventListener("click", () => {  
+            const open = !navLinks.classList.contains("open");  
+            navLinks.classList.toggle("open", open);  
+            document.body.classList.toggle("menu-open", open);  
+            menuToggle.setAttribute("aria-expanded", String(open));  
+            menuToggle.textContent = open ? "×" : "☰";  
+        }); 
+        $$(".nav-links a").forEach(link => link.addEventListener("click", closeMenu)); 
 
         // Scroll Reveal Animations 
-        const revealObserver = new IntersectionObserver(entries => entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("visible");
-                revealObserver.unobserve(entry.target);
-            }
-        }), { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
-        $$(".reveal").forEach(el => revealObserver.observe(el));
+        const revealObserver = new IntersectionObserver(entries => entries.forEach(entry => { 
+            if (entry.isIntersecting) {  
+                entry.target.classList.add("visible");  
+                revealObserver.unobserve(entry.target);  
+            } 
+        }), { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }); 
+        $$(".reveal").forEach(el => revealObserver.observe(el)); 
 
         // Custom Cursor 
-        const cursor = $("#cursorDot");
-        if (window.matchMedia("(pointer:fine)").matches) {
-            window.addEventListener("mousemove", e => {
-                cursor.style.left = e.clientX + "px";
-                cursor.style.top = e.clientY + "px";
-            }, { passive: true });
-
+        const cursor = $("#cursorDot"); 
+        if (window.matchMedia("(pointer:fine)").matches) { 
+            window.addEventListener("mousemove", e => {  
+                cursor.style.left = e.clientX + "px";  
+                cursor.style.top = e.clientY + "px";  
+            }, { passive: true }); 
+             
             // Cursor interaction effects 
-            $$("a, button, .gallery-card, .collection-card").forEach(el => {
-                el.addEventListener("mouseenter", () => cursor.style.transform = "translate(-50%, -50%) scale(2.5)");
-                el.addEventListener("mouseleave", () => cursor.style.transform = "translate(-50%, -50%) scale(1)");
-            });
-        }
-
+            $$("a, button, .gallery-card, .collection-card").forEach(el => { 
+                el.addEventListener("mouseenter", () => cursor.style.transform = "translate(-50%, -50%) scale(2.5)"); 
+                el.addEventListener("mouseleave", () => cursor.style.transform = "translate(-50%, -50%) scale(1)"); 
+            }); 
+        } 
+         
         // Initial Page Loader 
-        window.addEventListener("DOMContentLoaded", () => {
-            setTimeout(() => {
-                $("#loader").classList.add("hide");
-            }, 800);
-        });
+        window.addEventListener("DOMContentLoaded", () => { 
+            setTimeout(() => { 
+                $("#loader").classList.add("hide"); 
+            }, 800);  
+        }); 
 
         // Set Current Year 
-        $("#year").textContent = new Date().getFullYear();
+        $("#year").textContent = new Date().getFullYear(); 
 
         // Contact Form Submission 
-        function showToast(message) {
-            const toast = $("#toast");
-            toast.textContent = message;
-            toast.classList.add("show");
-            setTimeout(() => toast.classList.remove("show"), 3500);
-        }
-
-        $("#contactForm").addEventListener("submit", e => {
-            e.preventDefault();
-            const form = new FormData(e.currentTarget);
-            const name = form.get("name"),
-                email = form.get("email"),
-                project = form.get("project"),
-                message = form.get("message");
-            const recipient = "dixitakmwt.25@gmail.com";
-            const subject = encodeURIComponent("Portfolio Enquiry — " + project);
-            const body = encodeURIComponent("Name/Company: " + name + "\nEmail: " + email + "\nEnquiry: " + project + "\n\nMessage:\n" + message);
-            showToast("Opening your email app to send the enquiry…");
-            window.location.href = "mailto:" + recipient + "?subject=" + subject + "&body=" + body;
-        });
-
-        $("#modalContact").addEventListener("click", () => {
-            closeProject();
-            closeMenu();
+        function showToast(message) {  
+            const toast = $("#toast");  
+            toast.textContent = message;  
+            toast.classList.add("show");  
+            setTimeout(() => toast.classList.remove("show"), 3500);  
+        } 
+         
+        $("#contactForm").addEventListener("submit", e => { 
+            e.preventDefault(); 
+            const form = new FormData(e.currentTarget); 
+            const name = form.get("name"),  
+                  email = form.get("email"),  
+                  project = form.get("project"),  
+                  message = form.get("message"); 
+            const recipient = "dixitakmwt.25@gmail.com"; 
+            const subject = encodeURIComponent("Portfolio Enquiry — " + project); 
+            const body = encodeURIComponent("Name/Company: " + name + "\nEmail: " + email + "\nEnquiry: " + project + "\n\nMessage:\n" + message); 
+            showToast("Opening your email app to send the enquiry…"); 
+            window.location.href = "mailto:" + recipient + "?subject=" + subject + "&body=" + body; 
         }); 
-    </script>
-</body>
-
+         
+        $("#modalContact").addEventListener("click", () => { 
+            closeProject(); 
+            closeMenu(); 
+        }); 
+    </script> 
+</body> 
 </html>
