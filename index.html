@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#f8f3f7">
     <meta name="description"
-        content="DIXITA — an independent fashion designer shaping modern couture, bridal artistry and expressive silhouettes.">
-    <title>DIXITA | Fashion Designer & Couture Atelier</title>
+        content="DIXITA — A fashion design student portfolio showcasing academic projects, draping, and conceptual silhouettes.">
+    <title>DIXITA | Fashion Design Student Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -140,6 +140,19 @@
             to {
                 opacity: .35;
                 transform: translateY(-4px)
+            }
+        }
+
+        /* Added Missing Animation for smooth gallery filtering */
+        @keyframes cardIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px) scale(0.98);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
             }
         }
 
@@ -706,7 +719,7 @@
             cursor: pointer;
             grid-column: span 4;
             border-radius: 5px;
-            animation: cardIn .5s both
+            animation: cardIn .6s var(--ease) both;
         }
 
         .gallery-card:nth-child(6n+1),
@@ -1175,7 +1188,7 @@
                 display: flex;
                 flex-direction: column;
                 align-items: stretch;
-                padding: 125px 5vw 70px;
+                padding: 110px 5vw 60px;
                 gap: 35px;
                 min-height: auto
             }
@@ -1194,8 +1207,8 @@
             }
 
             .hero-visual {
-                height: 68vh;
-                min-height: 400px;
+                height: 50vh;
+                min-height: 380px;
                 margin: 0 5px
             }
 
@@ -1364,7 +1377,8 @@
             }
         }
 
-        @media(hover:none), (pointer:coarse) {
+        @media(hover:none),
+        (pointer:coarse) {
             .cursor-dot {
                 display: none
             }
@@ -1395,49 +1409,50 @@
     <div id="loader">
         <div>
             <div class="loader-mark">DIXITA</div>
-            <div class="loader-sub">A fashion house in motion</div>
+            <div class="loader-sub">Fashion Design Student</div>
         </div>
     </div>
     <div class="cursor-dot" id="cursorDot"></div>
 
     <header class="site-header" id="header">
-        <a class="brand" href="#home" aria-label="Dixita home">DIXITA<small>DESIGNER · ATELIER</small></a>
+        <a class="brand" href="#home" aria-label="Dixita home">DIXITA<small>FASHION DESIGN · STUDENT
+                PORTFOLIO</small></a>
         <nav class="nav-links" id="navLinks" aria-label="Main navigation">
-            <a href="#about">The Designer</a><a href="#collections">Collections</a><a href="#portfolio">Portfolio</a><a
-                href="#process">The Atelier</a><a href="#contact">Contact</a>
+            <a href="#about">About Me</a><a href="#collections">Academic Work</a><a href="#portfolio">Portfolio</a><a
+                href="#process">Design Process</a><a href="#contact">Contact</a>
         </nav>
-        <a class="nav-cta" href="#contact">Book a Consultation ↗</a>
+        <a class="nav-cta" href="#contact">Let's Connect ↗</a>
         <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false">☰</button>
     </header>
 
     <main>
         <section class="hero" id="home">
             <div class="hero-copy">
-                <div class="eyebrow">Independent fashion designer</div>
-                <h1>Wear your<br><em>own story.</em></h1>
-                <p class="hero-intro">Thoughtful silhouettes. Unexpected details. A little romance in every seam.
-                    Discover the world of DIXITA, where personal style becomes wearable art.</p>
-                <div class="hero-actions"><a class="button primary" href="#collections">Explore collections
-                        <span>↗</span></a><a class="button" href="#contact">Create with me</a></div>
-                <div class="hero-note"><span></span> Couture · Occasionwear · Bespoke design</div>
+                <div class="eyebrow">Fashion Design Student</div>
+                <h1>Shaping the<br><em>future of fashion.</em></h1>
+                <p class="hero-intro">Exploring silhouettes, unexpected details, and structural forms. Welcome to my
+                    digital diary as a fashion design student, where every sketch tells a story.</p>
+                <div class="hero-actions"><a class="button primary" href="#collections">Explore my work
+                        <span>↗</span></a><a class="button" href="#contact">Say Hello</a></div>
+                <div class="hero-note"><span></span> Apparel Design · Pattern Making · Conceptual Illustration</div>
             </div>
             <div class="hero-visual">
                 <div class="hero-image-frame"><img
                         src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=1200&q=88"
                         alt="Editorial fashion look in a flowing designer outfit" fetchpriority="high"></div>
                 <div class="hero-stamp">Made with<br>feeling &<br>intention</div>
-                <div class="hero-index">01 / DIXITA ATELIER</div>
-                <div class="hero-caption">A study in modern femininity</div>
+                <div class="hero-index">01 / STUDENT DIARY</div>
+                <div class="hero-caption">A study in structure and form</div>
             </div>
             <div class="scroll-cue"><i></i> Scroll to discover</div>
         </section>
 
         <div class="marquee-band" aria-label="Design philosophy">
             <div class="marquee-track">
-                <span>Soft structure</span><b>✳</b><span>Modern heirlooms</span><b>✳</b><span>Made to feel like
-                    you</span><b>✳</b><span>Art in every detail</span><b>✳</b><span>Soft
-                    structure</span><b>✳</b><span>Modern heirlooms</span><b>✳</b><span>Made to feel like
-                    you</span><b>✳</b><span>Art in every detail</span><b>✳</b>
+                <span>Concept sketching</span><b>✳</b><span>Draping techniques</span><b>✳</b><span>Pattern
+                    making</span><b>✳</b><span>Textile exploration</span><b>✳</b><span>Concept
+                    sketching</span><b>✳</b><span>Draping techniques</span><b>✳</b><span>Pattern
+                    making</span><b>✳</b><span>Textile exploration</span><b>✳</b>
             </div>
         </div>
 
@@ -1446,18 +1461,17 @@
                 <div class="intro-image reveal">
                     <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1000&q=85"
                         alt="Fashion editorial with sculptural styling" loading="lazy">
-                    <div class="image-label">A point of view.<br>A personal signature.</div>
+                    <div class="image-label">A learning journey.<br>A personal signature.</div>
                 </div>
                 <div class="intro-copy reveal">
-                    <div class="section-kicker">01 — Meet the designer</div>
+                    <div class="section-kicker">01 — Meet the student</div>
                     <h2>Designing for<br><em>the feeling.</em></h2>
-                    <p>DIXITA is an independent design practice built around individuality, craftsmanship and the
-                        confidence that comes from wearing something that feels truly yours.</p>
-                    <p>From the first sketch to the final fitting, every piece begins with a story. Fluid shapes meet
-                        considered tailoring, tactile fabrics meet delicate details, and tradition finds a fresh
-                        expression.</p>
-                    <a href="#process" class="button">Inside the atelier ↗</a>
-                    <div class="signature">Dixita<small>Designer & creative director</small></div>
+                    <p>DIXITA is my growing design portfolio built around experimentation, craftsmanship, and the search
+                        for an individual aesthetic voice.</p>
+                    <p>From early concept sketches to final construction, my work explores fluid shapes, considered
+                        tailoring, tactile fabrics, and how traditional techniques can find fresh expression.</p>
+                    <a href="#process" class="button">See my process ↗</a>
+                    <div class="signature">Dixita<small>Fashion Design Student</small></div>
                 </div>
             </div>
         </section>
@@ -1465,38 +1479,41 @@
         <section class="section collections" id="collections">
             <div class="section-head reveal">
                 <div>
-                    <div class="section-kicker">02 — The design universe</div>
-                    <h2>Collections with<br><em>character.</em></h2>
+                    <div class="section-kicker">02 — The Academic Journey</div>
+                    <h2>Projects with<br><em>purpose.</em></h2>
                 </div>
-                <p class="section-desc">Three expressions of one design philosophy: thoughtful, expressive and made to
-                    be remembered.</p>
+                <p class="section-desc">Key modules and collections from my coursework, showcasing a progression in
+                    technique, scale, and storytelling.</p>
             </div>
             <div class="collection-grid">
                 <article class="collection-card reveal" tabindex="0" data-modal="0">
                     <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=900&q=85"
                         alt="Romantic flowing occasionwear" loading="lazy">
                     <div class="collection-arrow">↗</div>
-                    <div class="collection-info"><small>Collection 01 · Occasionwear</small>
-                        <h3>Petal & Poise</h3>
-                        <p>Romantic forms, soft movement and details that reveal themselves slowly.</p>
+                    <div class="collection-info"><small>Term 01 · Foundation Studio</small>
+                        <h3>Organic Forms</h3>
+                        <p>First explorations in garment construction, focusing on soft movement and basic structure.
+                        </p>
                     </div>
                 </article>
                 <article class="collection-card reveal" tabindex="0" data-modal="1">
                     <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=85"
                         alt="Contemporary designer street style" loading="lazy">
                     <div class="collection-arrow">↗</div>
-                    <div class="collection-info"><small>Collection 02 · Contemporary</small>
+                    <div class="collection-info"><small>Term 02 · Advanced Draping</small>
                         <h3>City Muse</h3>
-                        <p>Clean lines and confident layers for a life that moves at its own pace.</p>
+                        <p>Working directly on the stand to understand fabric behavior, volume, and confident layers.
+                        </p>
                     </div>
                 </article>
                 <article class="collection-card reveal" tabindex="0" data-modal="2">
                     <img src="https://images.unsplash.com/photo-1539008835657-9e8e9680c956?auto=format&fit=crop&w=900&q=85"
                         alt="Elegant formal designer dress" loading="lazy">
                     <div class="collection-arrow">↗</div>
-                    <div class="collection-info"><small>Collection 03 · Atelier</small>
-                        <h3>Afterglow</h3>
-                        <p>Statement occasion pieces with a quiet kind of drama.</p>
+                    <div class="collection-info"><small>Term 03 · Final Project (WIP)</small>
+                        <h3>The Capsule</h3>
+                        <p>A conceptual collection currently in progress, marrying complex patterns with quiet drama.
+                        </p>
                     </div>
                 </article>
             </div>
@@ -1508,76 +1525,77 @@
                     <div class="section-kicker">03 — Selected work</div>
                     <h2>The visual<br><em>diary.</em></h2>
                 </div>
-                <p class="section-desc">A changing moodboard of silhouettes, styling, textures and the little details
-                    that make a look unmistakable.</p>
+                <p class="section-desc">A moodboard of assignments, styling explorations, textures, and the pieces I'm
+                    most proud to have constructed.</p>
             </div>
             <div class="filter-row reveal" role="group" aria-label="Filter portfolio">
-                <button class="filter-btn active" data-filter="all">All work</button><button class="filter-btn"
-                    data-filter="couture">Couture</button><button class="filter-btn"
-                    data-filter="editorial">Editorial</button><button class="filter-btn" data-filter="bridal">Bridal
-                    mood</button><button class="filter-btn" data-filter="details">Details</button>
+                <button class="filter-btn active" data-filter="all">All work</button>
+                <button class="filter-btn" data-filter="concepts">Sketches & Concepts</button>
+                <button class="filter-btn" data-filter="draping">Draping & Patterns</button>
+                <button class="filter-btn" data-filter="garments">Final Garments</button>
+                <button class="filter-btn" data-filter="textiles">Textiles</button>
             </div>
             <div class="gallery" id="gallery">
-                <article class="gallery-card reveal" data-category="couture" data-item="0" tabindex="0"><img
+                <article class="gallery-card reveal" data-category="garments" data-item="0" tabindex="0"><img
                         src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=900&q=85"
-                        alt="Sculpted couture styling" loading="lazy">
-                    <div class="gallery-meta"><small>Couture · 01</small>
+                        alt="Sculpted styling" loading="lazy">
+                    <div class="gallery-meta"><small>Garments · 01</small>
                         <h3>Form in motion</h3>
                     </div>
                 </article>
-                <article class="gallery-card reveal" data-category="editorial" data-item="1" tabindex="0"><img
+                <article class="gallery-card reveal" data-category="concepts" data-item="1" tabindex="0"><img
                         src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=85"
-                        alt="Editorial fashion portrait" loading="lazy">
-                    <div class="gallery-meta"><small>Editorial · 02</small>
+                        alt="Concept moodboard" loading="lazy">
+                    <div class="gallery-meta"><small>Concepts · 02</small>
                         <h3>Quiet confidence</h3>
                     </div>
                 </article>
-                <article class="gallery-card reveal" data-category="details" data-item="2" tabindex="0"><img
+                <article class="gallery-card reveal" data-category="textiles" data-item="2" tabindex="0"><img
                         src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=85"
-                        alt="Fashion details and styling" loading="lazy">
-                    <div class="gallery-meta"><small>Details · 03</small>
+                        alt="Textile details" loading="lazy">
+                    <div class="gallery-meta"><small>Textiles · 03</small>
                         <h3>The finishing touch</h3>
                     </div>
                 </article>
-                <article class="gallery-card reveal" data-category="bridal" data-item="3" tabindex="0"><img
+                <article class="gallery-card reveal" data-category="draping" data-item="3" tabindex="0"><img
                         src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=85"
-                        alt="Romantic bridal inspiration" loading="lazy">
-                    <div class="gallery-meta"><small>Bridal mood · 04</small>
-                        <h3>A day to remember</h3>
+                        alt="Draping assignment" loading="lazy">
+                    <div class="gallery-meta"><small>Draping · 04</small>
+                        <h3>Volume Studies</h3>
                     </div>
                 </article>
-                <article class="gallery-card reveal" data-category="couture" data-item="4" tabindex="0"><img
+                <article class="gallery-card reveal" data-category="garments" data-item="4" tabindex="0"><img
                         src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=900&q=85"
-                        alt="Fashion runway inspired look" loading="lazy">
-                    <div class="gallery-meta"><small>Couture · 05</small>
+                        alt="Final garment construction" loading="lazy">
+                    <div class="gallery-meta"><small>Garments · 05</small>
                         <h3>Unexpected elegance</h3>
                     </div>
                 </article>
-                <article class="gallery-card reveal" data-category="editorial" data-item="5" tabindex="0"><img
+                <article class="gallery-card reveal" data-category="concepts" data-item="5" tabindex="0"><img
                         src="https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?auto=format&fit=crop&w=900&q=85"
-                        alt="Contemporary fashion editorial" loading="lazy">
-                    <div class="gallery-meta"><small>Editorial · 06</small>
+                        alt="Styling assignment" loading="lazy">
+                    <div class="gallery-meta"><small>Concepts · 06</small>
                         <h3>Colour study</h3>
                     </div>
                 </article>
-                <article class="gallery-card reveal" data-category="details" data-item="6" tabindex="0"><img
+                <article class="gallery-card reveal" data-category="textiles" data-item="6" tabindex="0"><img
                         src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=900&q=85"
-                        alt="Curated wardrobe textures" loading="lazy">
-                    <div class="gallery-meta"><small>Details · 07</small>
+                        alt="Curated fabrics" loading="lazy">
+                    <div class="gallery-meta"><small>Textiles · 07</small>
                         <h3>Texture & tone</h3>
                     </div>
                 </article>
-                <article class="gallery-card reveal" data-category="bridal" data-item="7" tabindex="0"><img
+                <article class="gallery-card reveal" data-category="draping" data-item="7" tabindex="0"><img
                         src="https://images.unsplash.com/photo-1594552072238-b8a33785b261?auto=format&fit=crop&w=900&q=85"
-                        alt="Bridal dress inspiration" loading="lazy">
-                    <div class="gallery-meta"><small>Bridal mood · 08</small>
-                        <h3>Softly ceremonial</h3>
+                        alt="Pattern making mood" loading="lazy">
+                    <div class="gallery-meta"><small>Draping · 08</small>
+                        <h3>Softly constructed</h3>
                     </div>
                 </article>
-                <article class="gallery-card reveal" data-category="couture" data-item="8" tabindex="0"><img
+                <article class="gallery-card reveal" data-category="garments" data-item="8" tabindex="0"><img
                         src="https://images.unsplash.com/photo-1524250502761-1ac6f2e30d43?auto=format&fit=crop&w=900&q=85"
                         alt="Expressive fashion styling" loading="lazy">
-                    <div class="gallery-meta"><small>Couture · 09</small>
+                    <div class="gallery-meta"><small>Garments · 09</small>
                         <h3>Made to move</h3>
                     </div>
                 </article>
@@ -1587,76 +1605,78 @@
         <section class="section" id="process">
             <div class="section-head reveal">
                 <div>
-                    <div class="section-kicker">04 — The atelier experience</div>
-                    <h2>From first thought<br>to <em>forever piece.</em></h2>
+                    <div class="section-kicker">04 — The student process</div>
+                    <h2>From brief<br>to <em>final piece.</em></h2>
                 </div>
-                <p class="section-desc">A considered, collaborative process that gives your idea room to become
-                    something exceptional.</p>
+                <p class="section-desc">A look into how I tackle design assignments, from the initial spark of
+                    inspiration to the sewing machine.</p>
             </div>
             <div class="process-grid reveal">
-                <article class="process-card"><span class="process-no">01 / Discover</span>
-                    <h3>The conversation</h3>
-                    <p>We talk about your story, the occasion, your inspirations and how you want to feel in the final
-                        piece.</p>
+                <article class="process-card"><span class="process-no">01 / Research</span>
+                    <h3>The Moodboard</h3>
+                    <p>Building the visual vocabulary for a project through historical research, art, and fabric
+                        sourcing.</p>
                 </article>
-                <article class="process-card"><span class="process-no">02 / Imagine</span>
-                    <h3>The design</h3>
-                    <p>References, sketches, colour stories and fabric directions bring the first vision into focus.</p>
+                <article class="process-card"><span class="process-no">02 / Sketch</span>
+                    <h3>The Concepts</h3>
+                    <p>Translating ideas to paper, refining silhouettes, and developing color stories for the
+                        collection.</p>
                 </article>
-                <article class="process-card"><span class="process-no">03 / Create</span>
-                    <h3>The craft</h3>
-                    <p>Thoughtful construction, fittings and detail refinement turn the concept into a garment made for
-                        you.</p>
+                <article class="process-card"><span class="process-no">03 / Pattern</span>
+                    <h3>The Architecture</h3>
+                    <p>Drafting flat patterns and draping on the mannequin to solve structural challenges before cutting
+                        final fabric.</p>
                 </article>
-                <article class="process-card"><span class="process-no">04 / Reveal</span>
-                    <h3>Your moment</h3>
-                    <p>The final fitting brings every detail together, ready for the moment you have been imagining.</p>
+                <article class="process-card"><span class="process-no">04 / Construct</span>
+                    <h3>The Execution</h3>
+                    <p>Careful stitching, hand-finishing, and multiple fittings to ensure the garment matches the
+                        original vision.</p>
                 </article>
             </div>
         </section>
 
         <section class="quote-section">
             <div class="quote-mark">“</div>
-            <blockquote>Fashion should not ask you to become someone else. It should help the world see more of who you
-                already are.</blockquote>
-            <p>Dixita · Design philosophy</p>
+            <blockquote>Fashion education is about finding out what you want to say to the world, and then learning the
+                technical language to say it loudly.</blockquote>
+            <p>Dixita · Design student philosophy</p>
         </section>
 
         <section class="section" id="contact">
             <div class="contact-grid">
                 <div class="contact-copy reveal">
-                    <div class="section-kicker">05 — Begin something beautiful</div>
-                    <h2>Have a look<br>in <em>mind?</em></h2>
-                    <p>Tell me a little about what you are dreaming up — a bespoke outfit, a special occasion look, a
-                        creative collaboration or simply an idea you would love to explore.</p>
+                    <div class="section-kicker">05 — Let's connect</div>
+                    <h2>Looking for<br>an <em>intern?</em></h2>
+                    <p>I am currently seeking internship opportunities, creative collaborations, or styling assistant
+                        roles to grow my skills outside the classroom.</p>
                     <div class="contact-detail">
-                        <div><strong>Atelier enquiries</strong>hello@dixita.design <span
-                                style="font-size:.7rem">(replace with your email)</span></div>
-                        <div><strong>Appointments</strong>By prior consultation</div>
-                        <div><strong>Based in</strong>India · Available for select collaborations worldwide</div>
+                        <div><strong>Email me</strong>hello@dixita.design <span style="font-size:.7rem">(replace with
+                                your email)</span></div>
+                        <div><strong>Availability</strong>Open to summer internships & part-time roles</div>
+                        <div><strong>Based in</strong>India · Willing to relocate for the right opportunity</div>
                     </div>
                 </div>
                 <form class="contact-form reveal" id="contactForm">
-                    <div class="form-field"><label for="name">Your name *</label><input id="name" name="name" required
-                            placeholder="Name"></div>
+                    <div class="form-field"><label for="name">Your name / Company *</label><input id="name" name="name"
+                            required placeholder="Name"></div>
                     <div class="form-field"><label for="email">Email address *</label><input id="email" name="email"
                             type="email" required placeholder="you@example.com"></div>
-                    <div class="form-field"><label for="project">I'm interested in</label><select id="project"
+                    <div class="form-field"><label for="project">I'm reaching out regarding</label><select id="project"
                             name="project">
-                            <option>Bespoke design</option>
-                            <option>Bridal / occasionwear</option>
-                            <option>Editorial / styling</option>
-                            <option>Fashion collaboration</option>
-                            <option>Something else</option>
+                            <option>Internship Opportunity</option>
+                            <option>Creative Collaboration</option>
+                            <option>Freelance Assistance</option>
+                            <option>General Enquiry</option>
                         </select></div>
-                    <div class="form-field"><label for="date">Occasion date (optional)</label><input id="date"
-                            name="date" type="date"></div>
-                    <div class="form-field full"><label for="message">Tell me about your idea *</label><textarea
-                            id="message" name="message" required
-                            placeholder="The occasion, the feeling, the little details…"></textarea></div>
+                    <div class="form-field"><label for="date">Timeline (optional)</label><input id="date" name="date"
+                            type="text" placeholder="e.g., Summer 2024"></div>
+                    <div class="form-field full"><label for="message">Tell me more *</label><textarea id="message"
+                            name="message" required
+                            placeholder="Details about the role, collaboration idea, or just saying hi..."></textarea>
+                    </div>
                     <p class="form-note">This demo opens your email app with the enquiry details. Add your real email
                         address in the script before publishing.</p>
-                    <button class="button primary" type="submit">Send your enquiry ↗</button>
+                    <button class="button primary" type="submit">Send Message ↗</button>
                 </form>
             </div>
         </section>
@@ -1665,12 +1685,12 @@
     <footer>
         <div class="footer-top">
             <div class="footer-brand">DIXITA</div>
-            <p>Independent design. Personal expression. Pieces made to feel like they were always meant to be yours.</p>
+            <p>A fashion design student portfolio documenting the journey from sketches to structured silhouettes.</p>
             <a class="button" href="#home">Back to top ↑</a>
         </div>
-        <div class="footer-bottom"><span>© <span id="year"></span> DIXITA ATELIER. All rights reserved.</span>
-            <div class="footer-socials"><a href="#contact">Instagram ↗</a><a href="#contact">Pinterest ↗</a><a
-                    href="#contact">Email ↗</a></div><span>Designed with intention.</span>
+        <div class="footer-bottom"><span>© <span id="year"></span> DIXITA. Student Portfolio.</span>
+            <div class="footer-socials"><a href="#contact">Instagram ↗</a><a href="#contact">LinkedIn ↗</a><a
+                    href="#contact">Email ↗</a></div><span>Learning with intention.</span>
         </div>
     </footer>
 
@@ -1678,11 +1698,11 @@
         <div class="modal-box"><button class="modal-close" id="modalClose"
                 aria-label="Close project details">×</button><img id="modalImage" src="" alt="">
             <div class="modal-text">
-                <div class="section-kicker" id="modalKicker">DIXITA ATELIER</div>
+                <div class="section-kicker" id="modalKicker">DIXITA PORTFOLIO</div>
                 <h3 id="modalTitle">Project title</h3>
                 <p id="modalDescription">Design story and inspiration.</p>
-                <div style="margin-top:25px"><a class="button primary" href="#contact" id="modalContact">Discuss a
-                        similar piece ↗</a></div>
+                <div style="margin-top:25px"><a class="button primary" href="#contact" id="modalContact">Get in Touch
+                        ↗</a></div>
             </div>
         </div>
     </div>
@@ -1692,16 +1712,17 @@
         const $ = (selector, root = document) => root.querySelector(selector);
         const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
 
+        // Updated data to match student portfolio theme
         const projectData = [
-            { title: "Petal & Poise", kicker: "Collection 01 · Occasionwear", description: "An exploration of fluid silhouettes, soft structure and romantic details. Designed for movement, comfort and the kind of confidence that never needs to announce itself.", image: "https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1200&q=88" },
-            { title: "City Muse", kicker: "Collection 02 · Contemporary", description: "A wardrobe built around considered layers and expressive proportions — modern pieces for people who make their own rules.", image: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=88" },
-            { title: "Afterglow", kicker: "Collection 03 · Atelier", description: "Occasionwear with a quiet kind of drama. Thoughtful fabric choices, clean finishing and details that catch the light at just the right moment.", image: "https://images.unsplash.com/photo-1539008835657-9e8e9680c956?auto=format&fit=crop&w=1200&q=88" },
-            { title: "A Day to Remember", kicker: "Bridal mood · Bespoke", description: "A romantic starting point for a personal celebration look, balancing softness, craft and a sense of occasion.", image: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=88" },
-            { title: "Unexpected Elegance", kicker: "Couture · Form study", description: "A study in shape and movement — where proportion does the talking and every line has a purpose.", image: "https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1200&q=88" },
-            { title: "Colour Study", kicker: "Editorial · Visual diary", description: "An editorial exploration of colour, styling and the way a single strong detail can transform the whole look.", image: "https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?auto=format&fit=crop&w=1200&q=88" },
-            { title: "Texture & Tone", kicker: "Details · Material story", description: "The tactile side of design: fabric, drape, finishing and the small choices that make a piece feel considered.", image: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1200&q=88" },
-            { title: "Softly Ceremonial", kicker: "Bridal mood · Inspiration", description: "A gentle, modern take on ceremonial dressing, created around the person wearing it rather than a passing trend.", image: "https://images.unsplash.com/photo-1594552072238-b8a33785b261?auto=format&fit=crop&w=1200&q=88" },
-            { title: "Made to Move", kicker: "Couture · Silhouette", description: "Expressive design with freedom of movement at its heart. A reminder that the most memorable clothes should be lived in.", image: "https://images.unsplash.com/photo-1524250502761-1ac6f2e30d43?auto=format&fit=crop&w=1200&q=88" }
+            { title: "Organic Forms", kicker: "Term 01 · Foundation Studio", description: "An exploration of fluid silhouettes and soft structure. Designed as part of an assignment studying how basic forms interact with the body.", image: "https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1200&q=88" },
+            { title: "City Muse", kicker: "Term 02 · Advanced Draping", description: "A wardrobe built around considered layers. This project focused on working directly on the dress form to create unexpected proportions.", image: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=88" },
+            { title: "The Capsule", kicker: "Term 03 · Final Project", description: "A conceptual capsule collection currently in progress, marrying complex flat pattern making with thoughtful fabric choices.", image: "https://images.unsplash.com/photo-1539008835657-9e8e9680c956?auto=format&fit=crop&w=1200&q=88" },
+            { title: "Volume Studies", kicker: "Draping · Assignment", description: "Experimenting with excess fabric and structural underpinnings to create dramatic, exaggerated silhouettes.", image: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=88" },
+            { title: "Unexpected Elegance", kicker: "Garment Construction", description: "A study in shape and movement — focusing on how seams and darts can be manipulated for entirely new structural purposes.", image: "https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1200&q=88" },
+            { title: "Colour Study", kicker: "Concept · Styling", description: "An editorial exploration of colour theory and styling as part of a visual communication module.", image: "https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?auto=format&fit=crop&w=1200&q=88" },
+            { title: "Texture & Tone", kicker: "Textiles · Material story", description: "Sourcing and combining swatches for upcoming projects, examining how different weaves and weights interact.", image: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1200&q=88" },
+            { title: "Softly Constructed", kicker: "Pattern Making", description: "Drafting flat patterns focused on creating soft, romantic volumes without rigid interfacing.", image: "https://images.unsplash.com/photo-1594552072238-b8a33785b261?auto=format&fit=crop&w=1200&q=88" },
+            { title: "Made to Move", kicker: "Final Garment", description: "Expressive design with freedom of movement at its heart. Executed using advanced sewing and finishing techniques.", image: "https://images.unsplash.com/photo-1524250502761-1ac6f2e30d43?auto=format&fit=crop&w=1200&q=88" }
         ];
 
         function showProject(index) {
@@ -1725,7 +1746,12 @@
             $$(".gallery-card").forEach(card => {
                 const visible = filter === "all" || card.dataset.category === filter;
                 card.classList.toggle("hidden", !visible);
-                if (visible) { card.classList.remove("visible"); requestAnimationFrame(() => card.classList.add("visible")); }
+                // Trigger reflow for smooth animation
+                if (visible) {
+                    card.classList.remove("visible");
+                    // Use a tiny timeout to ensure the browser processes the class removal before adding the animation back
+                    setTimeout(() => card.classList.add("visible"), 10);
+                }
             });
         }));
 
@@ -1751,8 +1777,14 @@
         if (window.matchMedia("(pointer:fine)").matches) {
             window.addEventListener("mousemove", e => { cursor.style.left = e.clientX + "px"; cursor.style.top = e.clientY + "px"; }, { passive: true });
         }
-        window.addEventListener("load", () => setTimeout(() => $("#loader").classList.add("hide"), 250));
-        setTimeout(() => $("#loader").classList.add("hide"), 2200);
+
+        // Exact 1 second loader logic requested
+        window.addEventListener("DOMContentLoaded", () => {
+            setTimeout(() => {
+                $("#loader").classList.add("hide");
+            }, 1000); // 1000ms = 1 second
+        });
+
         $("#year").textContent = new Date().getFullYear();
 
         function showToast(message) { const toast = $("#toast"); toast.textContent = message; toast.classList.add("show"); setTimeout(() => toast.classList.remove("show"), 3200); }
@@ -1762,8 +1794,8 @@
             const name = form.get("name"), email = form.get("email"), project = form.get("project"), date = form.get("date") || "Not specified", message = form.get("message");
             // Replace this with your real business email before publishing.
             const recipient = "hello@dixita.design";
-            const subject = encodeURIComponent("DIXITA Atelier Enquiry — " + project);
-            const body = encodeURIComponent("Name: " + name + "\nEmail: " + email + "\nEnquiry: " + project + "\nOccasion date: " + date + "\n\nMessage:\n" + message);
+            const subject = encodeURIComponent("DIXITA Portfolio Enquiry — " + project);
+            const body = encodeURIComponent("Name/Company: " + name + "\nEmail: " + email + "\nEnquiry: " + project + "\nTimeline: " + date + "\n\nMessage:\n" + message);
             showToast("Opening your email app to send the enquiry…");
             window.location.href = "mailto:" + recipient + "?subject=" + subject + "&body=" + body;
         });
