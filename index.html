@@ -639,146 +639,6 @@
             color: var(--muted);
         }
 
-        /* Portfolio Gallery */
-        .portfolio {
-            background: var(--paper-dark);
-        }
-
-        .filter-row {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-            margin-bottom: 40px;
-        }
-
-        .filter-btn {
-            border: 1px solid var(--line);
-            background: var(--paper);
-            border-radius: 100px;
-            padding: 12px 22px;
-            font-size: 0.7rem;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: all 0.3s var(--ease);
-            color: var(--ink);
-            font-weight: 500;
-        }
-
-        .filter-btn.active, .filter-btn:hover {
-            background: var(--ink);
-            border-color: var(--ink);
-            color: var(--paper);
-        }
-
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(12, 1fr);
-            gap: 20px;
-        }
-
-        .gallery-card {
-            position: relative;
-            overflow: hidden;
-            min-height: 320px;
-            background: var(--accent-light);
-            cursor: pointer;
-            grid-column: span 4;
-            border-radius: 10px;
-            transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
-        }
-
-        .gallery-card:nth-child(6n+1), .gallery-card:nth-child(6n+4) { grid-column: span 5; }
-        .gallery-card:nth-child(6n+2), .gallery-card:nth-child(6n+5) { grid-column: span 4; }
-        .gallery-card:nth-child(6n+3), .gallery-card:nth-child(6n) { grid-column: span 3; }
-
-        .gallery-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.8s var(--ease);
-        }
-
-        .gallery-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(59, 44, 40, 0.15);
-        }
-
-        .gallery-card:hover img {
-            transform: scale(1.08);
-        }
-
-        .gallery-card:after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(0deg, rgba(30, 20, 18, 0.85), transparent 60%);
-            opacity: 0.8;
-            transition: opacity 0.4s;
-        }
-
-        .gallery-card:hover:after {
-            opacity: 1;
-        }
-
-        .gallery-meta {
-            position: absolute;
-            z-index: 1;
-            left: 25px;
-            right: 25px;
-            bottom: 25px;
-            color: white;
-            transform: translateY(10px);
-            transition: transform 0.4s var(--ease), opacity 0.4s;
-            opacity: 0.9;
-        }
-
-        .gallery-card:hover .gallery-meta {
-            transform: translateY(0);
-            opacity: 1;
-        }
-
-        .gallery-meta small {
-            font-size: 0.65rem;
-            text-transform: uppercase;
-            letter-spacing: 0.25em;
-            color: var(--accent-light);
-        }
-
-        .gallery-meta h3 {
-            font: 400 1.6rem var(--serif);
-            margin-top: 8px;
-        }
-
-        .gallery-card.hidden {
-            display: none;
-        }
-
-        /* Impact / Achievements */
-        .achievements-grid {
-            display: grid; 
-            grid-template-columns: 1fr; 
-            gap: 28px;
-        }
-        
-        .achievement-card {
-            background: var(--paper-dark); 
-            padding: 55px 45px; 
-            border-radius: 16px; 
-            border: 1px solid var(--line);
-            transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
-        }
-        
-        .achievement-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(59, 44, 40, 0.08);
-            background: #fff;
-            color: var(--paper-dark);
-        }
-        .achievement-card:hover h3 {
-            color: var(--paper-dark) !important;
-        }
-
         /* Contact Section */
         .contact-grid {
             display: grid;
@@ -1013,6 +873,154 @@
             transform: translate(-50%, 0);
         }
 
+        /* --- MERGED PORTFOLIO GRID --- */
+        .collections-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .collection-card {
+            background: var(--paper-dark);
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 40px 30px;
+            cursor: pointer;
+            transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
+            text-align: center;
+        }
+        
+        .collection-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(59, 44, 40, 0.1);
+            background: var(--ink);
+            color: var(--paper);
+        }
+        
+        .collection-card h3 {
+            font: 400 1.8rem var(--serif);
+            margin-bottom: 10px;
+        }
+        
+        .collection-card p {
+            font-size: 0.9rem;
+            color: var(--muted);
+        }
+        
+        .collection-card:hover p {
+            color: var(--paper-dark);
+        }
+        
+        /* Dedicated Fullscreen Gallery Modal */
+        .fs-gallery {
+            position: fixed;
+            inset: 0;
+            background: rgba(45, 35, 33, 0.98);
+            z-index: 2500;
+            display: none; /* Flex when open */
+            flex-direction: column;
+            opacity: 0;
+            transition: opacity 0.4s var(--ease);
+        }
+        
+        .fs-gallery.open {
+            display: flex;
+            opacity: 1;
+        }
+        
+        .fs-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5.2vw;
+            border-bottom: 1px solid rgba(242, 235, 229, 0.1);
+        }
+        
+        .fs-title {
+            color: var(--ink);
+            font: 400 1.5rem var(--serif);
+        }
+        
+        .fs-back {
+            background: transparent;
+            border: 1px solid var(--ink);
+            color: var(--ink);
+            padding: 8px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: background 0.3s, color 0.3s;
+        }
+        
+        .fs-back:hover {
+            background: var(--ink);
+            color: var(--paper);
+        }
+        
+        .fs-content {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 20px;
+            overflow: hidden;
+        }
+        
+        .fs-img-container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .fs-img-container img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain; 
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+        
+        .fs-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--paper);
+            color: var(--ink);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s, background 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            z-index: 10;
+        }
+        
+        .fs-nav:hover {
+            background: var(--accent-light);
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        .fs-prev { left: 5.2vw; }
+        .fs-next { right: 5.2vw; }
+        
+        .fs-counter {
+            text-align: center;
+            padding: 15px;
+            color: var(--muted);
+            font-size: 0.9rem;
+            letter-spacing: 0.1em;
+        }
+
         /* --- RESPONSIVE MEDIA QUERIES --- */
         
         @media(max-width:1100px) {
@@ -1059,9 +1067,6 @@
             .intro-image {
                 height: 500px;
             }
-            .gallery-card, .gallery-card:nth-child(n) {
-                grid-column: span 6;
-            }
             .process-grid {
                 grid-template-columns: 1fr 1fr;
             }
@@ -1091,6 +1096,41 @@
             }
         }
 
+        /* Mobile Adjustments for Merged Section 4 Grid */
+        @media (max-width: 768px) {
+            .collections-grid {
+                grid-template-columns: repeat(2, 1fr); /* Force two columns on most phones/tablets */
+                gap: 20px;
+            }
+            .collection-card {
+                padding: 30px 15px;
+            }
+            .collection-card h3 {
+                font-size: 1.4rem;
+            }
+            
+            .fs-nav {
+                top: auto;
+                bottom: 20px;
+                transform: none;
+            }
+            .fs-prev { left: 20px; }
+            .fs-next { right: 20px; }
+            .fs-nav:hover {
+                transform: scale(1.1);
+            }
+            .fs-content {
+                padding-bottom: 80px; 
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .collections-grid {
+                grid-template-columns: 1fr; /* Fallback to one column on extra small screens */
+                gap: 15px;
+            }
+        }
+
         @media(max-width:650px) {
             .site-header {
                 padding: 18px 5vw;
@@ -1117,10 +1157,8 @@
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
-                align-items: center; /* Horizontally centers the text */
+                align-items: center; 
                 gap: 30px;
-                
-                /* Replaced transform with opacity/visibility to prevent clipping */
                 opacity: 0;
                 visibility: hidden;
                 pointer-events: none;
@@ -1191,16 +1229,6 @@
                 gap: 10px;
             }
             
-            .gallery {
-                gap: 15px;
-            }
-            .gallery-card, .gallery-card:nth-child(n) {
-                grid-column: span 12;
-                min-height: 280px;
-            }
-            .gallery-card img {
-                min-height: 280px;
-            }
             .process-grid {
                 grid-template-columns: 1fr;
             }
@@ -1212,12 +1240,6 @@
             }
             .process-card:last-child {
                 border-bottom: 0;
-            }
-            .achievements-grid {
-                gap: 20px;
-            }
-            .achievement-card {
-                padding: 35px 25px;
             }
             .contact-form {
                 grid-template-columns: 1fr;
@@ -1350,7 +1372,7 @@
             </div>
         </section>
 
-        <!-- 4. EXPERIENCE / ACADEMIC PROJECTS -->
+        <!-- EXPERIENCE / ACADEMIC PROJECTS -->
         <section class="section experience" id="experience">
             <div class="section-head reveal">
                 <div>
@@ -1378,7 +1400,7 @@
             </div>
         </section>
 
-        <!-- 5. SKILLS -->
+        <!-- SKILLS -->
         <section class="section" id="skills">
             <div class="section-head reveal">
                 <div>
@@ -1425,66 +1447,84 @@
             </div>
         </div>
 
-        <!-- 7. PORTFOLIO GALLERY -->
+        <!-- ============================================== -->
+        <!-- SECTION 4: MERGED COLLECTIONS & EXPLORATIONS   -->
+        <!-- ============================================== -->
         <section class="section portfolio" id="projects">
             <div class="section-head reveal">
                 <div>
-                    <div class="section-kicker">04 — Design Archive</div>
-                    <h2>Projects &<br><em>Explorations.</em></h2>
+                    <div class="section-kicker">04 — Collections & Work</div>
+                    <h2>My <em>Portfolio.</em></h2>
                 </div>
-                <p class="section-desc">Filter through my academic assignments, textile research, conceptual sketches, and final sewn garments.</p>
+                <p class="section-desc">Select a category to view the dedicated gallery of my projects and explorations.</p>
             </div>
             
-            <div class="filter-row reveal delay-1" role="group" aria-label="Filter portfolio">
-                <button class="filter-btn active" data-filter="all">All Work</button>
-                <button class="filter-btn" data-filter="garments">Final Garments</button>
-                <button class="filter-btn" data-filter="concepts">Concepts & Styling</button>
-                <button class="filter-btn" data-filter="draping">Draping & Patterns</button>
-                <button class="filter-btn" data-filter="textiles">Textile Studies</button>
-            </div>
-            
-            <div class="gallery" id="gallery">
-                <article class="gallery-card reveal" data-category="garments" data-item="4" tabindex="0">
-                    <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=900&q=85" alt="Final garment construction" loading="lazy">
-                    <div class="gallery-meta"><small>Garments · 01</small><h3>Unexpected Elegance</h3></div>
+            <div class="collections-grid reveal delay-1">
+                <article class="collection-card" data-gallery="kumbaay">
+                    <h3>KUMBAAY</h3>
+                    <p>Fashion & Jewellery Brand Concept</p>
                 </article>
-                <article class="gallery-card reveal delay-1" data-category="concepts" data-item="5" tabindex="0">
-                    <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=85" alt="Concept moodboard" loading="lazy">
-                    <div class="gallery-meta"><small>Concepts · 02</small><h3>Quiet Confidence</h3></div>
+                <article class="collection-card" data-gallery="pageant">
+                    <h3>Pageant Shows</h3>
+                    <p>Miss Rajasthan, Miss Ocean & More</p>
                 </article>
-                <article class="gallery-card reveal delay-2" data-category="textiles" data-item="6" tabindex="0">
-                    <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=900&q=85" alt="Textile details" loading="lazy">
-                    <div class="gallery-meta"><small>Textiles · 03</small><h3>Texture & Tone</h3></div>
+                <article class="collection-card" data-gallery="bst">
+                    <h3>BST</h3>
+                    <p>Exploration & Projects</p>
                 </article>
-                <article class="gallery-card reveal" data-category="draping" data-item="3" tabindex="0">
-                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=85" alt="Draping assignment" loading="lazy">
-                    <div class="gallery-meta"><small>Draping · 04</small><h3>Volume Studies</h3></div>
+                <article class="collection-card" data-gallery="embroidery">
+                    <h3>Embroidery</h3>
+                    <p>Detailed Craftsmanship</p>
                 </article>
-                <article class="gallery-card reveal delay-1" data-category="garments" data-item="8" tabindex="0">
-                    <img src="https://images.unsplash.com/photo-1524250502761-1ac6f2e30d43?auto=format&fit=crop&w=900&q=85" alt="Expressive fashion styling" loading="lazy">
-                    <div class="gallery-meta"><small>Garments · 05</small><h3>Made to Move</h3></div>
+                <article class="collection-card" data-gallery="surface">
+                    <h3>Surface Ornamentation</h3>
+                    <p>Textural Design</p>
                 </article>
-                <article class="gallery-card reveal delay-2" data-category="draping" data-item="7" tabindex="0">
-                    <img src="https://images.unsplash.com/photo-1594552072238-b8a33785b261?auto=format&fit=crop&w=900&q=85" alt="Pattern making mood" loading="lazy">
-                    <div class="gallery-meta"><small>Draping · 06</small><h3>Softly Constructed</h3></div>
+                <article class="collection-card" data-gallery="illustration">
+                    <h3>Fashion Illustration</h3>
+                    <p>Sketches & Concepts</p>
                 </article>
-            </div>
-            
-            <!-- Major Brand Projects Block -->
-            <div class="achievements-grid reveal" style="margin-top: 60px;">
-                <div class="achievement-card">
-                    <h3 style="font: 400 2.2rem var(--serif); color: var(--ink); margin-bottom: 15px;">KUMBAAY – Fashion & Jewellery Brand</h3>
-                    <p style="color: var(--muted); line-height: 1.9; max-width: 900px; font-size: 1.05rem;">Developed the concept and visual identity for a contemporary fashion and jewellery brand. Designed branding elements, website visuals, packaging concepts, and promotional creatives. Created luxury product presentations and campaign concepts.</p>
-                </div>
-                
-                <div class="achievement-card">
-                    <h3 style="font: 400 2.2rem var(--serif); color: var(--ink); margin-bottom: 15px;">PAGEANT SHOWS</h3>
-                    <p style="color: var(--muted); line-height: 1.9; max-width: 900px; font-size: 1.05rem;">Designed highly praised outfits for Miss Rajasthan, Miss Ocean, and Miss Celeste. Created a show-stopping national outfit based on a peacock theme for MRS. Ocean. Proudly served as a volunteer stylist in Miss Universe India.</p>
-                </div>
+                <article class="collection-card" data-gallery="textile">
+                    <h3>Textile</h3>
+                    <p>Fabric Studies</p>
+                </article>
+                <article class="collection-card" data-gallery="surface3d">
+                    <h3>3D Surface Ornamentation</h3>
+                    <p>Dimensional Details</p>
+                </article>
+                <article class="collection-card" data-gallery="editorial">
+                    <h3>Editorial & Styling</h3>
+                    <p>Visual Narratives</p>
+                </article>
+                <article class="collection-card" data-gallery="graphic">
+                    <h3>Graphic Design</h3>
+                    <p>Visual Communication</p>
+                </article>
+                <article class="collection-card" data-gallery="tiedye">
+                    <h3>Tie Dye</h3>
+                    <p>Color Explorations</p>
+                </article>
             </div>
         </section>
 
-        <!-- 8. CONTACT -->
+        <!-- FULLSCREEN GALLERY VIEWER -->
+        <div class="fs-gallery" id="customFsGallery">
+            <div class="fs-header">
+                <h3 class="fs-title" id="fsGalleryTitle">Gallery</h3>
+                <button class="fs-back" id="fsGalleryClose" aria-label="Back to selection">← Back</button>
+            </div>
+            <div class="fs-content">
+                <button class="fs-nav fs-prev" id="fsPrev" aria-label="Previous image">‹</button>
+                <div class="fs-img-container">
+                    <img id="fsMainImg" src="" alt="Gallery Image">
+                </div>
+                <button class="fs-nav fs-next" id="fsNext" aria-label="Next image">›</button>
+            </div>
+            <div class="fs-counter" id="fsCounter">1 / 1</div>
+        </div>
+        <!-- ============================================== -->
+
+        <!-- 5. CONTACT (Previously Section 6) -->
         <section class="section" id="contact" style="background: linear-gradient(135deg, #d6c6bc, #e8ded5, #f2ebe5);">
             <div class="contact-grid">
                 <div class="contact-copy reveal">
@@ -1542,7 +1582,7 @@
         </div>
     </footer>
 
-    <!-- MODAL -->
+    <!-- OLD MODAL (Kept to prevent breaking unrelated dependencies if any) -->
     <div class="modal" id="projectModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
         <div class="modal-box">
             <button class="modal-close" id="modalClose" aria-label="Close project details">×</button>
@@ -1564,83 +1604,6 @@
     <script>
         const $ = (selector, root = document) => root.querySelector(selector);
         const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
-
-        const projectData = [
-            { title: "Organic Forms", kicker: "Term 01 · Foundation Studio", description: "An exploration of fluid silhouettes and soft structure. Designed as part of an assignment studying how basic forms interact with the body.", image: "https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1200&q=88" },
-            { title: "City Muse", kicker: "Term 02 · Advanced Draping", description: "A wardrobe built around considered layers. This project focused on working directly on the dress form to create unexpected proportions.", image: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=88" },
-            { title: "The Capsule", kicker: "Term 03 · Final Project", description: "A conceptual capsule collection currently in progress, marrying complex flat pattern making with thoughtful fabric choices.", image: "https://images.unsplash.com/photo-1539008835657-9e8e9680c956?auto=format&fit=crop&w=1200&q=88" },
-            { title: "Volume Studies", kicker: "Draping · Assignment", description: "Experimenting with excess fabric and structural underpinnings to create dramatic, exaggerated silhouettes.", image: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=88" },
-            { title: "Unexpected Elegance", kicker: "Garment Construction", description: "A study in shape and movement — focusing on how seams and darts can be manipulated for entirely new structural purposes.", image: "https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1200&q=88" },
-            { title: "Quiet Confidence", kicker: "Concept · Styling", description: "An editorial exploration of colour theory and styling as part of a visual communication module, focusing on minimalism.", image: "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1200&q=88" },
-            { title: "Texture & Tone", kicker: "Textiles · Material story", description: "Sourcing and combining swatches for upcoming projects, examining how different weaves and weights interact.", image: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1200&q=88" },
-            { title: "Softly Constructed", kicker: "Pattern Making", description: "Drafting flat patterns focused on creating soft, romantic volumes without rigid interfacing.", image: "https://images.unsplash.com/photo-1594552072238-b8a33785b261?auto=format&fit=crop&w=1200&q=88" },
-            { title: "Made to Move", kicker: "Final Garment", description: "Expressive design with freedom of movement at its heart. Executed using advanced sewing and finishing techniques.", image: "https://images.unsplash.com/photo-1524250502761-1ac6f2e30d43?auto=format&fit=crop&w=1200&q=88" } 
-        ]; 
-
-        // Modal Logic 
-        function showProject(index) { 
-            const item = projectData[index];
-            if (!item) return; 
-            $("#modalImage").src = item.image;
-            $("#modalImage").alt = item.title; 
-            $("#modalKicker").textContent = item.kicker;
-            $("#modalTitle").textContent = item.title; 
-            $("#modalDescription").textContent = item.description; 
-            $("#projectModal").classList.add("open");
-            document.body.style.overflow = "hidden"; 
-        } 
-
-        function closeProject() {
-            $("#projectModal").classList.remove("open");
-            document.body.style.overflow = "";
-        } 
-
-        $("#modalClose").addEventListener("click", closeProject); 
-        $("#projectModal").addEventListener("click", e => {
-            if (e.target === $("#projectModal")) closeProject();
-        }); 
-        document.addEventListener("keydown", e => {
-            if (e.key === "Escape") {
-                closeProject();
-                closeMenu();
-            }
-        }); 
-
-        $$("[data-modal]").forEach(card => {  
-            const open = () => showProject(Number(card.dataset.modal));  
-            card.addEventListener("click", open);  
-            card.addEventListener("keydown", e => {
-                if (e.key === "Enter" || e.key === " ") {
-                    e.preventDefault();
-                    open();
-                }
-            }); 
-        }); 
-
-        $$(".gallery-card").forEach(card => {  
-            const open = () => showProject(Number(card.dataset.item));  
-            card.addEventListener("click", open);  
-            card.addEventListener("keydown", e => {
-                if (e.key === "Enter" || e.key === " ") {
-                    e.preventDefault();
-                    open();
-                }
-            }); 
-        }); 
-
-        // Portfolio Filtering 
-        $$(".filter-btn").forEach(button => button.addEventListener("click", () => { 
-            $$(".filter-btn").forEach(b => b.classList.toggle("active", b === button)); 
-            const filter = button.dataset.filter; 
-            $$(".gallery-card").forEach(card => { 
-                const visible = filter === "all" || card.dataset.category === filter; 
-                card.classList.toggle("hidden", !visible); 
-                if (visible) {  
-                    card.classList.remove("visible");  
-                    setTimeout(() => card.classList.add("visible"), 10);  
-                } 
-            }); 
-        })); 
 
         // Scroll Progress & Header 
         const header = $("#header"); 
@@ -1724,12 +1687,179 @@
             const body = encodeURIComponent("Name/Company: " + name + "\nEmail: " + email + "\nEnquiry: " + project + "\n\nMessage:\n" + message); 
             showToast("Opening your email app to send the enquiry…"); 
             window.location.href = "mailto:" + recipient + "?subject=" + subject + "&body=" + body; 
-        }); 
-         
-        $("#modalContact").addEventListener("click", () => { 
-            closeProject(); 
-            closeMenu(); 
-        }); 
+        });
+
+        // =========================================================
+        // JAVASCRIPT FOR MERGED SECTION 4 GALLERIES
+        // =========================================================
+
+        // ACTION REQUIRED: REPLACE THESE PATHS WITH YOUR ACTUAL IMAGE FILENAMES
+       // ACTION REQUIRED: REPLACE THESE PATHS WITH YOUR ACTUAL IMAGE FILENAMES
+const customGalleries = {
+    'kumbaay': [ 
+        'path/to/kumbaay-image1.jpg',
+        'path/to/kumbaay-image2.jpg',
+        'path/to/kumbaay-image3.jpg',
+        'path/to/kumbaay-image4.jpg',
+        'path/to/kumbaay-image5.jpg'
+    ],
+    'pageant': [ 
+        'path/to/pageant-image1.jpg',
+        'path/to/pageant-image2.jpg',
+        'path/to/pageant-image3.jpg',
+        'path/to/pageant-image4.jpg',
+        'path/to/pageant-image5.jpg'
+    ],
+    'bst': [ 
+         'image/bst/bst1.jpeg',
+    'image/bst/bst2.jpeg',
+    'image/bst/bst1.jpeg',
+    'image/bst/bst2.jpeg',
+
+],
+    
+    'embroidery': [ 
+        'path/to/embroidery-image1.jpg',
+        'path/to/embroidery-image2.jpg',
+        'path/to/embroidery-image3.jpg',
+        'path/to/embroidery-image4.jpg',
+        'path/to/embroidery-image5.jpg'
+    ],
+    'surface': [ 
+        'path/to/surface-image1.jpg',
+        'path/to/surface-image2.jpg',
+        'path/to/surface-image3.jpg',
+        'path/to/surface-image4.jpg',
+        'path/to/surface-image5.jpg'
+    ],
+    'surface3d': [ 
+        'path/to/3dsurface-image1.jpg',
+        'path/to/3dsurface-image2.jpg',
+        'path/to/3dsurface-image3.jpg',
+        'path/to/3dsurface-image4.jpg',
+        'path/to/3dsurface-image5.jpg'
+    ],
+    'illustration': [ 
+        'path/to/illustration-image1.jpg',
+        'path/to/illustration-image2.jpg',
+        'path/to/illustration-image3.jpg',
+        'path/to/illustration-image4.jpg',
+        'path/to/illustration-image5.jpg'
+    ],
+    'textile': [ 
+        'path/to/textile-image1.jpg',
+        'path/to/textile-image2.jpg',
+        'path/to/textile-image3.jpg',
+        'path/to/textile-image4.jpg',
+        'path/to/textile-image5.jpg'
+    ],
+    'editorial': [ 
+        'path/to/editorial-image1.jpg',
+        'path/to/editorial-image2.jpg',
+        'path/to/editorial-image3.jpg',
+        'path/to/editorial-image4.jpg',
+        'path/to/editorial-image5.jpg'
+    ],
+    'graphic': [ 
+        'path/to/graphic-image1.jpg',
+        'path/to/graphic-image2.jpg',
+        'path/to/graphic-image3.jpg',
+        'path/to/graphic-image4.jpg',
+        'path/to/graphic-image5.jpg'
+    ],
+    'tiedye': [ 
+        'path/to/tiedye-image1.jpg',
+        'path/to/tiedye-image2.jpg',
+        'path/to/tiedye-image3.jpg',
+        'path/to/tiedye-image4.jpg',
+        'path/to/tiedye-image5.jpg'
+    ]
+};
+             // --------------------------------------------------------
+
+        // Fullscreen Gallery Modal Logic
+        const fsGallery = document.getElementById('customFsGallery');
+        const fsClose = document.getElementById('fsGalleryClose');
+        const fsPrev = document.getElementById('fsPrev');
+        const fsNext = document.getElementById('fsNext');
+        const fsMainImg = document.getElementById('fsMainImg');
+        const fsTitle = document.getElementById('fsGalleryTitle');
+        const fsCounter = document.getElementById('fsCounter');
+        
+        let currentGalleryKey = '';
+        let currentImageIndex = 0;
+
+        function openFsGallery(key, title) {
+            const images = customGalleries[key];
+            if (!images || images.length === 0) {
+                alert("Please add image paths to the '" + key + "' array in the JavaScript section.");
+                return;
+            }
+            currentGalleryKey = key;
+            currentImageIndex = 0;
+            fsTitle.textContent = title;
+            updateFsGalleryImage();
+            
+            fsGallery.classList.add('open');
+            document.body.style.overflow = "hidden"; // Block background scroll
+        }
+
+        function closeFsGallery() {
+            fsGallery.classList.remove('open');
+            document.body.style.overflow = ""; // Restore background scroll
+        }
+
+        function updateFsGalleryImage() {
+            const images = customGalleries[currentGalleryKey];
+            if (!images) return;
+            
+            let src = images[currentImageIndex];
+            
+            // Temporary placeholder graphic for unconfigured paths
+            if (src.includes('path/to/')) {
+                src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600'%3E%3Crect width='100%25' height='100%25' fill='%235C4033'/%3E%3Ctext x='50%25' y='45%25' fill='%23F2EBE5' font-size='22' font-family='sans-serif' text-anchor='middle' alignment-baseline='middle'%3EImage Path Required.%3C/text%3E%3Ctext x='50%25' y='55%25' fill='%23d6c6bc' font-size='14' font-family='sans-serif' text-anchor='middle' alignment-baseline='middle'%3EPlease update the javascript dictionary for path: %3C/text%3E%3Ctext x='50%25' y='65%25' fill='%23F2EBE5' font-size='16' font-family='monospace' text-anchor='middle' alignment-baseline='middle'%3E" + encodeURIComponent(src) + "%3C/text%3E%3C/svg%3E";
+            }
+            
+            fsMainImg.src = src;
+            fsCounter.textContent = (currentImageIndex + 1) + " / " + images.length;
+        }
+
+        function nextFsImage() {
+            const images = customGalleries[currentGalleryKey];
+            if (!images) return;
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            updateFsGalleryImage();
+        }
+
+        function prevFsImage() {
+            const images = customGalleries[currentGalleryKey];
+            if (!images) return;
+            currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+            updateFsGalleryImage();
+        }
+
+        // Apply click events to all specific collection cards
+        document.querySelectorAll('.collection-card[data-gallery]').forEach(card => {
+            card.addEventListener('click', () => {
+                const galleryKey = card.getAttribute('data-gallery');
+                const title = card.querySelector('h3').textContent;
+                openFsGallery(galleryKey, title);
+            });
+        });
+
+        // Gallery navigation controllers
+        if(fsClose) fsClose.addEventListener('click', closeFsGallery);
+        if(fsNext) fsNext.addEventListener('click', nextFsImage);
+        if(fsPrev) fsPrev.addEventListener('click', prevFsImage);
+        
+        // Keyboard support for Gallery navigation
+        document.addEventListener("keydown", e => {
+            if (fsGallery.classList.contains('open')) {
+                if (e.key === "Escape") closeFsGallery();
+                if (e.key === "ArrowRight") nextFsImage();
+                if (e.key === "ArrowLeft") prevFsImage();
+            }
+        });
     </script> 
 </body> 
 </html>
