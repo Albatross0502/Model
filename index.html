@@ -765,91 +765,6 @@
         .delay-2 { transition-delay: 0.2s; }
         .delay-3 { transition-delay: 0.3s; }
 
-        /* Modal */
-        .modal {
-            position: fixed;
-            inset: 0;
-            background: rgba(45, 35, 33, 0.85);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            z-index: 2200;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            padding: 25px;
-            opacity: 0;
-            transition: opacity 0.4s var(--ease);
-        }
-
-        .modal.open {
-            display: flex;
-            opacity: 1;
-        }
-
-        .modal-box {
-            width: min(1100px, 100%);
-            max-height: 90vh;
-            overflow: auto;
-            background: var(--paper);
-            display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            position: relative;
-            border-radius: 12px;
-            transform: translateY(20px) scale(0.98);
-            transition: transform 0.4s var(--ease);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.2);
-        }
-        
-        .modal.open .modal-box {
-            transform: translateY(0) scale(1);
-        }
-
-        .modal-box img {
-            height: 100%;
-            min-height: 550px;
-            width: 100%;
-            object-fit: cover;
-        }
-
-        .modal-text {
-            padding: clamp(30px, 5vw, 65px);
-            align-self: center;
-        }
-
-        .modal-text h3 {
-            font: 400 clamp(2.2rem, 4vw, 3.8rem) var(--serif);
-            margin: 18px 0;
-            color: var(--ink);
-        }
-
-        .modal-text p {
-            line-height: 1.9;
-            color: var(--muted);
-            font-size: 0.95rem;
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            border: 0;
-            background: var(--paper);
-            color: var(--ink);
-            border-radius: 50%;
-            width: 45px;
-            height: 45px;
-            font-size: 1.5rem;
-            cursor: pointer;
-            z-index: 2;
-            transition: transform 0.3s, background 0.3s;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-        
-        .modal-close:hover {
-            transform: rotate(90deg);
-            background: var(--accent-light);
-        }
-
         /* Toast */
         .toast {
             position: fixed;
@@ -912,7 +827,7 @@
             color: var(--paper-dark);
         }
 
-        /* --- NEW: MASONRY GALLERY VIEW --- */
+        /* --- MASONRY GALLERY VIEW --- */
         .masonry-view {
             display: none; /* Hidden initially */
             margin-top: 40px;
@@ -949,13 +864,15 @@
             background: var(--paper-dark);
             border: 1px solid var(--line);
             transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
+            display: inline-block; /* Helps prevent clipping in CSS columns */
+            width: 100%;
         }
 
         .masonry-item img {
             width: 100%;
             display: block;
             height: auto;
-            object-fit: cover;
+            /* object-fit: cover is intentionally omitted to preserve natural proportions without cropping */
             transition: opacity 0.3s var(--ease), transform 0.4s var(--ease);
         }
 
@@ -982,7 +899,9 @@
             .masonry-item { margin-bottom: 15px; }
         }
         @media (max-width: 480px) {
-            .masonry-grid { column-count: 1; }
+            /* Kept 2 columns for a better Pinterest-like aesthetic on phones */
+            .masonry-grid { column-count: 2; column-gap: 10px; }
+            .masonry-item { margin-bottom: 10px; }
         }
         
         /* Dedicated Fullscreen Gallery Modal (Lightbox) */
@@ -1052,6 +971,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            position: relative;
             cursor: default; /* Keep default cursor for image itself */
         }
         
@@ -1062,8 +982,33 @@
             box-shadow: 0 20px 50px rgba(0,0,0,0.5);
             border-radius: 4px;
             cursor: default;
+            opacity: 0; /* Hidden initially for fade-in effect on load */
+            transition: opacity 0.4s var(--ease);
         }
         
+        /* Lightbox Loading Indicator & Error State */
+        .fs-loader {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border: 2px solid rgba(242, 235, 229, 0.1);
+            border-top-color: var(--accent-deep);
+            border-radius: 50%;
+            animation: fsSpin 0.8s linear infinite;
+            pointer-events: none;
+            z-index: 5;
+        }
+        .fs-error {
+            position: absolute;
+            color: var(--muted);
+            font: italic 1.2rem var(--serif);
+            pointer-events: none;
+            z-index: 5;
+        }
+        @keyframes fsSpin {
+            to { transform: rotate(360deg); }
+        }
+
         .fs-nav {
             position: absolute;
             top: 50%;
@@ -1168,13 +1113,6 @@
             .contact-form {
                 padding: 35px;
             }
-            .modal-box {
-                grid-template-columns: 1fr;
-            }
-            .modal-box img {
-                height: 40vh;
-                min-height: 300px;
-            }
         }
 
         /* Mobile Adjustments for Merged Section 4 Grid */
@@ -1213,6 +1151,11 @@
             .masonry-header {
                 flex-direction: column;
                 align-items: flex-start;
+            }
+            .fs-nav {
+                width: 45px;
+                height: 45px;
+                font-size: 1.3rem;
             }
         }
 
@@ -1344,15 +1287,6 @@
                 flex-direction: column;
                 line-height: 2;
                 gap: 15px;
-            }
-            .modal {
-                padding: 10px;
-            }
-            .modal-box {
-                max-height: 95vh;
-            }
-            .modal-text {
-                padding: 25px 20px;
             }
         }
 
@@ -1592,7 +1526,7 @@
                 </article>
             </div>
 
-            <!-- NEW: Dynamic Masonry Gallery View -->
+            <!-- Dynamic Masonry Gallery View -->
             <div class="masonry-view" id="masonryView">
                 <div class="masonry-header">
                     <h3 class="masonry-title" id="masonryTitle">Category</h3>
@@ -1613,6 +1547,8 @@
             <div class="fs-content" id="fsContentArea">
                 <button class="fs-nav fs-prev" id="fsPrev" aria-label="Previous image" tabindex="0">‹</button>
                 <div class="fs-img-container" id="fsImgContainer">
+                    <div class="fs-loader" id="fsLoader" style="display:none;"></div>
+                    <div class="fs-error" id="fsError" style="display:none;">Image failed to load.</div>
                     <img id="fsMainImg" src="" alt="Gallery Image Viewer">
                 </div>
                 <button class="fs-nav fs-next" id="fsNext" aria-label="Next image" tabindex="0">›</button>
@@ -1678,22 +1614,6 @@
             <span>Learning with intention.</span>
         </div>
     </footer>
-
-    <!-- OLD MODAL (Kept to prevent breaking unrelated dependencies if any) -->
-    <div class="modal" id="projectModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-        <div class="modal-box">
-            <button class="modal-close" id="modalClose" aria-label="Close project details">×</button>
-            <img id="modalImage" src="" alt="">
-            <div class="modal-text">
-                <div class="section-kicker" id="modalKicker">DESIGN PORTFOLIO</div>
-                <h3 id="modalTitle">Project title</h3>
-                <p id="modalDescription">Design story and inspiration.</p>
-                <div style="margin-top:35px">
-                    <a class="button primary" href="#contact" id="modalContact">Get in Touch ↗</a>
-                </div>
-            </div>
-        </div>
-    </div>
     
     <!-- TOAST NOTIFICATION -->
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
@@ -1925,8 +1845,12 @@
         const fsMainImg = document.getElementById('fsMainImg');
         const fsTitle = document.getElementById('fsGalleryTitle');
         const fsCounter = document.getElementById('fsCounter');
+        const fsLoader = document.getElementById('fsLoader');
+        const fsError = document.getElementById('fsError');
         
+        // State tracking
         let currentGalleryKey = '';
+        let currentGalleryTitle = '';
         let currentImageIndex = 0;
 
         // Helper to handle the "path/to/" dummy paths visually
@@ -1937,8 +1861,15 @@
             return src;
         }
 
-        // 1. OPEN MASONRY GALLERY
+        // 1. OPEN MASONRY GALLERY (Triggered by click)
         function openMasonryGallery(key, title) {
+            // Push browser history state so the Back button works
+            history.pushState({ view: 'masonry', key: key, title: title }, '', '#gallery');
+            renderMasonry(key, title);
+        }
+
+        // Actual DOM manipulation for Masonry
+        function renderMasonry(key, title) {
             const images = customGalleries[key];
             if (!images || images.length === 0) {
                 alert("Please add image paths to the '" + key + "' array in the JavaScript section.");
@@ -1946,9 +1877,10 @@
             }
             
             currentGalleryKey = key;
+            currentGalleryTitle = title;
             masonryTitle.textContent = title;
-            fsTitle.textContent = title; // Sync lightbox title
-            masonryGrid.innerHTML = ''; // Clear previous images
+            fsTitle.textContent = title; 
+            masonryGrid.innerHTML = ''; 
             
             // Build Masonry Items
             images.forEach((src, index) => {
@@ -1957,8 +1889,13 @@
                 
                 const img = document.createElement('img');
                 img.src = getSafeSrc(src);
-                img.loading = 'lazy'; // Improve performance
+                img.loading = 'lazy'; 
+                img.decoding = 'async'; 
                 img.alt = `${title} artwork ${index + 1}`;
+                img.onerror = function() {
+                    // Graceful fallback for broken images
+                    this.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='500'%3E%3Crect width='100%25' height='100%25' fill='%234A332A'/%3E%3Ctext x='50%25' y='50%25' fill='%23b8a398' font-size='16' font-family='sans-serif' text-anchor='middle' alignment-baseline='middle'%3EImage Not Found%3C/text%3E%3C/svg%3E";
+                };
                 
                 item.appendChild(img);
                 
@@ -1978,12 +1915,20 @@
             collectionsGrid.style.display = 'none';
             masonryView.style.display = 'block';
             
-            // Smoothly scroll to top of the projects section for a better UX
             document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
         }
 
-        // 2. BACK TO COLLECTIONS
+        // 2. CLOSE MASONRY (Triggered by "Back" UI button)
         function closeMasonryGallery() {
+            // Check if we pushed state. If so, backing up triggers popstate to hide it.
+            if (history.state && history.state.view === 'masonry') {
+                history.back(); 
+            } else {
+                hideMasonry(); // Fallback if out of sync
+            }
+        }
+
+        function hideMasonry() {
             masonryView.style.display = 'none';
             collectionsGrid.style.display = 'grid';
             document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
@@ -2000,32 +1945,77 @@
             });
         });
 
-        // 3. FULLSCREEN LIGHTBOX LOGIC
+        // 3. OPEN FULLSCREEN LIGHTBOX
         function openLightbox(index) {
+            // Push another layer of history for the Lightbox
+            history.pushState({ view: 'lightbox', key: currentGalleryKey, title: currentGalleryTitle, index: index }, '', '#image');
+            renderLightbox(index);
+        }
+
+        function renderLightbox(index) {
             currentImageIndex = index;
             updateFsGalleryImage();
             fsGallery.classList.add('open');
             document.body.style.overflow = "hidden"; // Prevent scrolling behind lightbox
         }
 
+        // 4. CLOSE FULLSCREEN LIGHTBOX (UI Triggers)
         function closeFsGallery() {
+            if (history.state && history.state.view === 'lightbox') {
+                history.back(); // This triggers popstate to close it natively
+            } else {
+                hideLightbox();
+            }
+        }
+
+        function hideLightbox() {
             fsGallery.classList.remove('open');
-            document.body.style.overflow = ""; // Restore scrolling
+            document.body.style.overflow = ""; 
+            setTimeout(() => { fsMainImg.style.opacity = '0'; fsMainImg.style.display = 'none'; }, 400);
         }
 
         function updateFsGalleryImage() {
             const images = customGalleries[currentGalleryKey];
             if (!images) return;
             
-            fsMainImg.src = getSafeSrc(images[currentImageIndex]);
+            const targetSrc = getSafeSrc(images[currentImageIndex]);
             fsCounter.textContent = (currentImageIndex + 1) + " / " + images.length;
+
+            // Reset image state and show loading indicator
+            fsMainImg.style.display = 'none';
+            fsMainImg.style.opacity = '0';
+            fsLoader.style.display = 'block';
+            fsError.style.display = 'none';
+
+            // Wait for image to fully load before displaying
+            fsMainImg.onload = () => {
+                fsLoader.style.display = 'none';
+                fsMainImg.style.display = 'block';
+                // Slight delay ensures the CSS transition engine catches the state change
+                setTimeout(() => fsMainImg.style.opacity = '1', 20);
+            };
+
+            // Error handling in lightbox
+            fsMainImg.onerror = () => {
+                fsLoader.style.display = 'none';
+                fsError.style.display = 'block';
+            };
+
+            fsMainImg.src = targetSrc;
         }
 
+        // Swiping / Next / Prev logic
         function nextFsImage(e) {
             if(e) e.stopPropagation();
             const images = customGalleries[currentGalleryKey];
             if (!images) return;
             currentImageIndex = (currentImageIndex + 1) % images.length;
+            
+            // Replace state so we don't spam the back button history
+            if (history.state && history.state.view === 'lightbox') {
+                history.replaceState({ view: 'lightbox', key: currentGalleryKey, title: currentGalleryTitle, index: currentImageIndex }, '', '#image');
+            }
+            
             updateFsGalleryImage();
         }
 
@@ -2034,6 +2024,11 @@
             const images = customGalleries[currentGalleryKey];
             if (!images) return;
             currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+            
+            if (history.state && history.state.view === 'lightbox') {
+                history.replaceState({ view: 'lightbox', key: currentGalleryKey, title: currentGalleryTitle, index: currentImageIndex }, '', '#image');
+            }
+            
             updateFsGalleryImage();
         }
 
@@ -2044,7 +2039,6 @@
 
         // Click Outside to Close Lightbox
         fsGallery.addEventListener('click', (e) => {
-            // Ensure clicking the image itself or nav buttons doesn't close the modal
             if (e.target.classList.contains('fs-content') || 
                 e.target.classList.contains('fs-gallery') || 
                 e.target.classList.contains('fs-img-container')) {
@@ -2085,6 +2079,25 @@
                 }
             }
         }
+
+        // 5. BROWSER HARDWARE BACK BUTTON LISTENER
+        window.addEventListener('popstate', (e) => {
+            const state = e.state;
+            
+            if (state && state.view === 'lightbox') {
+                // If they somehow navigated forward into lightbox
+                renderMasonry(state.key, state.title); 
+                renderLightbox(state.index);
+            } else if (state && state.view === 'masonry') {
+                // If they navigated back out of lightbox, into masonry
+                hideLightbox();
+                renderMasonry(state.key, state.title);
+            } else {
+                // If they navigated completely out of the gallery logic
+                hideLightbox();
+                hideMasonry();
+            }
+        });
     </script> 
 </body> 
 </html>
