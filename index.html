@@ -22,7 +22,7 @@
             --accent-deep: #e8ded5;   
             --accent-light: #755043;  
             --line: rgba(242, 235, 229, 0.15); /* Lightened the lines */
-            --glass: rgba(92, 64, 51, 0.75);   /* Brown glass effect */
+            --glass: rgba(92, 64, 51, 0.85);   /* Darker brown glass effect for better contrast */
             
             /* Typography & Animation */
             --serif: 'Playfair Display', Georgia, serif;
@@ -186,6 +186,8 @@
             letter-spacing: 0.25em;
             margin-right: -0.25em;
             color: var(--ink);
+            position: relative;
+            z-index: 1601; /* Ensure brand is above mobile menu */
         }
 
         .brand small {
@@ -275,6 +277,7 @@
             font-size: 2rem;
             cursor: pointer;
             color: var(--ink);
+            z-index: 1601; /* Above the mobile menu */
         }
 
         /* Hero Section */
@@ -442,12 +445,14 @@
             font-size: 0.95rem;
         }
 
-        /* Philosophy Section */
+        /* Philosophy Section - Fix applied here */
         .philosophy {
             background: var(--ink);
             color: var(--paper);
             text-align: center;
             padding: 150px 5.2vw;
+            position: relative; /* Ensure it stays in normal document flow correctly */
+            z-index: 1; /* Keep it below header */
         }
         
         .philosophy h2 {
@@ -501,15 +506,16 @@
 
         .image-label {
             position: absolute;
-            left: 0;
-            top: 15%;
+            left: 0; /* Keep left alignment */
+            top: 15%; /* Adjust top positioning */
             background: var(--paper);
             padding: 22px 25px;
-            max-width: 190px;
+            max-width: 210px; /* Slightly wider */
             font: italic 1.2rem/1.4 var(--serif);
             transform: rotate(-6deg);
             border: 1px solid var(--line);
-            box-shadow: 0 10px 30px rgba(59, 44, 40, 0.08);
+            box-shadow: 0 10px 30px rgba(59, 44, 40, 0.2);
+            z-index: 2; /* Ensure it's above the image */
         }
 
         .intro-copy p {
@@ -907,19 +913,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        @media (max-width: 1024px) {
-            .masonry-grid { column-count: 3; }
-        }
-        @media (max-width: 768px) {
-            .masonry-grid { column-count: 2; column-gap: 15px; }
-            .masonry-item { margin-bottom: 15px; }
-        }
-        @media (max-width: 480px) {
-            /* Kept 2 columns for a better Pinterest-like aesthetic on phones */
-            .masonry-grid { column-count: 2; column-gap: 10px; }
-            .masonry-item { margin-bottom: 10px; }
-        }
-        
         /* Dedicated Fullscreen Gallery Modal (Lightbox) */
         .fs-gallery {
             position: fixed;
@@ -1074,6 +1067,10 @@
             }
         }
 
+        @media(max-width:1024px) {
+            .masonry-grid { column-count: 3; }
+        }
+
         @media(max-width:900px) {
             .nav-cta {
                 display: none !important;
@@ -1100,7 +1097,7 @@
                 padding: 100px 5vw;
             }
             .philosophy {
-                padding: 100px 5vw;
+                padding: 120px 5vw; /* Ensure adequate padding */
             }
             .intro-grid {
                 grid-template-columns: 1fr;
@@ -1108,6 +1105,10 @@
             }
             .intro-image {
                 height: 500px;
+            }
+            .image-label {
+                top: 5%; /* Adjust label position */
+                left: 0;
             }
             .process-grid {
                 grid-template-columns: 1fr 1fr;
@@ -1131,10 +1132,11 @@
             }
         }
 
-        /* Mobile Adjustments for Merged Section 4 Grid */
         @media (max-width: 768px) {
+            .masonry-grid { column-count: 2; column-gap: 15px; }
+            .masonry-item { margin-bottom: 15px; }
             .collections-grid {
-                grid-template-columns: repeat(2, 1fr); /* Force two columns on most phones/tablets */
+                grid-template-columns: repeat(2, 1fr); 
                 gap: 20px;
             }
             .collection-card {
@@ -1156,22 +1158,6 @@
             }
             .fs-content {
                 padding-bottom: 80px; 
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .collections-grid {
-                grid-template-columns: 1fr; /* Fallback to one column on extra small screens */
-                gap: 15px;
-            }
-            .masonry-header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .fs-nav {
-                width: 45px;
-                height: 45px;
-                font-size: 1.3rem;
             }
         }
 
@@ -1207,7 +1193,7 @@
                 visibility: hidden;
                 pointer-events: none;
                 transition: opacity 0.4s var(--ease), visibility 0.4s;
-                z-index: 1550;
+                z-index: 1550; /* Below toggle but above rest */
                 margin: 0;
                 padding: 0;
             }
@@ -1248,6 +1234,9 @@
             .section {
                 padding: 85px 5vw;
             }
+            .philosophy {
+                padding: 100px 5vw; /* Adjust philosophy padding for mobile to prevent cutoff */
+            }
             .section-head {
                 display: block;
                 margin-bottom: 40px;
@@ -1257,15 +1246,24 @@
             }
             .intro-image {
                 height: 450px;
-                margin-right: 15px;
+                margin-right: 0; /* Remove margin to center image better */
+                width: 100%;
             }
             .intro-image img {
-                width: 90%;
+                width: 100%; /* Make image full width of container */
+                margin-left: 0; /* Reset margin left */
+            }
+            .intro-image:before {
+                width: 60%; /* Adjust background shape */
+                left: auto;
+                right: -5%; /* Move it slightly to the right */
             }
             .image-label {
-                top: 8%;
+                top: 5%;
+                left: 5%; /* Prevent it from bleeding off the edge */
                 padding: 16px 20px;
                 font-size: 1rem;
+                max-width: 180px; /* Constrain width on mobile */
             }
             
             .timeline-item {
@@ -1303,6 +1301,29 @@
                 flex-direction: column;
                 line-height: 2;
                 gap: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .masonry-grid { column-count: 2; column-gap: 10px; }
+            .masonry-item { margin-bottom: 10px; }
+            .collections-grid {
+                grid-template-columns: 1fr; 
+                gap: 15px;
+            }
+            .masonry-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .fs-nav {
+                width: 45px;
+                height: 45px;
+                font-size: 1.3rem;
+            }
+            .image-label {
+                left: 2%; /* Slightly tighter to edge on very small screens */
+                max-width: 160px;
+                font-size: 0.95rem;
             }
         }
 
@@ -1652,14 +1673,14 @@
             navLinks.classList.remove("open");  
             document.body.classList.remove("menu-open");  
             menuToggle.setAttribute("aria-expanded", "false");  
-            menuToggle.textContent = "☰";  
+            menuToggle.innerHTML = "☰";  
         } 
         menuToggle.addEventListener("click", () => {  
             const open = !navLinks.classList.contains("open");  
             navLinks.classList.toggle("open", open);  
             document.body.classList.toggle("menu-open", open);  
             menuToggle.setAttribute("aria-expanded", String(open));  
-            menuToggle.textContent = open ? "×" : "☰";  
+            menuToggle.innerHTML = open ? "&times;" : "☰";  
         }); 
         $$(".nav-links a").forEach(link => link.addEventListener("click", closeMenu)); 
 
@@ -2113,4 +2134,4 @@
         });
     </script> 
 </body> 
-</html> 
+</html>
