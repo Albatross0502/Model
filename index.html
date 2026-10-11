@@ -22,7 +22,7 @@
             --accent-deep: #e8ded5;   
             --accent-light: #755043;  
             --line: rgba(242, 235, 229, 0.15); /* Lightened the lines */
-            --glass: rgba(92, 64, 51, 0.85);   /* Darker brown glass effect for better contrast */
+            --glass: rgba(92, 64, 51, 0.75);   /* Brown glass effect */
             
             /* Typography & Animation */
             --serif: 'Playfair Display', Georgia, serif;
@@ -186,8 +186,6 @@
             letter-spacing: 0.25em;
             margin-right: -0.25em;
             color: var(--ink);
-            position: relative;
-            z-index: 1601; /* Ensure brand is above mobile menu */
         }
 
         .brand small {
@@ -277,7 +275,6 @@
             font-size: 2rem;
             cursor: pointer;
             color: var(--ink);
-            z-index: 1601; /* Above the mobile menu */
         }
 
         /* Hero Section */
@@ -445,14 +442,12 @@
             font-size: 0.95rem;
         }
 
-        /* Philosophy Section - Fix applied here */
+        /* Philosophy Section */
         .philosophy {
             background: var(--ink);
             color: var(--paper);
             text-align: center;
             padding: 150px 5.2vw;
-            position: relative; /* Ensure it stays in normal document flow correctly */
-            z-index: 1; /* Keep it below header */
         }
         
         .philosophy h2 {
@@ -506,16 +501,15 @@
 
         .image-label {
             position: absolute;
-            left: 0; /* Keep left alignment */
-            top: 15%; /* Adjust top positioning */
+            left: 0;
+            top: 15%;
             background: var(--paper);
             padding: 22px 25px;
-            max-width: 210px; /* Slightly wider */
+            max-width: 190px;
             font: italic 1.2rem/1.4 var(--serif);
             transform: rotate(-6deg);
             border: 1px solid var(--line);
-            box-shadow: 0 10px 30px rgba(59, 44, 40, 0.2);
-            z-index: 2; /* Ensure it's above the image */
+            box-shadow: 0 10px 30px rgba(59, 44, 40, 0.08);
         }
 
         .intro-copy p {
@@ -913,6 +907,19 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
+        @media (max-width: 1024px) {
+            .masonry-grid { column-count: 3; }
+        }
+        @media (max-width: 768px) {
+            .masonry-grid { column-count: 2; column-gap: 15px; }
+            .masonry-item { margin-bottom: 15px; }
+        }
+        @media (max-width: 480px) {
+            /* Kept 2 columns for a better Pinterest-like aesthetic on phones */
+            .masonry-grid { column-count: 2; column-gap: 10px; }
+            .masonry-item { margin-bottom: 10px; }
+        }
+        
         /* Dedicated Fullscreen Gallery Modal (Lightbox) */
         .fs-gallery {
             position: fixed;
@@ -1067,10 +1074,6 @@
             }
         }
 
-        @media(max-width:1024px) {
-            .masonry-grid { column-count: 3; }
-        }
-
         @media(max-width:900px) {
             .nav-cta {
                 display: none !important;
@@ -1097,7 +1100,7 @@
                 padding: 100px 5vw;
             }
             .philosophy {
-                padding: 120px 5vw; /* Ensure adequate padding */
+                padding: 100px 5vw;
             }
             .intro-grid {
                 grid-template-columns: 1fr;
@@ -1105,10 +1108,6 @@
             }
             .intro-image {
                 height: 500px;
-            }
-            .image-label {
-                top: 5%; /* Adjust label position */
-                left: 0;
             }
             .process-grid {
                 grid-template-columns: 1fr 1fr;
@@ -1132,11 +1131,10 @@
             }
         }
 
+        /* Mobile Adjustments for Merged Section 4 Grid */
         @media (max-width: 768px) {
-            .masonry-grid { column-count: 2; column-gap: 15px; }
-            .masonry-item { margin-bottom: 15px; }
             .collections-grid {
-                grid-template-columns: repeat(2, 1fr); 
+                grid-template-columns: repeat(2, 1fr); /* Force two columns on most phones/tablets */
                 gap: 20px;
             }
             .collection-card {
@@ -1158,6 +1156,22 @@
             }
             .fs-content {
                 padding-bottom: 80px; 
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .collections-grid {
+                grid-template-columns: 1fr; /* Fallback to one column on extra small screens */
+                gap: 15px;
+            }
+            .masonry-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .fs-nav {
+                width: 45px;
+                height: 45px;
+                font-size: 1.3rem;
             }
         }
 
@@ -1193,7 +1207,7 @@
                 visibility: hidden;
                 pointer-events: none;
                 transition: opacity 0.4s var(--ease), visibility 0.4s;
-                z-index: 1550; /* Below toggle but above rest */
+                z-index: 1550;
                 margin: 0;
                 padding: 0;
             }
@@ -1234,9 +1248,6 @@
             .section {
                 padding: 85px 5vw;
             }
-            .philosophy {
-                padding: 100px 5vw; /* Adjust philosophy padding for mobile to prevent cutoff */
-            }
             .section-head {
                 display: block;
                 margin-bottom: 40px;
@@ -1246,24 +1257,15 @@
             }
             .intro-image {
                 height: 450px;
-                margin-right: 0; /* Remove margin to center image better */
-                width: 100%;
+                margin-right: 15px;
             }
             .intro-image img {
-                width: 100%; /* Make image full width of container */
-                margin-left: 0; /* Reset margin left */
-            }
-            .intro-image:before {
-                width: 60%; /* Adjust background shape */
-                left: auto;
-                right: -5%; /* Move it slightly to the right */
+                width: 90%;
             }
             .image-label {
-                top: 5%;
-                left: 5%; /* Prevent it from bleeding off the edge */
+                top: 8%;
                 padding: 16px 20px;
                 font-size: 1rem;
-                max-width: 180px; /* Constrain width on mobile */
             }
             
             .timeline-item {
@@ -1301,29 +1303,6 @@
                 flex-direction: column;
                 line-height: 2;
                 gap: 15px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .masonry-grid { column-count: 2; column-gap: 10px; }
-            .masonry-item { margin-bottom: 10px; }
-            .collections-grid {
-                grid-template-columns: 1fr; 
-                gap: 15px;
-            }
-            .masonry-header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .fs-nav {
-                width: 45px;
-                height: 45px;
-                font-size: 1.3rem;
-            }
-            .image-label {
-                left: 2%; /* Slightly tighter to edge on very small screens */
-                max-width: 160px;
-                font-size: 0.95rem;
             }
         }
 
@@ -1673,14 +1652,14 @@
             navLinks.classList.remove("open");  
             document.body.classList.remove("menu-open");  
             menuToggle.setAttribute("aria-expanded", "false");  
-            menuToggle.innerHTML = "☰";  
+            menuToggle.textContent = "☰";  
         } 
         menuToggle.addEventListener("click", () => {  
             const open = !navLinks.classList.contains("open");  
             navLinks.classList.toggle("open", open);  
             document.body.classList.toggle("menu-open", open);  
             menuToggle.setAttribute("aria-expanded", String(open));  
-            menuToggle.innerHTML = open ? "&times;" : "☰";  
+            menuToggle.textContent = open ? "×" : "☰";  
         }); 
         $$(".nav-links a").forEach(link => link.addEventListener("click", closeMenu)); 
 
@@ -1746,9 +1725,39 @@
         const customGalleries = {
             'bst': [ 
                  'image/bst/bst1.jpeg',
-            'image/bst/bst2.jpeg',
-            'image/bst/bst1.jpeg',
-            'image/bst/bst2.jpeg',
+'image/bst/bst2.jpeg',
+'image/bst/bst3.jpeg',
+'image/bst/bst4.jpeg',
+'image/bst/bst5.jpeg',
+'image/bst/bst6.jpeg',
+'image/bst/bst7.jpeg',
+'image/bst/bst8.jpeg',
+'image/bst/bst9.jpeg',
+'image/bst/bst10.jpeg',
+'image/bst/bst11.jpeg',
+'image/bst/bst12.jpeg',
+'image/bst/bst13.jpeg',
+'image/bst/bst14.jpeg',
+'image/bst/bst15.jpeg',
+'image/bst/bst16.jpeg',
+'image/bst/bst17.jpeg',
+'image/bst/bst18.jpeg',
+'image/bst/bst19.jpeg',
+'image/bst/bst20.jpeg',
+'image/bst/bst21.jpeg',
+'image/bst/bst22.jpeg',
+'image/bst/bst23.jpeg',
+'image/bst/bst24.jpeg',
+'image/bst/bst25.jpeg',
+'image/bst/bst26.jpeg',
+'image/bst/bst27.jpeg',
+'image/bst/bst28.jpeg',
+'image/bst/bst29.jpeg',
+'image/bst/bst30.jpeg',
+'image/bst/bst31.jpeg',
+'image/bst/bst32.jpeg',
+'image/bst/bst33.jpeg',
+'image/bst/bst34.jpeg',
             ],
             'embroidery': [
             'image/embroidery/em1.jpeg', 
@@ -1770,7 +1779,10 @@
               'image/embroidery/em17.jpeg', 
               'image/embroidery/em18.jpeg', 
               'image/embroidery/em19.jpeg', 
+              'image/embroidery/em21.jpeg', 
+              'image/embroidery/em22.jpeg',
               'image/embroidery/em20.jpeg'
+
             ],
             'surface': [ 
                 'image/surface or/os1.jpeg',
@@ -1832,9 +1844,16 @@
                    'image/illustration/il15.jpeg', 
                    'image/illustration/il16.jpeg', 
                    'image/illustration/il17.jpeg', 
-                   'image/illustration/il18.jpeg', 
+                   'image/illustration/il18.jpeg',
                    'image/illustration/il19.jpeg', 
-                'image/illustration/il20.jpeg'
+                   'image/illustration/il20.jpeg', 
+                   'image/illustration/il21.jpeg', 
+                   'image/illustration/il22.jpeg', 
+                   'image/illustration/il23.jpeg', 
+                   'image/illustration/il24.jpeg', 
+                   'image/illustration/il25.jpeg', 
+                   'image/illustration/il26.jpeg', 
+                'image/illustration/il27.jpeg'
             ],
             'textile': [ 
                 'image/Textile/te1.jpeg',
@@ -1845,13 +1864,102 @@
 'image/Textile/te6.jpeg',
 'image/Textile/te7.jpeg',
 'image/Textile/te8.jpeg',
+'image/Textile/te9.jpeg',
+'image/Textile/te10.jpeg',
+'image/Textile/te11.jpeg',
+'image/Textile/te12.jpeg',
+'image/Textile/te13.jpeg',
+'image/Textile/te14.jpeg',
+'image/Textile/te15.jpeg',
+'image/Textile/te16.jpeg',
+'image/Textile/te17.jpeg',
+'image/Textile/te18.jpeg',
+'image/Textile/te19.jpeg',
+'image/Textile/te20.jpeg',
+'image/Textile/te21.jpeg',
+'image/Textile/te22.jpeg',
+'image/Textile/te23.jpeg',
+'image/Textile/te24.jpeg',
+'image/Textile/te25.jpeg',
+'image/Textile/te26.jpeg',
+'image/Textile/te27.jpeg',
+'image/Textile/te28.jpeg',
+'image/Textile/te29.jpeg',
+'image/Textile/te30.jpeg',
+'image/Textile/te31.jpeg',
+'image/Textile/te32.jpeg',
+'image/Textile/te33.jpeg',
+'image/Textile/te34.jpeg',
+'image/Textile/te35.jpeg',
+'image/Textile/te36.jpeg',
+'image/Textile/te37.jpeg',
+'image/Textile/te38.jpeg',
+'image/Textile/te39.jpeg',
+'image/Textile/te40.jpeg',
+'image/Textile/te41.jpeg',
+'image/Textile/te42.jpeg',
+'image/Textile/te43.jpeg',
+'image/Textile/te44.jpeg',
+'image/Textile/te45.jpeg',
+'image/Textile/te46.jpeg',
+'image/Textile/te47.jpeg',
+'image/Textile/te48.jpeg',
+'image/Textile/te49.jpeg',
+'image/Textile/te50.jpeg',
+'image/Textile/te51.jpeg',
+'image/Textile/te52.jpeg',
             ],
             'graphic': [ 
-                'path/to/graphic-image1.jpg',
-                'path/to/graphic-image2.jpg',
-                'path/to/graphic-image3.jpg',
-                'path/to/graphic-image4.jpg',
-                'path/to/graphic-image5.jpg'
+                'image/gd/gd1.jpeg',
+'image/gd/gd2.jpeg',
+'image/gd/gd3.jpeg',
+'image/gd/gd4.jpeg',
+'image/gd/gd5.jpeg',
+'image/gd/gd6.jpeg',
+'image/gd/gd7.jpeg',
+'image/gd/gd8.jpeg',
+'image/gd/gd9.jpeg',
+'image/gd/gd10.jpeg',
+'image/gd/gd11.jpeg',
+'image/gd/gd12.jpeg',
+'image/gd/gd13.jpeg',
+'image/gd/gd14.jpeg',
+'image/gd/gd15.jpeg',
+'image/gd/gd16.jpeg',
+'image/gd/gd17.jpeg',
+'image/gd/gd18.jpeg',
+'image/gd/gd19.jpeg',
+'image/gd/gd20.jpeg',
+'image/gd/gd21.jpeg',
+'image/gd/gd22.jpeg',
+'image/gd/gd23.jpeg',
+'image/gd/gd24.jpeg',
+'image/gd/gd25.jpeg',
+'image/gd/gd26.jpeg',
+'image/gd/gd27.jpeg',
+'image/gd/gd28.jpeg',
+'image/gd/gd29.jpeg',
+'image/gd/gd30.jpeg',
+'image/gd/gd31.jpeg',
+'image/gd/gd32.jpeg',
+'image/gd/gd33.jpeg',
+'image/gd/gd34.jpeg',
+'image/gd/gd35.jpeg',
+'image/gd/gd36.jpeg',
+'image/gd/gd37.jpeg',
+'image/gd/gd38.jpeg',
+'image/gd/gd39.jpeg',
+'image/gd/gd40.jpeg',
+'image/gd/gd41.jpeg',
+'image/gd/gd42.jpeg',
+'image/gd/gd43.jpeg',
+'image/gd/gd44.jpeg',
+'image/gd/gd45.jpeg',
+'image/gd/gd46.jpeg',
+'image/gd/gd47.jpeg',
+'image/gd/gd48.jpeg',
+'image/gd/gd49.jpeg',
+'image/gd/gd50.jpeg',
             ],
             'garment': [ 
                 'image/kapade/kp1.jpeg',
@@ -1861,7 +1969,13 @@
 'image/kapade/kp5.jpeg',
 'image/kapade/kp6.jpeg',
 'image/kapade/kp7.jpeg',
-'image/kapade/kp8.jpeg'
+'image/kapade/kp8.jpeg',
+'image/kapade/kp9.jpeg',
+'image/kapade/kp10.jpeg',
+'image/kapade/kp11.jpeg',
+'image/kapade/kp12.jpeg',
+'image/kapade/kp13.jpeg',
+'image/kapade/kp14.jpeg',
             ]
         };
 
@@ -2134,4 +2248,4 @@
         });
     </script> 
 </body> 
-</html>
+</html> 
