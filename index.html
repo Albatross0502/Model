@@ -649,11 +649,24 @@
         /* Highly readable color overrides specifically for the light contact section */
         #contact .section-kicker { color: #4A332A; }
         #contact h2 { color: #2D1E17; }
+        #contact h2 em { color: #5C4033; }
         #contact .contact-copy p { color: #5C4033; font-size: 1.05rem; line-height: 1.9; max-width: 420px; margin: 25px 0;}
         #contact .contact-detail { margin-top: 40px; display: grid; gap: 22px; }
         #contact .contact-detail div { font-size: 0.9rem; color: #5C4033; }
-        #contact .contact-detail strong { display: block; color: #2D1E17; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.75rem; }
+        #contact .contact-detail strong { display: flex; align-items: center; gap: 8px; color: #2D1E17; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.75rem; }
         
+        .whatsapp-icon {
+            display: inline-flex;
+            align-items: center;
+            color: #5C4033;
+            transition: color 0.3s var(--ease), transform 0.3s var(--ease);
+        }
+        
+        .whatsapp-icon:hover {
+            color: #2D1E17;
+            transform: scale(1.1);
+        }
+
         .contact-form {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -676,12 +689,12 @@
         }
 
         #contact .form-field label { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: #5C4033; font-weight: 600; }
-        #contact .form-field input, #contact .form-field textarea, #contact .form-field select {
+        #contact .form-field input, #contact .form-field textarea {
             width: 100%; border: 0; border-bottom: 1px solid rgba(92, 64, 51, 0.4);
             background: transparent; padding: 12px 0; outline: none;
             color: #2D1E17; border-radius: 0; transition: border-color 0.3s;
         }
-        #contact .form-field input:focus, #contact .form-field textarea:focus, #contact .form-field select:focus {
+        #contact .form-field input:focus, #contact .form-field textarea:focus {
             border-color: #2D1E17;
         }
 
@@ -694,6 +707,9 @@
         
         #contact .button.primary { background: #2D1E17; color: #F2EBE5; border-color: #2D1E17; }
         #contact .button.primary:hover { background: #4A332A; }
+        
+        #contact .whatsapp-btn { border-color: #2D1E17; color: #2D1E17; }
+        #contact .whatsapp-btn:hover { background: #2D1E17; color: #F2EBE5; }
 
         /* Footer */
         footer {
@@ -1380,7 +1396,7 @@
                     <div class="about-stats reveal delay-2">
                         <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--line); padding-bottom: 15px; margin-bottom: 15px; flex-wrap: wrap; gap: 8px;">
                             <strong style="color: var(--accent-deep); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; white-space: nowrap;">Education</strong>
-                            <span style="font-size: 0.95rem; color: var(--ink); text-align: right; font-weight: 500;">B.Sc in Fashion Design</span>
+                            <span style="font-size: 0.95rem; color: var(--ink); text-align: right; font-weight: 500;">B.sc, Masters in Fashion Design, Diploma in Graphic Design</span>
                         </div>
                         <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
                             <strong style="color: var(--accent-deep); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; white-space: nowrap;">Languages</strong>
@@ -1443,7 +1459,7 @@
                 <article class="process-card">
                     <span class="process-no">03 / Software</span>
                     <h3>Digital Tools</h3>
-                    <p>Adobe Illustrator, Adobe Photoshop, Adobe InDesign, CorelDRAW, Microsoft Office.</p>
+                    <p>Adobe Illustrator, Adobe Photoshop, Adobe InDesign, CorelDRAW, Microsoft Office, Canva.</p>
                 </article>
             </div>
         </section>
@@ -1480,14 +1496,6 @@
             
             <!-- Category Cards Grid -->
             <div class="collections-grid reveal delay-1" id="collectionsGrid">
-                <article class="collection-card" data-gallery="kumbaay">
-                    <h3>KUMBAAY</h3>
-                    <p>Fashion & Jewellery Brand Concept</p>
-                </article>
-                <article class="collection-card" data-gallery="pageant">
-                    <h3>Pageant Shows</h3>
-                    <p>Miss Rajasthan, Miss Ocean & More</p>
-                </article>
                 <article class="collection-card" data-gallery="bst">
                     <h3>BST</h3>
                     <p>Exploration & Projects</p>
@@ -1511,10 +1519,6 @@
                 <article class="collection-card" data-gallery="surface3d">
                     <h3>3D Surface Ornamentation</h3>
                     <p>Dimensional Details</p>
-                </article>
-                <article class="collection-card" data-gallery="editorial">
-                    <h3>Editorial & Styling</h3>
-                    <p>Visual Narratives</p>
                 </article>
                 <article class="collection-card" data-gallery="graphic">
                     <h3>Graphic Design</h3>
@@ -1565,7 +1569,17 @@
                     <h2>Say <em>Hello.</em></h2>
                     <p>I am currently seeking internship opportunities, creative collaborations, or styling assistant roles to grow my skills and bring fresh perspectives to the industry.</p>
                     <div class="contact-detail">
-                        <div><strong>Phone</strong>+91 8696651975</div>
+                        <div>
+                            <strong>
+                                Phone
+                                <a href="https://wa.me/918696651975" target="_blank" aria-label="Message me on WhatsApp" class="whatsapp-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                                    </svg>
+                                </a>
+                            </strong>
+                            +91 8696651975
+                        </div>
                         <div><strong>Email me</strong>dixitakmwt.25@gmail.com</div>
                         <div><strong>Based in</strong>Ganesh Nagar, Indra Colony<br>Chomu, Jaipur</div>
                     </div>
@@ -1580,20 +1594,19 @@
                         <input id="email" name="email" type="email" required placeholder="you@example.com">
                     </div>
                     <div class="form-field full">
-                        <label for="project">I'm reaching out regarding</label>
-                        <select id="project" name="project">
-                            <option>Internship Opportunity</option>
-                            <option>Creative Collaboration</option>
-                            <option>Freelance Assistance</option>
-                            <option>General Enquiry</option>
-                        </select>
-                    </div>
-                    <div class="form-field full">
                         <label for="message">Tell me more *</label>
                         <textarea id="message" name="message" required placeholder="Details about the role, collaboration idea, or just saying hi..."></textarea>
                     </div>
                     <p class="form-note">This demo opens your email app with the enquiry details. Ensure your mail app is configured to send.</p>
-                    <button class="button primary" type="submit" style="justify-self: start; margin-top: 10px;">Send Message ↗</button>
+                    <div style="grid-column: 1/-1; display: flex; align-items: center; gap: 15px; margin-top: 10px; flex-wrap: wrap;">
+                        <button class="button primary" type="submit">Send Message ↗</button>
+                        <a href="https://wa.me/918696651975" target="_blank" aria-label="Message me on WhatsApp" class="button whatsapp-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+                            </svg>
+                            WhatsApp
+                        </a>
+                    </div>
                 </form>
             </div>
         </section>
@@ -1697,11 +1710,10 @@
             const form = new FormData(e.currentTarget); 
             const name = form.get("name"),  
                   email = form.get("email"),  
-                  project = form.get("project"),  
                   message = form.get("message"); 
             const recipient = "dixitakmwt.25@gmail.com"; 
-            const subject = encodeURIComponent("Portfolio Enquiry — " + project); 
-            const body = encodeURIComponent("Name/Company: " + name + "\nEmail: " + email + "\nEnquiry: " + project + "\n\nMessage:\n" + message); 
+            const subject = encodeURIComponent("Portfolio Enquiry"); 
+            const body = encodeURIComponent("Name/Company: " + name + "\nEmail: " + email + "\n\nMessage:\n" + message); 
             showToast("Opening your email app to send the enquiry…"); 
             window.location.href = "mailto:" + recipient + "?subject=" + subject + "&body=" + body; 
         });
@@ -1711,13 +1723,6 @@
         // =========================================================
 
         const customGalleries = {
-            'kumbaay': [ 
-                'path/to/kumbaay-image1.jpg',
-                'path/to/kumbaay-image2.jpg',
-                'path/to/kumbaay-image3.jpg',
-                'path/to/kumbaay-image4.jpg',
-                'path/to/kumbaay-image5.jpg'
-            ],
             'pageant': [ 
                 'path/to/pageant-image1.jpg',
                 'path/to/pageant-image2.jpg',
@@ -1773,11 +1778,27 @@
                 'image/surface or/os17.jpeg'
             ],
             'surface3d': [ 
-                'path/to/3dsurface-image1.jpg',
-                'path/to/3dsurface-image2.jpg',
-                'path/to/3dsurface-image3.jpg',
-                'path/to/3dsurface-image4.jpg',
-                'path/to/3dsurface-image5.jpg'
+                'image/3d/3d1.jpeg',
+'image/3d/3d2.jpeg',
+'image/3d/3d3.jpeg',
+'image/3d/3d4.jpeg',
+'image/3d/3d5.jpeg',
+'image/3d/3d6.jpeg',
+'image/3d/3d7.jpeg',
+'image/3d/3d8.jpeg',
+'image/3d/3d9.jpeg',
+'image/3d/3d10.jpeg',
+'image/3d/3d11.jpeg',
+'image/3d/3d15.jpeg',
+'image/3d/3d16.jpeg',
+'image/3d/3d17.jpeg',
+'image/3d/3d18.jpeg',
+'image/3d/3d19.jpeg',
+'image/3d/3d20.jpeg',
+'image/3d/3d21.jpeg',
+'image/3d/3d22.jpeg',
+'image/3d/3d23.jpeg',
+'image/3d/3d24.jpeg',
             ],
             'illustration': [ 
                 'image/illustration/il1.jpeg', 
@@ -1802,11 +1823,14 @@
                 'image/illustration/il20.jpeg'
             ],
             'textile': [ 
-                'path/to/textile-image1.jpg',
-                'path/to/textile-image2.jpg',
-                'path/to/textile-image3.jpg',
-                'path/to/textile-image4.jpg',
-                'path/to/textile-image5.jpg'
+                'image/Textile/te1.jpeg',
+'image/Textile/te2.jpeg',
+'image/Textile/te3.jpeg',
+'image/Textile/te4.jpeg',
+'image/Textile/te5.jpeg',
+'image/Textile/te6.jpeg',
+'image/Textile/te7.jpeg',
+'image/Textile/te8.jpeg',
             ],
             'editorial': [ 
                 'path/to/editorial-image1.jpg',
